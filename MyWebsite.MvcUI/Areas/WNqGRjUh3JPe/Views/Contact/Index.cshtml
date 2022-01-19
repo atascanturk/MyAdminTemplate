@@ -1,0 +1,74 @@
+﻿@using MyWebsite.Entities.Concrete
+@model List<Contact>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "İletişim";
+    ViewBag.Dashboard = "Dashboard / İletişim";
+}
+
+<div id="modalPlaceHolder" aria-hidden="true"></div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+       İletişim Alanından Gelenler
+    </div>    
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="contactDataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Konu</th>
+                        <th>Mail</th>
+                        <th>Tarih</th>
+                        <th>Görüntülenme Durumu</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Konu</th>
+                        <th>Mail</th>
+                        <th>Tarih</th>
+                        <th>Görüntülenme Durumu</th>
+                        <th>İşlemler</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var contact in Model)
+                    {
+                    <tr  name="@contact.Id">
+                        <td>@contact.Id</td>
+                        <td>@contact.Subject</td>
+                        <td>@contact.Mail</td>
+                        <td>@contact.CreatedDate.ToString("dd-MM-yyyy HH:mm")</td>
+                        <td><span style="@(contact.IsRead == true ? "color:green;" : "color:red;")" class="@(contact.IsRead == true ? "fas fa-check-double" : "fas fa-times" )"></span>@(contact.IsRead == true ? " Görüldü" : " Okunmadı.")</td>
+
+                        <td>
+                            <button class="btn btn-info btn-sm btn-detail" data-id="@contact.Id"><span class="far fa-envelope-open"></span></button>
+                            <button class="btn btn-danger btn-sm btn-delete" data-id="@contact.Id"><span class="fas fa-minus-circle"></span></button>
+                        </td>
+                    </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    function convertToShortDate(dateString) {
+        const shortDate = ` ${new Date(dateString).toLocaleDateString('tr-TR')} ${new Date(dateString).getHours()}:${new Date(dateString).getMinutes()}:${new Date(dateString).getSeconds()}`;
+        return shortDate;
+    }
+</script>
+
+    <script src="~/js/contactIndex.js" type="application/ecmascript"></script>
+}

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyWebsite.Business\MyWebsite.Business.csproj" />
+    <ProjectReference Include="..\MyWebsite.Core\MyWebsite.Core.csproj" />
+    <ProjectReference Include="..\MyWebsite.DataAccess\MyWebsite.DataAccess.csproj" />
+    <ProjectReference Include="..\MyWebsite.Entities\MyWebsite.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

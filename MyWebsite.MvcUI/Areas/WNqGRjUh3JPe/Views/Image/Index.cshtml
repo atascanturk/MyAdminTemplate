@@ -1,0 +1,58 @@
+﻿@using MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Models
+@model List<ImageIndexViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "Resimler";
+    ViewBag.Dashboard = "Dashboard / Resimler";
+}
+
+<div id="modalPlaceHolder" aria-hidden="true"></div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Resimler Sayfasında Görüntülenen Resimler
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="imageDataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Küçük Resim</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Küçük Resim</th>
+                        <th>İşlemler</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var image in Model)
+                    {
+                        <tr name="@image.Id">
+                            <td>@image.Id</td>
+                            <td><img src="~/img/@image.Path" alt="Resim bulunamadı." class="my-image-table" /></td>
+
+                            <td>                               
+                                <button class="btn btn-danger btn-sm btn-delete" data-id="@image.Id"><span class="fas fa-minus-circle"></span></button>
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/imageIndex.js" type="application/ecmascript"></script>
+}
+

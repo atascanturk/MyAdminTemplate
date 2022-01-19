@@ -1,0 +1,50 @@
+﻿@model MyWebsite.MvcUI.Areas.Admin.Models.AnnouncementAddViewModel
+
+@{
+    ViewData["Title"] = "AddAnnouncement";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "Yeni bir duyuru ekle";
+    ViewBag.Dashboard = "Dashboard / Duyurular / Duyuru Ekle";
+}
+
+
+<form asp-controller="Announcement" asp-action="AddAnnouncement" method="post" enctype="multipart/form-data">
+
+    <div class="row mt-2">
+        <div class="col-md-8">
+
+            <div class="card">
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <input type="text" id="articleTitle" class="form-control" placeholder="Duyuru Başlığı" asp-for="Title" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="text-editor" asp-for="Content"></textarea>
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="form-check">
+                <button type="submit" class="btn btn-primary btn-block mt-4">Kaydet</button>
+            </div>
+
+        </div>        
+
+    </div>
+
+
+</form>
+
+
+@section Scripts{
+    <script src="~/js/newsAdd.js" type="application/ecmascript"></script>
+}
+
+

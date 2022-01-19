@@ -1,0 +1,87 @@
+﻿@using MyWebsite.Entities.Concrete
+@model List<News>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "Haber Listesi";
+    ViewBag.Dashboard = "Dashboard / Haberler";
+}
+
+<div class="row">  
+    <div class="col-md-2"><a asp-area="WNqGRjUh3JPe" asp-controller="News" asp-action="AddNews" type="button" id="btnAddNews" class=" btn btn-success">Yeni Haber Ekle</a></div>
+
+</div>
+
+<br />
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Son Paylaşılan Haberler
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="newsTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Başlık</th>
+                        <th>Kategori</th>
+                        <th>Haber Resim</th>
+                        <th>Aktif Mi?</th>
+                        <th>İşlemler</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Başlık</th>
+                        <th>Kategori</th>
+                        <th>Haber Resim</th>
+                        <th>Aktif Mi?</th>
+                        <th>İşlemler</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var news in Model)
+                    {
+                    <tr name="@news.Id">
+                        <td>@news.Id</td>
+                        <td>@news.Title</td>
+                        <td>@news.Category.Name</td>
+                        <td><img src="~/img/@news.Thumbnail" alt="Resim Bulunamadı." class="my-image" /></td>
+                        <td>@(news.IsActive == true? "Aktif" : "Pasif") <a class="btn btn-primary btn-sm btn-changestatus" style="float:right; color:white;" data-id="@news.Id" ><span class="fas fa-remove"></span>  @(news.IsActive == true? "Pasif Yap":"Aktif Yap")</a></td>
+                        <td>
+                            <a class="btn btn-primary btn-sm btn-update" data-id="@news.Id" asp-area="WNqGRjUh3JPe" asp-controller="News" asp-action="UpdateNews" asp-route-id="@news.Id"><span class="fas fa-edit"></span></a>                            
+                            <button class="btn btn-danger btn-sm btn-delete" data-id="@news.Id"><span class="fas fa-minus-circle"></span></button>
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+
+    <script>
+
+        function convertToShortDate(dateString) {
+            const shortDate = ` ${new Date(dateString).toLocaleDateString('tr-TR')} ${new Date(dateString).getHours()}:${new Date(dateString).getMinutes()}:${new Date(dateString).getSeconds()}`;
+            return shortDate;
+        }
+           
+    </script>
+
+    <script src="~/js/newsIndex.js" type="application/ecmascript"></script>
+}
+
+
+@section Styles {
+    <link href="~/css/imageStyles.css" rel="stylesheet" />
+} 

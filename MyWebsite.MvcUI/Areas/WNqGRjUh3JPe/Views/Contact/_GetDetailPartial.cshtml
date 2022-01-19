@@ -1,0 +1,32 @@
+﻿@model MyWebsite.Entities.Dtos.ContactDto
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span class="fas fa-newspaper"></span> @Model.Contact.Mail Email Adresine Sahip Ziyaretçi'nin İletişim Detayı Görüntüleniyor...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="İptal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="hiddenId" value="@Model.Contact.Id" />
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label>Konu</label>
+                        <input class="form-control" asp-for="Contact.Subject" disabled="disabled" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label>Mesaj</label>
+                        <textarea class="form-control" asp-for="Contact.Message" rows="8" disabled="disabled"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-block btn-close" data-dismiss="modal"><span class="fas fa-times"></span> Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>

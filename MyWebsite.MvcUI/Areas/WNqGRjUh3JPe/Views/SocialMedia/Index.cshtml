@@ -1,0 +1,56 @@
+﻿@model MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Models.SocialMediaUpdateViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "Sosyal Medya Hesapları";
+    ViewBag.Dashboard = "Dashboard / Sosyal Medya";
+}
+
+<form style="margin-top:15px;">
+    <div class="row">
+        <div class="col-md-8">
+            <div style="display:inline">Örnek Formatlar :</div>
+            <div class="text-danger" style="display:inline;">https://www.example.com/users/ , https://www.example.com/users </div>
+          
+            <input id="socialMediaHdnId" type="hidden" asp-for="Id" />
+            <div class="input-group mb-3" style="margin-top:15px">
+                <span class="input-group-text" style="width:190px;"><i class="fab fa-instagram-square" style="margin-right:5px;"></i>Instagram Hesap Url : </span>
+                <input type="text" id="txtInstagram" asp-for="InstagramLink" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <br />
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="width:190px;"><i class="fab fa-facebook" style="margin-right:5px;"></i>Facebook Hesap Url :</span>
+                <input type="text" id="txtFacebook" asp-for="FacebookLink" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <br />
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="width:190px;"><i class="fab fa-twitter" style="margin-right:5px;"></i> Twitter Hesap Url :</span>
+                <input type="text" id="txtTwitter" asp-for="TwitterLink" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <br />
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="width:190px;"><i class="fab fa-youtube" style="margin-right:5px;"></i>Youtube Hesap Url : </span>
+                <input type="text" id="txtYoutube" asp-for="YoutubeLink" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <br />
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="width:190px;"><i class="fab fa-linkedin" style="margin-right:5px;"></i>LinkedIn Hesap Url :</span>
+                <input type="text" id="txtLinkedIn" asp-for="LinkedInLink" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <br />
+
+
+            
+            <button type="submit" class="btn btn-success btn-add" style="float:right;">Kaydet</button>
+        </div>
+    </div>
+</form>
+@section Scripts {
+
+    <script src="~/js/socialMediaIndex.js" type="application/ecmascript"></script>
+}

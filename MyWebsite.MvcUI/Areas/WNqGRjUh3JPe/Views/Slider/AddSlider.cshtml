@@ -1,0 +1,49 @@
+﻿@model MyWebsite.MvcUI.Areas.Admin.Models.SliderAddViewModel
+@{
+    ViewData["Title"] = "AddSlider";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "";
+    ViewBag.Dashboard = "Dashboard / Slider / Slider Ekle";
+}
+
+
+<form asp-controller="Slider" asp-action="AddSlider" method="post" enctype="multipart/form-data">
+
+    <div class="row mt-2">     
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Dosya Ekleme
+
+                </div>
+
+                <div class="card-body">
+              
+
+                    <div class="form-group">
+                        <label for="thumbnailUpload" asp-for="SliderPic">Lütfen slider'da görüntülenmesini istediğiniz resmi seçiniz.</label>
+                        <input type="file" id="thumbnailUpload" accept="image/*" class="form-control-file" asp-for="SliderPic" />
+                        <span asp-validation-for="SliderPic" class="text-danger"></span>
+                    </div>
+
+                  
+
+                    <div class="form-check">
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Kaydet</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</form>
+
+<br />
+
+<a asp-area="WNqGRjUh3JPe" asp-controller="Slider" asp-action="Index" class="btn btn-success">Bir Üst Menüye Dönmek İçin Tıklayın</a>
