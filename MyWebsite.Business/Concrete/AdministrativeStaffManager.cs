@@ -39,6 +39,11 @@ namespace MyWebsite.Business.Concrete
             return _administrativeStaffDal.GetAll(filter);
         }
 
+        public List<AdministrativeStaff> GetAllByNonDeleted(Expression<Func<AdministrativeStaff, bool>> filter = null)
+        {
+            return _administrativeStaffDal.GetAll(x => !x.IsDeleted);
+        }
+
         public void Update(AdministrativeStaff administrativeStaff)
         {
             _administrativeStaffDal.Update(administrativeStaff);

@@ -1,12 +1,12 @@
-﻿using MyWebsite.Core.Utilities.Results.ComplexTypes;
-using MyWebsite.Shared.Utilities.Results.Abstract;
+﻿using MyWebsite.Core.Utilities.Results.Abstract;
+using MyWebsite.Core.Utilities.Results.ComplexTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebsite.Shared.Utilities.Results.Concrete
+namespace MyWebsite.Core.Utilities.Results.Concrete
 {
     public class DataResult<T> : IDataResult<T>
     {

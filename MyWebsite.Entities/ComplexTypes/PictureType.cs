@@ -11,6 +11,7 @@ namespace MyWebsite.Entities.ComplexTypes
        User=0,
        Post=1,
        Slider=1,
-       Photograph=2
+       Photograph=2,
+       Staff=3
     }
 }
