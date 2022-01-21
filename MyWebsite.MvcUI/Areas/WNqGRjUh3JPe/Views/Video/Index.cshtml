@@ -1,0 +1,64 @@
+﻿@using MyWebsite.Entities.Concrete
+@model List<Video>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "Videolar";
+    ViewBag.Dashboard = "Dashboard / Videolar";
+}
+
+<div class="row">
+    <div class="col-md-2"><button id="btnAddVideo" class="btn btn-success">Yeni Video Ekle</button></div>
+
+</div>
+
+<br />
+<div id="modalPlaceHolder" aria-hidden="true"></div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Videolar
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="videoTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Url</th>
+                        <th>İşlemler</th>
+
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Url</th>
+                        <th>İşlemler</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var video in Model)
+                    {
+                        <tr name="@video.Id">
+                            <td>@video.Id</td>
+                            <td>@video.Root</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm btn-delete" data-id="@video.Id"><span class="fas fa-minus-circle"></span></button>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/videoIndex.js" type="application/ecmascript"></script>
+}  

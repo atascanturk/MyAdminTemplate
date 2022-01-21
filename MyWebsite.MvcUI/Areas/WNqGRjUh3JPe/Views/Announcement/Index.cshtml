@@ -41,7 +41,7 @@
                             <td>@announcement.Title</td>                            
                             <td>
                                 <a class="btn btn-primary btn-sm btn-update" data-id="@announcement.Id" asp-area="WNqGRjUh3JPe" asp-controller="Announcement" asp-action="UpdateAnnouncement" asp-route-id="@announcement.Id" asp-route-title="@announcement.Id"><span class="fas fa-edit"></span></a>
-                                <a class="btn btn-danger btn-sm btn-delete" data-id="@announcement.Id" asp-area="WNqGRjUh3JPe" asp-controller="Announcement" asp-action="DeleteAnnouncement" asp-route-announcementId="@announcement.Id"><span class="fas fa-minus-circle"></span></a>
+                                <button class="btn btn-danger btn-sm btn-delete" data-id="@announcement.Id" ><span class="fas fa-minus-circle"></span></button>
 
                             </td>
                         </tr>

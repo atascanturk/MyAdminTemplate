@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyWebsite.Shared.Utilities.Results.Abstract
+namespace MyWebsite.Core.Utilities.Results.Abstract
 {
     public interface IResult
     {

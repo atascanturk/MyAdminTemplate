@@ -1,0 +1,68 @@
+﻿@model MyWebsite.Entities.Dtos.AdministrativeStaffAddDto
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "Yeni bir yönetici ekle";
+    ViewBag.Dashboard = "Dashboard / Yönetim / Ekle";
+}
+
+<form asp-controller="AdministrativeStaff" asp-action="Add" method="post" enctype="multipart/form-data">
+
+    <div class="row mt-2">
+        <div class="col-md-8">
+
+            <div class="card">
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="articleTitle" asp-for="Title"></label>
+                        <input type="text" id="articleTitle" class="form-control" placeholder="Ünvan" asp-for="Title" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txntFirstName" asp-for="FirstName"></label>
+                        <input id="txntFirstName" class="form-control" placeholder="İsim" asp-for="FirstName" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txntLastName" asp-for="LastName"></label>
+                        <input id="txntLastName" class="form-control" placeholder="Soyisim" asp-for="LastName" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">                  
+
+                </div>
+
+                <div class="card-body">                   
+
+                    <div class="form-group">
+                        <label for="thumbnailUpload" asp-for="PictureFile">Resim</label>
+                        <input type="file" id="thumbnailUpload" accept="image/*" class="form-control-file" asp-for="PictureFile" />
+                        <span asp-validation-for="PictureFile" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-check">
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Kaydet</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+

@@ -36,6 +36,9 @@ namespace MyWebsite.DataAccess.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -56,6 +59,7 @@ namespace MyWebsite.DataAccess.Migrations
                             Id = 1,
                             FirstName = "Admin",
                             ImagePath = "userImages/defaultThumbnail.jpg",
+                            IsDeleted = false,
                             LastName = "Admin",
                             Title = "Title"
                         });
@@ -177,6 +181,9 @@ namespace MyWebsite.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("IsUnderMaintenance")
                         .HasColumnType("bit");
 
@@ -286,7 +293,7 @@ namespace MyWebsite.DataAccess.Migrations
                             Id = 1,
                             CategoryId = 1,
                             Content = "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.",
-                            CreatedDate = new DateTime(2022, 1, 18, 18, 19, 46, 621, DateTimeKind.Local).AddTicks(4630),
+                            CreatedDate = new DateTime(2022, 1, 21, 1, 0, 56, 885, DateTimeKind.Local).AddTicks(7540),
                             IsActive = true,
                             IsDeleted = false,
                             Thumbnail = "postImages/defaultThumbnail.jpg",
@@ -327,154 +334,154 @@ namespace MyWebsite.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "04d0fb2d-0732-4334-af44-f0535b23ba75",
+                            ConcurrencyStamp = "0e34a5ab-20d1-4521-922f-2b0b63168077",
                             Name = "Category.Create",
                             NormalizedName = "CATEGORY.CREATE"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "fdd00b72-4a18-46c3-97b5-bc44edad289d",
+                            ConcurrencyStamp = "02bd2b59-b0ff-44a1-8829-8738ce15060c",
                             Name = "Category.Read",
                             NormalizedName = "CATEGORY.READ"
                         },
                         new
                         {
                             Id = 3,
-                            ConcurrencyStamp = "ae0055a6-e1f5-48bb-ac62-fd26ea2fab56",
+                            ConcurrencyStamp = "76e57237-0cb2-4831-9d61-6fe911d353aa",
                             Name = "Category.Update",
                             NormalizedName = "CATEGORY.UPDATE"
                         },
                         new
                         {
                             Id = 4,
-                            ConcurrencyStamp = "0213f98f-c863-425c-b557-730c0dc75945",
+                            ConcurrencyStamp = "66714192-627a-4a78-91ac-4b149aab7366",
                             Name = "Category.Delete",
                             NormalizedName = "CATEGORY.DELETE"
                         },
                         new
                         {
                             Id = 5,
-                            ConcurrencyStamp = "36b699ed-20ac-494d-b143-c54f04bee92a",
+                            ConcurrencyStamp = "1591efda-9a93-43d5-8e4a-75ea4aff942f",
                             Name = "News.Create",
                             NormalizedName = "NEWS.CREATE"
                         },
                         new
                         {
                             Id = 6,
-                            ConcurrencyStamp = "f3824211-b225-4575-8e91-e4a71d5603ec",
+                            ConcurrencyStamp = "c8fd9c83-ab78-48c2-8e39-1b825bdae3c4",
                             Name = "News.Read",
                             NormalizedName = "NEWS.READ"
                         },
                         new
                         {
                             Id = 7,
-                            ConcurrencyStamp = "b1c0e910-ea37-408d-976d-3b4efe75862e",
+                            ConcurrencyStamp = "319d5b5d-a08c-442d-9096-07207472763b",
                             Name = "News.Update",
                             NormalizedName = "NEWS.UPDATE"
                         },
                         new
                         {
                             Id = 8,
-                            ConcurrencyStamp = "8751386d-c9ff-400e-9d07-b7505ab964fb",
+                            ConcurrencyStamp = "9b5fd1c9-3545-4d74-9e60-c3403f8a3691",
                             Name = "News.Delete",
                             NormalizedName = "NEWS.DELETE"
                         },
                         new
                         {
                             Id = 9,
-                            ConcurrencyStamp = "c029f057-5b4a-4492-9774-40b0cf559bfb",
+                            ConcurrencyStamp = "05fb3577-b239-4b9f-89e3-1cd36763f1b1",
                             Name = "User.Create",
                             NormalizedName = "USER.CREATE"
                         },
                         new
                         {
                             Id = 10,
-                            ConcurrencyStamp = "f50800cf-44f5-42b4-8968-e60a16826d40",
+                            ConcurrencyStamp = "6cb2484d-38ad-4007-9ee3-ad9b533fca8b",
                             Name = "User.Read",
                             NormalizedName = "USER.READ"
                         },
                         new
                         {
                             Id = 11,
-                            ConcurrencyStamp = "8749556a-9744-45ed-90d1-70c9292bfb19",
+                            ConcurrencyStamp = "e4773461-d872-4ae0-b361-f14bc840ba16",
                             Name = "User.Update",
                             NormalizedName = "USER.UPDATE"
                         },
                         new
                         {
                             Id = 12,
-                            ConcurrencyStamp = "4d470459-867a-4c4c-be21-f441d0614a40",
+                            ConcurrencyStamp = "e50c9bac-193f-4253-8b37-9a9fc6ef191a",
                             Name = "User.Delete",
                             NormalizedName = "USER.DELETE"
                         },
                         new
                         {
                             Id = 13,
-                            ConcurrencyStamp = "5a79e9eb-beee-4069-a648-60417424d005",
+                            ConcurrencyStamp = "90f4d1f8-716b-46b8-8d46-144df44a343b",
                             Name = "Role.Create",
                             NormalizedName = "ROLE.CREATE"
                         },
                         new
                         {
                             Id = 14,
-                            ConcurrencyStamp = "cbc1acb0-f615-4b36-bd9f-e6297926984f",
+                            ConcurrencyStamp = "7ef90d51-a4e2-4e81-95e6-92f7a26a317f",
                             Name = "Role.Read",
                             NormalizedName = "ROLE.READ"
                         },
                         new
                         {
                             Id = 15,
-                            ConcurrencyStamp = "b2426dd1-627d-4bf7-a62e-d0fa4ca57307",
+                            ConcurrencyStamp = "0467f2c6-e9c9-44c8-930b-f2b5bf958959",
                             Name = "Role.Update",
                             NormalizedName = "ROLE.UPDATE"
                         },
                         new
                         {
                             Id = 16,
-                            ConcurrencyStamp = "c77d2a51-2308-4ee3-abdc-3ad4cb1c490a",
+                            ConcurrencyStamp = "5744cc40-1cc7-4c6c-b837-f6f4bdfd7dde",
                             Name = "Role.Delete",
                             NormalizedName = "ROLE.DELETE"
                         },
                         new
                         {
                             Id = 17,
-                            ConcurrencyStamp = "d2d7171b-64fe-439c-b829-4c53a34c503b",
+                            ConcurrencyStamp = "731adf4e-36e9-40ee-b5cc-2d92650bfcd6",
                             Name = "Announcement.Create",
                             NormalizedName = "ANNOUNCEMENT.CREATE"
                         },
                         new
                         {
                             Id = 18,
-                            ConcurrencyStamp = "49a02eda-d5ad-499f-b808-2c4c0d84f564",
+                            ConcurrencyStamp = "ef762575-2693-40c1-94ee-fc8ed7d253e3",
                             Name = "Announcement.Read",
                             NormalizedName = "ANNOUNCEMENT.READ"
                         },
                         new
                         {
                             Id = 19,
-                            ConcurrencyStamp = "670c1a37-d897-467c-845c-ef56b52b012a",
+                            ConcurrencyStamp = "a2024788-facd-46b1-8d4f-99ea8dfcafe8",
                             Name = "Announcement.Update",
                             NormalizedName = "ANNOUNCEMENT.UPDATE"
                         },
                         new
                         {
                             Id = 20,
-                            ConcurrencyStamp = "22399189-d535-46c9-8505-72676c9865ba",
+                            ConcurrencyStamp = "2f724892-e4d5-4200-bd09-90f9bb547a22",
                             Name = "Announcement.Delete",
                             NormalizedName = "ANNOUNCEMENT.DELETE"
                         },
                         new
                         {
                             Id = 21,
-                            ConcurrencyStamp = "4c0dd5cd-ebcb-4a42-8362-447d891ed7fa",
+                            ConcurrencyStamp = "155be80e-4e8b-450f-b8be-d1ec03711765",
                             Name = "AdminArea.Home.Read",
                             NormalizedName = "ADMINAREA.HOME.READ"
                         },
                         new
                         {
                             Id = 22,
-                            ConcurrencyStamp = "01ff1843-f97d-4194-83cd-ec9081c5fa9b",
+                            ConcurrencyStamp = "7d53e1f4-2540-400d-9712-0978454db5af",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         });
@@ -649,7 +656,7 @@ namespace MyWebsite.DataAccess.Migrations
                             Id = 1,
                             About = "Admin User of ProgrammersBlog",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0e9b6662-cae3-48ab-8f97-1c3ec7b7aa6d",
+                            ConcurrencyStamp = "c4999a64-9b43-4298-92ab-9f7654045c53",
                             Email = "adminuser@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -657,11 +664,11 @@ namespace MyWebsite.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMINUSER@GMAIL.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEE7dNEVSeHQ+aVo58iS8Dbuxq+ze3IzgTYHeeh/WfmN5wjebbonZtCInPCIHfgzqfQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE0EIu1pbFnH/2f0orPbrTdemeHU/EsFJyTTCeOMC/oGvuPiW7EcgvZjKeO8IZQkuQ==",
                             PhoneNumber = "+905555555555",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "7f5175eb-3c1e-44e8-8f4b-5d1baa7c5305",
+                            SecurityStamp = "6dfa2d81-81c2-4763-8cbf-448d5e10c983",
                             TwoFactorEnabled = false,
                             UserName = "adminuser"
                         },
@@ -670,7 +677,7 @@ namespace MyWebsite.DataAccess.Migrations
                             Id = 2,
                             About = "Editor User of ProgrammersBlog",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ca8f5f83-b254-4516-a3a6-9f34d6230641",
+                            ConcurrencyStamp = "506e679a-2b57-4aa4-a4e5-87777055f694",
                             Email = "editoruser@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -678,11 +685,11 @@ namespace MyWebsite.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "EDITORUSER@GMAIL.COM",
                             NormalizedUserName = "EDITORUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEF8IDGuV6szobH3tYAr92FS8V5ihDsjvvvzLvsyJWPCQEzxKa7TuUbiKoeYBX2Lbeg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBqo8VRgJtim+B09Wr99GoP6/nRGqf/ANM6fdDyZAfaEoxJl92htzgQcSd8fdGnTSA==",
                             PhoneNumber = "+905555555555",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "4099f77d-08fb-4ca3-9bdc-eb6b73f36bb5",
+                            SecurityStamp = "d9471354-53f2-4cc2-ad00-5c4d9e6af1c8",
                             TwoFactorEnabled = false,
                             UserName = "editoruser"
                         });
@@ -953,6 +960,9 @@ namespace MyWebsite.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Root")
                         .IsRequired()

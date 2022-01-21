@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using MyWebsite.Business.Abstract;
+using MyWebsite.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,11 +15,15 @@ namespace MyWebsite.MvcUI.Services
     public class ViewsChangesCheckBackgroundService : BackgroundService
     {
 
-        IMaintenanceCheckService _maintenanceCheckService;
-
-        public ViewsChangesCheckBackgroundService(IMaintenanceCheckService maintenanceCheckService)
+        private readonly IMaintenanceCheckService _maintenanceCheckService;
+        private readonly IMailService _mailService;
+        private readonly EmailSendDto _emailSendDto;
+     
+        public ViewsChangesCheckBackgroundService(IMaintenanceCheckService maintenanceCheckService, IMailService mailService, IOptions<EmailSendDto> emailSendDto)
         {
             _maintenanceCheckService = maintenanceCheckService;
+            _mailService = mailService;
+            _emailSendDto = emailSendDto.Value;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -55,22 +61,18 @@ namespace MyWebsite.MvcUI.Services
                 return;
             }
 
-            ChangeToMaintenance();
-
-            Debug.WriteLine($"Changed: {e.FullPath}");
+            ChangeToMaintenance();            
         }
 
         private void OnCreated(object sender, FileSystemEventArgs e)
         {
             string value = $"Created: {e.FullPath}";
-            ChangeToMaintenance();
-            Debug.WriteLine(value);
+            ChangeToMaintenance();            
         }
 
         private void OnDeleted(object sender, FileSystemEventArgs e)
         {
-            ChangeToMaintenance();
-            Debug.WriteLine($"Deleted: {e.FullPath}");
+            ChangeToMaintenance();            
         }
 
 
@@ -92,10 +94,7 @@ namespace MyWebsite.MvcUI.Services
         private void PrintException(Exception? ex)
         {
             if (ex != null)
-            {
-                Debug.WriteLine($"Message: {ex.Message}");
-                Debug.WriteLine("Stacktrace:");
-                Debug.WriteLine(ex.StackTrace);
+            {               
                 PrintException(ex.InnerException);
                 ChangeToMaintenance();
             }
@@ -107,7 +106,9 @@ namespace MyWebsite.MvcUI.Services
             if (!check.IsUnderMaintenance)
             {                
                 check.IsUnderMaintenance = true;
-                _maintenanceCheckService.Update(check);               
+                check.EndTime = DateTime.Now.AddHours(4);
+                _maintenanceCheckService.Update(check);
+                _mailService.Send(_emailSendDto);
             }
         }
     }

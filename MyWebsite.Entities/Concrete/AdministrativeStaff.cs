@@ -14,5 +14,6 @@ namespace MyWebsite.Entities.Concrete
         public string LastName { get; set; }
         public string Title { get; set; }
         public string ImagePath { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

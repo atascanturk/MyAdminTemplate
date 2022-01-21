@@ -26,6 +26,7 @@ namespace MyWebsite.Business.Concrete
             _announcementDal.Add(announcement);
         }
 
+        [CacheRemoveAspect("IAnnouncementService.Get")]
         public void Delete(Announcement announcement)
         {
             _announcementDal.Delete(announcement);

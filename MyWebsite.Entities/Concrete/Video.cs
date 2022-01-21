@@ -11,5 +11,6 @@ namespace MyWebsite.Entities.Concrete
     {
         public int Id { get; set; }
         public string Root { get; set; }
+        public bool IsDeleted { get; set; } = false;
     }
 }

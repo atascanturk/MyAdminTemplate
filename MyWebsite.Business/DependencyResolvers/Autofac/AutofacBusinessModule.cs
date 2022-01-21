@@ -50,6 +50,9 @@ namespace BusinessLayer.DependencyResolvers.Autofac
             builder.RegisterType<ContactManager>().As<IContactService>().SingleInstance();
             builder.RegisterType<EfContactDal>().As<IContactDal>().SingleInstance();
 
+            builder.RegisterType<VideoManager>().As<IVideoService>().SingleInstance();
+            builder.RegisterType<EfVideoDal>().As<IVideoDal>().SingleInstance();
+
             builder.RegisterType<MaintenanceCheckManager>().As<IMaintenanceCheckService>().SingleInstance();
             builder.RegisterType<EfMaintenanceCheckDal>().As<IMaintenanceCheckDal>().SingleInstance();
 
@@ -57,6 +60,8 @@ namespace BusinessLayer.DependencyResolvers.Autofac
             builder.RegisterType<EfMemberDal>().As<IMemberDal>().SingleInstance();
 
             builder.RegisterType<MernisServiceAdapter>().As<IUserCheckService>().SingleInstance();
+
+            builder.RegisterType<MailManager>().As<IMailService>().SingleInstance();
 
             builder.RegisterType<MyDbContext>().AsSelf().As<IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>>();
 
