@@ -11,6 +11,7 @@ namespace MyWebsite.Business.Abstract
     public interface IAdministrativeStaffService
     {
         List<AdministrativeStaff> GetAll(Expression<Func<AdministrativeStaff, bool>> filter = null);
+        List<AdministrativeStaff> GetAllByNonDeleted(Expression<Func<AdministrativeStaff, bool>> filter = null);
         AdministrativeStaff Get(Expression<Func<AdministrativeStaff, bool>> filter);
         void Add(AdministrativeStaff administrativeStaff);
         void Update(AdministrativeStaff administrativeStaff);

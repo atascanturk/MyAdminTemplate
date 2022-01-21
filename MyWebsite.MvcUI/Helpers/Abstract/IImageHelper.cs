@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
+using MyWebsite.Core.Utilities.Results.Abstract;
 using MyWebsite.Entities.ComplexTypes;
 using MyWebsite.Entities.Dtos;
-using MyWebsite.Shared.Utilities.Results.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;

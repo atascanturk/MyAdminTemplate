@@ -26,7 +26,7 @@ namespace MyWebsite.Business.Concrete
            return _maintenanceCheckDal.Get(filter);
         }
 
-        [CacheRemoveAspect("IMaintenanceCheck.Get")]
+        [CacheRemoveAspect("IMaintenanceCheckService.Get")]
         public void Update(MaintenanceCheck maintenanceCheck)
         {
             _maintenanceCheckDal.Update(maintenanceCheck);

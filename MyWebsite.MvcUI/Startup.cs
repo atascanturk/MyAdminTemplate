@@ -10,6 +10,7 @@ using MyWebsite.Core.Extensions;
 using MyWebsite.Core.Utilities.IoC;
 using MyWebsite.DataAccess.Concrete.EntityFramework.Contexts;
 using MyWebsite.Entities.Concrete;
+using MyWebsite.Entities.Dtos;
 using MyWebsite.Mvc.Filters;
 using MyWebsite.Mvc.Helpers.Abstract;
 using MyWebsite.MvcUI.AutoMapper.Profiles;
@@ -42,12 +43,19 @@ namespace MyWebsite.MvcUI
 
 
             }).AddRazorRuntimeCompilation();
-            services.AddAutoMapper(typeof(ViewModelsProfile), typeof(UserProfile), typeof(NewsProfile), typeof(AnnouncementProfile));
+
+            services.AddAutoMapper(typeof(ViewModelsProfile), typeof(UserProfile), typeof(NewsProfile),
+                typeof(AnnouncementProfile), typeof(VideoProfile), typeof(AdministrativeStaffProfile));
+
+
             services.AddScoped<IImageHelper, ImageHelper>();
-            services.AddScoped<IMusicHelper, MusicHelper>();            
+            services.AddScoped<IMusicHelper, MusicHelper>();
+            services.Configure<SmtpSettings>(Configuration.GetSection("SmtpSettings"));
+            services.Configure<EmailSendDto>(Configuration.GetSection("EmailSendDto"));
             services.LoadMyServices();
             services.AddSession();
             services.AddMvc();
+            services.AddLogging();
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = new PathString("/WNqGRjUh3JPe/Auth/Login");
@@ -75,6 +83,7 @@ namespace MyWebsite.MvcUI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseStatusCodePages();
+
             }
             else
             {

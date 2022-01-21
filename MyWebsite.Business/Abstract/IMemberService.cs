@@ -1,4 +1,5 @@
-﻿using MyWebsite.Entities.Concrete;
+﻿using MyWebsite.Core.Utilities.Results.Abstract;
+using MyWebsite.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace MyWebsite.Business.Abstract
     {
         List<Member> GetAll(Expression<Func<Member, bool>> filter = null);
         Member Get(Expression<Func<Member, bool>> filter);
-        void Add(Member member);
+        IResult Add(Member member);
         void Update(Member member);
         void Delete(Member member);
     }

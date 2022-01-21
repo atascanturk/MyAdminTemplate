@@ -1,0 +1,39 @@
+﻿@model MyWebsite.Entities.Concrete.MaintenanceCheck
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "";
+    ViewBag.Dashboard = "Dashboard / Bakım";
+}
+<p>Siteyi bakım moduna almak için bakım bitiş tarihini seçerek aşağıdaki butonu kullanınız.</p>
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="ChangeStatus" id="form-changestatus" style="@(Model.IsUnderMaintenance == true ? "display:none;" :"display:unset;" )">
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="IsUnderMaintenance" />
+            <div class="form-group">
+                <label for="datePicker" asp-for="EndTime">Bakım Bitiş Tarihi</label>
+                <input type="text" id="datePicker" class="form-control" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" asp-for="EndTime" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+
+        </form>
+        <button class="@(Model.IsUnderMaintenance == true ? "btn btn-success btn-changestatus-remove": "btn btn-danger btn-changestatus-get")" id="toMaintenance" style="margin-bottom:20px;"><i class="fas fa-cogs"></i>@(Model.IsUnderMaintenance == true ? " Bakımdan Çıkar": " Bakıma Al")</button>
+    </div>
+</div>
+
+<p>Test amaçlı tüm kullanıcılara e-posta göndermek için aşağıdaki buttonu kullanınız. E-posta'nın size ulaşmaması durumunda lütfen spam kutunuzu kontrol ediniz. </p>
+<button class="btn btn-primary btn-sendemail" style="margin-top:10px;"><i class="far fa-envelope"></i> Gönder</button>
+
+@section Scripts {
+    <script src="~/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
+    <script src="~/js/underMaintenanceIndex.js" type="application/ecmascript"></script>
+
+
+}
+
+@section Styles {
+    <link href="~/datetimepicker-master/build/jquery.datetimepicker.min.css" rel="stylesheet" />
+}

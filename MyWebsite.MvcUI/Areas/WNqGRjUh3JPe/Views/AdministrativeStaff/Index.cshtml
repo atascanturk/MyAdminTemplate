@@ -1,0 +1,76 @@
+﻿@using MyWebsite.Entities.Concrete
+
+@model List<AdministrativeStaff>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "";
+    ViewBag.Dashboard = "Dashboard / Yönetim";
+}
+
+<div class="row">
+    <div class="col-md-2"><a asp-area="WNqGRjUh3JPe" asp-controller="AdministrativeStaff" asp-action="Add" id="btnAddadministrativeStaff" class="btn btn-success">Yeni Ekle</a></div>
+
+</div>
+
+<br />
+<div id="modalPlaceHolder" aria-hidden="true"></div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+       Yönetim Kadrosu
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="administrativeStaffTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>İsim</th>
+                        <th>Soyisim</th>
+                        <th>Ünvan</th>
+                        <th>Resim</th>
+                        <th>İşlemler</th>
+
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>İsim</th>
+                        <th>Soyisim</th>
+                        <th>Ünvan</th>
+                        <th>Resim</th>
+                        <th>İşlemler</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var administrativeStaff in Model)
+                    {
+                    <tr name="@administrativeStaff.Id">
+                        <td>@administrativeStaff.Id</td>
+                        <td>@administrativeStaff.FirstName</td>
+                        <td>@administrativeStaff.LastName</td>
+                        <td>@administrativeStaff.Title</td>
+                        <td><img src="~/img/@administrativeStaff.ImagePath" alt="Resim Bulunamadı." class="my-image" /></td>
+                        <td>
+                            <a class="btn btn-primary btn-sm btn-update" data-id="@administrativeStaff.Id" asp-area="WNqGRjUh3JPe" asp-controller="AdministrativeStaff" asp-action="Update" asp-route-id="@administrativeStaff.Id"><span class="fas fa-edit"></span></a>
+                            <button class="btn btn-danger btn-sm btn-delete" data-id="@administrativeStaff.Id"><span class="fas fa-minus-circle"></span></button>
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/administrativeStaffIndex.js" type="application/ecmascript"></script>
+}

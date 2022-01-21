@@ -11,6 +11,7 @@ namespace MyWebsite.Business.Abstract
     public interface IVideoService
     {
         List<Video> GetAll(Expression<Func<Video, bool>> filter = null);
+        List<Video> GetAllByNonDeleted(Expression<Func<Video, bool>> filter = null);
         Video Get(Expression<Func<Video, bool>> filter);
         void Add(Video video);
         void Update(Video video);
