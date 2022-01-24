@@ -59,6 +59,12 @@ namespace BusinessLayer.DependencyResolvers.Autofac
             builder.RegisterType<MemberManager>().As<IMemberService>().SingleInstance();
             builder.RegisterType<EfMemberDal>().As<IMemberDal>().SingleInstance();
 
+            builder.RegisterType<VisitorCountManager>().As<IVisitorCountService>().SingleInstance();
+            builder.RegisterType<EfVisitorCountDal>().As<IVisitorCountDal>().SingleInstance();
+
+            builder.RegisterType<SeoManager>().As<ISeoService>().SingleInstance();
+            builder.RegisterType<EfSeoDal>().As<ISeoDal>().SingleInstance();
+
             builder.RegisterType<MernisServiceAdapter>().As<IUserCheckService>().SingleInstance();
 
             builder.RegisterType<MailManager>().As<IMailService>().SingleInstance();

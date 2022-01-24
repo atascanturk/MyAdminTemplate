@@ -87,17 +87,20 @@
                         placeHolderDiv.find('.modal-body').replaceWith(newFormBody);
                         const isValid = newFormBody.find('[name="IsValid"]').val() === 'True';
                         if (isValid) {
+                            console.log(imageAddAjaxModel.ImageDto.Image.Category.Name)
                             placeHolderDiv.find('.modal').modal('hide');
                             const newTableRow = dataTable.row.add([
                                 imageAddAjaxModel.ImageDto.Image.Id,                               
                                 `<img src="/img/${imageAddAjaxModel.ImageDto.Image.Path}" alt="Resim Bulunamadı" class="my-image-table" />`,
-                                `                                                           
+                                imageAddAjaxModel.ImageDto.Image.Category.Name,
+                                `                                                         
                                 <button class="btn btn-danger btn-sm btn-delete" data-id="${imageAddAjaxModel.ImageDto.Image.Id}"><span class="fas fa-minus-circle"></span></button>
                             `
                             ]).node();
                             const jqueryTableRow = $(newTableRow);
                             jqueryTableRow.attr('name', `${imageAddAjaxModel.ImageDto.Image.Id}`);
                             dataTable.row(newTableRow).draw();
+
                             toastr.success(`${imageAddAjaxModel.ImageDto.Message}`, 'Başarılı İşlem!');
                         } else {
                             let summaryText = "";

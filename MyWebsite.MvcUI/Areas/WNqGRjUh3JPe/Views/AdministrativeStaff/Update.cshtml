@@ -15,7 +15,7 @@
             <div class="card">
 
                 <div class="card-body">
-                    <input type="hidden" asp-for="Id" value="@Model.Id" />                    
+                    <input type="hidden" asp-for="Id" value="@Model.Id" />
                     <div class="form-group">
                         <label for="articleTitle" asp-for="Title"></label>
                         <input type="text" id="articleTitle" class="form-control" placeholder="Ünvan" asp-for="Title" />
@@ -24,14 +24,24 @@
 
                     <div class="form-group">
                         <label for="txntFirstName" asp-for="FirstName"></label>
-                        <input id="txntFirstName" class="form-control"  asp-for="FirstName" />
+                        <input id="txntFirstName" class="form-control" asp-for="FirstName" />
                         <span asp-validation-for="FirstName" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="txntLastName" asp-for="LastName"></label>
-                        <input id="txntLastName" class="form-control"  asp-for="LastName" />
+                        <input id="txntLastName" class="form-control" asp-for="LastName" />
                         <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="categoryList" asp-for="CategoryId"></label>
+                        <select id="categoryList" class="form-control" asp-for="CategoryId" asp-items="@(new SelectList(Model.Categories,"Id","Name"))">
+
+                            <option></option>
+
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
                     </div>
 
                 </div>

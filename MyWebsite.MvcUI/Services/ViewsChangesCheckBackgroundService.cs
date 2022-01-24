@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MyWebsite.Business.Abstract;
 using MyWebsite.Entities.Dtos;
@@ -18,12 +19,15 @@ namespace MyWebsite.MvcUI.Services
         private readonly IMaintenanceCheckService _maintenanceCheckService;
         private readonly IMailService _mailService;
         private readonly EmailSendDto _emailSendDto;
-     
-        public ViewsChangesCheckBackgroundService(IMaintenanceCheckService maintenanceCheckService, IMailService mailService, IOptions<EmailSendDto> emailSendDto)
+
+        ILogger<ViewsChangesCheckBackgroundService> _logger;
+
+        public ViewsChangesCheckBackgroundService(IMaintenanceCheckService maintenanceCheckService, IMailService mailService, IOptions<EmailSendDto> emailSendDto, ILogger<ViewsChangesCheckBackgroundService> logger)
         {
             _maintenanceCheckService = maintenanceCheckService;
             _mailService = mailService;
             _emailSendDto = emailSendDto.Value;
+            _logger = logger;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -104,7 +108,8 @@ namespace MyWebsite.MvcUI.Services
         {
             var check = _maintenanceCheckService.Get(x => x.Id == 1);
             if (!check.IsUnderMaintenance)
-            {                
+            {
+                _logger.LogCritical("Site dosyaları değiştirildi.");             
                 check.IsUnderMaintenance = true;
                 check.EndTime = DateTime.Now.AddHours(4);
                 _maintenanceCheckService.Update(check);

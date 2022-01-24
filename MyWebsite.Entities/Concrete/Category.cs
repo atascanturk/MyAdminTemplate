@@ -12,6 +12,10 @@ namespace MyWebsite.Entities.Concrete
         public int Id{ get; set; }
         public string Name { get; set; }      
         public ICollection<News> News { get; set; }
+        public ICollection<Image> Images { get; set; }
+        public ICollection<AdministrativeStaff> administrativeStaffs { get; set; }
+        public int CategoryType { get; set; }
+        public bool IsDeleted { get; set; } = false;
 
     }
 }

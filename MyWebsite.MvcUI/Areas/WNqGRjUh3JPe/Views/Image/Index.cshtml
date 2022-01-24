@@ -21,6 +21,7 @@
                     <tr>
                         <th>#</th>
                         <th>Küçük Resim</th>
+                        <th>Kategori</th>
                         <th>İşlemler</th>
                     </tr>
                 </thead>
@@ -28,6 +29,7 @@
                     <tr>
                         <th>#</th>
                         <th>Küçük Resim</th>
+                        <th>Kategori</th>
                         <th>İşlemler</th>
 
                     </tr>
@@ -35,14 +37,14 @@
                 <tbody>
                     @foreach (var image in Model)
                     {
-                        <tr name="@image.Id">
-                            <td>@image.Id</td>
-                            <td><img src="~/img/@image.Path" alt="Resim bulunamadı." class="my-image-table" /></td>
-
-                            <td>                               
-                                <button class="btn btn-danger btn-sm btn-delete" data-id="@image.Id"><span class="fas fa-minus-circle"></span></button>
-                            </td>
-                        </tr>
+                    <tr name="@image.Id">
+                        <td>@image.Id</td>
+                        <td><img src="~/img/@image.Path" alt="Resim bulunamadı." class="my-image-table" /></td>
+                        <td>@image.Category.Name</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm btn-delete" data-id="@image.Id"><span class="fas fa-minus-circle"></span></button>
+                        </td>
+                    </tr>
 
                     }
 

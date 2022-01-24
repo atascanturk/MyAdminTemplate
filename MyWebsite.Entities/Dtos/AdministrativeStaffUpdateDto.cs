@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using MyWebsite.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,5 +38,10 @@ namespace MyWebsite.Entities.Dtos
         [DisplayName("Resim")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir. ")]
         public string ImagePath { get; set; }
+
+        [DisplayName("Kategori")]
+        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir. ")]
+        public int CategoryId { get; set; }
+        public IList<Category> Categories { get; set; }
     }
 }

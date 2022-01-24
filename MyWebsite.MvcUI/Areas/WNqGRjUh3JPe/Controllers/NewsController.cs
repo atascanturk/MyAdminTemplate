@@ -7,6 +7,7 @@ using MyWebsite.Core.Utilities.Results.ComplexTypes;
 using MyWebsite.Entities.ComplexTypes;
 using MyWebsite.Entities.Concrete;
 using MyWebsite.Entities.Dtos;
+using MyWebsite.Entities.Enums;
 using MyWebsite.Mvc.Helpers.Abstract;
 using MyWebsite.MvcUI.Areas.Admin.Models;
 using Newtonsoft.Json;
@@ -46,7 +47,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult AddNews()
         {
-            var categories = _categoryService.GetAll();
+            var categories = _categoryService.GetAllByNonDeleted().Where(x=>x.CategoryType == Convert.ToInt32(CategoryType.Haber)).ToList();
             return View(new NewsAddViewModel { 
             Categories= categories
             });
@@ -67,7 +68,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
             }
             else
             {
-                var categories = _categoryService.GetAll();
+                var categories = _categoryService.GetAllByNonDeleted().Where(x => x.CategoryType == Convert.ToInt32(CategoryType.Haber)).ToList();
                 newsAddViewModel.Categories = categories;
                 return View(newsAddViewModel);
             }
@@ -103,7 +104,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult UpdateNews(int id)
         {
-            var categories = _categoryService.GetAll();
+            var categories = _categoryService.GetAllByNonDeleted().Where(x => x.CategoryType == Convert.ToInt32(CategoryType.Haber)).ToList();
             var news = _newsService.Get(x => x.Id==id);
             var newsUpdateDto = Mapper.Map<NewsUpdateDto>(news);
             newsUpdateDto.Categories = categories;
@@ -142,7 +143,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
 
             else
             {
-                var categories = _categoryService.GetAll();
+                var categories = _categoryService.GetAllByNonDeleted().Where(x => x.CategoryType == Convert.ToInt32(CategoryType.Haber)).ToList();
                 newsUpdateDto.Categories = categories;
                 foreach (var modelState in ViewData.ModelState.Values)
                 {

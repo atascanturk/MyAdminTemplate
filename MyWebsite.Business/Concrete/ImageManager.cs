@@ -41,7 +41,7 @@ namespace MyWebsite.Business.Concrete
 
         public List<Image> GetAllByNonDeleted(Expression<Func<Image, bool>> filter = null)
         {
-            return _imageDal.GetAll(x => !x.IsDeleted);
+            return _imageDal.GetAll(x => !x.IsDeleted, x=>x.Category);
         }
 
         public void Update(Image image)

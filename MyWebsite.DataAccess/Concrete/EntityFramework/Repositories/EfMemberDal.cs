@@ -12,5 +12,6 @@ namespace MyWebsite.DataAccess.Concrete.EntityFramework.Repositories
 {
     public class EfMemberDal :EfEntityRepositoryBase<Member,MyDbContext> , IMemberDal
     {
+     
     }
 }

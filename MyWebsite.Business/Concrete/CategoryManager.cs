@@ -39,14 +39,14 @@ namespace MyWebsite.Business.Concrete
             return _categoryDal.GetAll(filter);
         }
 
-        public List<Category> GetAllByNonDeletedAndActive(Expression<Func<Category, bool>> filter = null)
+        public List<Category> GetAllByNonDeleted(Expression<Func<Category, bool>> filter = null)
         {
-            throw new NotImplementedException();
+           return _categoryDal.GetAll(x => !x.IsDeleted);
         }
 
         public void Update(Category category)
         {
-            _categoryDal.Add(category);
+            _categoryDal.Update(category);
         }
     }
 }

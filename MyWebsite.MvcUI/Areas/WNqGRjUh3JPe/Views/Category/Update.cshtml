@@ -1,0 +1,53 @@
+﻿@model MyWebsite.Entities.Dtos.CategoryUpdateDto
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "";
+    ViewBag.Dashboard = "Dashboard / Kategori / Güncelle";
+}
+<form asp-controller="Category" asp-action="Update" method="post" enctype="multipart/form-data">
+
+    <div class="row mt-2">
+        <div class="col-md-8">
+
+            <div class="card">
+
+                <div class="card-body">
+                    <input type="hidden" asp-for="Id" value="@Model.Id"  />
+                    <div class="form-group">
+                        <label for="articleTitle" asp-for="Name"></label>
+                        <input type="text" id="articleTitle" class="form-control" placeholder="Kategori Adı" asp-for="Name" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoryTypeList" asp-for="CategoryType"></label>
+                        <select id="categoryTypeList" class="form-control" asp-for="CategoryType">
+
+                            <option value="1">Haber</option>
+                            <option value="2">Resim</option>
+                            <option value="3">Yönetim</option>
+
+                        </select>
+                        <span asp-validation-for="CategoryType" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-check">
+                        <button type="submit" class="btn btn-primary  mt-4 float-right">Kaydet</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</form>
+
+@section Scripts{
+    <script src="~/js/select2.js" type="application/ecmascript"></script>
+}
+
