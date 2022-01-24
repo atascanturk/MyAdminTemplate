@@ -30,9 +30,10 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
 
         private readonly IToastNotification _toastNotification;
 
-        public UserController(SignInManager<User> signInManager, UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper) : base(userManager, mapper, imageHelper)
+        public UserController(SignInManager<User> signInManager, UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
         {
             _signInManager = signInManager;
+            _toastNotification = toastNotification;
         }
         public async Task<IActionResult> Index()
         {

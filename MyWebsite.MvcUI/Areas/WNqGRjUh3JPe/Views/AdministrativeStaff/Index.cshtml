@@ -32,6 +32,7 @@
                         <th>Soyisim</th>
                         <th>Ünvan</th>
                         <th>Resim</th>
+                        <th>Kategori</th>
                         <th>İşlemler</th>
 
 
@@ -44,6 +45,7 @@
                         <th>Soyisim</th>
                         <th>Ünvan</th>
                         <th>Resim</th>
+                        <th>Kategori</th>
                         <th>İşlemler</th>
 
                     </tr>
@@ -57,6 +59,7 @@
                         <td>@administrativeStaff.LastName</td>
                         <td>@administrativeStaff.Title</td>
                         <td><img src="~/img/@administrativeStaff.ImagePath" alt="Resim Bulunamadı." class="my-image" /></td>
+                        <td>@administrativeStaff.Category.Name</td>
                         <td>
                             <a class="btn btn-primary btn-sm btn-update" data-id="@administrativeStaff.Id" asp-area="WNqGRjUh3JPe" asp-controller="AdministrativeStaff" asp-action="Update" asp-route-id="@administrativeStaff.Id"><span class="fas fa-edit"></span></a>
                             <button class="btn btn-danger btn-sm btn-delete" data-id="@administrativeStaff.Id"><span class="fas fa-minus-circle"></span></button>

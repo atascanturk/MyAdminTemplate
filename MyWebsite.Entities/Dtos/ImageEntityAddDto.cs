@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
+using MyWebsite.Entities.Concrete;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyWebsite.Entities.Dtos
 {
@@ -16,5 +13,12 @@ namespace MyWebsite.Entities.Dtos
         [DataType(DataType.Upload)]
         public IFormFile PictureFile { get; set; }
         public string Picture { get; set; }
+
+        [DisplayName("Kategori")]
+        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir. ")]
+        public int CategoryId { get; set; }
+
+        public IList<Category> Categories { get; set; }
+
     }
 }

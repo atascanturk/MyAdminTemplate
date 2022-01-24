@@ -15,5 +15,7 @@ namespace MyWebsite.Entities.Concrete
         public string Title { get; set; }
         public string ImagePath { get; set; }
         public bool IsDeleted { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }

@@ -1,0 +1,77 @@
+﻿@using MyWebsite.Entities.Concrete
+@model List<Member>
+
+@{
+    ViewData["Title"] = "Üyeler";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "Üye Listesi";
+    ViewBag.Dashboard = "Dashboard / Üyeler";
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Üyeler
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="memberDataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>TCKN</th>
+                        <th>İsim</th>
+                        <th>Soyisim</th>
+                        <th>Doğum Tarihi</th>
+                        <th>Telefon Numarası</th>
+                        <th>E-Posta</th>
+                        <th>İl</th>
+                        <th>İlçe</th>
+                        <th>Başvuru Tarihi</th>
+
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>TCKN</th>
+                        <th>İsim</th>
+                        <th>Soyisim</th>
+                        <th>Doğum Tarihi</th>
+                        <th>Telefon Numarası</th>
+                        <th>E-Posta</th>
+                        <th>İl</th>
+                        <th>İlçe</th>
+                        <th>Başvuru Tarihi</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+
+                    @for (var i = 0; i < Model.Count; i++)
+                    {
+                        <tr name="@Model[i].Id">
+                            <td>@(i+1)</td>
+                            <td>@Model[i].IdentityNumber</td>
+                            <td>@Model[i].FirstName</td>
+                            <td>@Model[i].LastName</td>
+                            <td>@Model[i].BirthOfDay.ToString("dd-MM-yyyy")</td>
+                            <td>@Model[i].PhoneNumber</td>
+                            <td>@Model[i].Email</td>
+                            <td>@Model[i].City</td>
+                            <td>@Model[i].District</td>
+                            <td>@Model[i].CreatedDate.ToString("dd-MM-yyyy HH:mm")</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/memberIndex.js" type="application/ecmascript"></script>
+}

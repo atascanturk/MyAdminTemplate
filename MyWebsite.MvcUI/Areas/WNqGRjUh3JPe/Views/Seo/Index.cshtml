@@ -1,0 +1,40 @@
+﻿@model MyWebsite.Entities.Concrete.Seo
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "SEO Ayarları";
+    ViewBag.Dashboard = "Dashboard / SEO";
+}
+
+<form style="margin-top:15px;">
+    <div class="row">
+        <div class="col-md-8">
+            <input id="seoHdnId" type="hidden" asp-for="Id" />
+            <div class="text-danger" style="display:inline;">Lütfen her alandan sonra "," kullanınız. </div>
+            <div class="input-group mb-3" style="margin-top:15px">
+                <span class="input-group-text" style="width:190px;">SEO Author : </span>
+                <input type="text" id="txtSeoAuthor" asp-for="SeoAuthor" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <br />
+            <div class="input-group mb-3" style="margin-top:15px">
+                <span class="input-group-text" style="width:190px;">SEO Description : </span>
+                <input type="text" id="txtSeoDescription" asp-for="SeoDescription" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <br />
+            <div class="input-group mb-3" style="margin-top:15px">
+                <span class="input-group-text" style="width:190px;">SEO Tags : </span>
+                <input type="text" id="txtSeoTags" asp-for="SeoTags" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+
+            <button type="submit" class="btn btn-success btn-save" style="float:right;">Kaydet</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script src="~/js/seoIndex.js" type="application/ecmascript"></script>
+}
+
+

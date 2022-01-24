@@ -13,12 +13,27 @@
                 <form asp-action="AddImage" id="form-image-add">
                     <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
                     <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display: none;"></div>
-                    <div class="form-row">                                                               
+                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label asp-for="PictureFile"></label>
-                            <input type="file" accept="image/*" class="form-control-file" asp-for="PictureFile"/>
+                            <input type="file" accept="image/*" class="form-control-file" asp-for="PictureFile" />
                             <span class="text-danger" asp-validation-for="PictureFile"></span>
                         </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="categoryList" asp-for="CategoryId"></label>
+                                <select id="categoryList" class="form-control" asp-for="CategoryId" asp-items="@(new SelectList(Model.Categories,"Id","Name"))">
+
+                                    <option></option>
+
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                        </div>
+
                     </div>
                 </form>
             </div>

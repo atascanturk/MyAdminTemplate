@@ -16,5 +16,6 @@ namespace MyWebsite.Core.Entities.Concrete
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string City { get; set; }
+        public string District { get; set; }
     }
 }

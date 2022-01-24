@@ -10,6 +10,7 @@ using MyWebsite.Business.Abstract;
 using MyWebsite.Entities.ComplexTypes;
 using MyWebsite.Entities.Concrete;
 using MyWebsite.Entities.Dtos;
+using MyWebsite.Entities.Enums;
 using MyWebsite.Mvc.Helpers.Abstract;
 
 namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
@@ -19,14 +20,16 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
     public class AdministrativeStaffController : Controller
     {
         IAdministrativeStaffService _administrativeStaffService;
+        ICategoryService _categoryService;
         IMapper _mapper;
         IImageHelper _imageHelper;
 
-        public AdministrativeStaffController(IAdministrativeStaffService administrativeStaffService, IMapper mapper, IImageHelper imageHelper)
+        public AdministrativeStaffController(IAdministrativeStaffService administrativeStaffService, IMapper mapper, IImageHelper imageHelper, ICategoryService categoryService)
         {
             _administrativeStaffService = administrativeStaffService;
             _mapper = mapper;
             _imageHelper = imageHelper;
+            _categoryService = categoryService;
         }
 
         public IActionResult Index()
@@ -38,7 +41,11 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            return View();
+            var categories = _categoryService.GetAllByNonDeleted().Where(x => x.CategoryType == Convert.ToInt32(CategoryType.Yönetim)).ToList();
+            return View(new AdministrativeStaffAddDto
+            {
+                Categories = categories
+            });
         }
 
 
@@ -49,21 +56,24 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
             {
                 var newStaff = _mapper.Map<AdministrativeStaff>(administrativeStaffAddDto);
                 var imageResult = await _imageHelper.Upload("Staff",
-                         administrativeStaffAddDto.PictureFile, PictureType.Staff,"staffImages");
+                         administrativeStaffAddDto.PictureFile, PictureType.Staff, "staffImages");
                 newStaff.ImagePath = imageResult.Data.FullName;
                 _administrativeStaffService.Add(newStaff);
                 return RedirectToAction("Index", "AdministrativeStaff");
 
             }
-
-            return View();
+            var categories = _categoryService.GetAllByNonDeleted().Where(x => x.CategoryType == Convert.ToInt32(CategoryType.Yönetim)).ToList();
+            administrativeStaffAddDto.Categories = categories;
+            return View(administrativeStaffAddDto);
         }
 
         [HttpGet]
         public IActionResult Update(int id)
         {
+            var categories = _categoryService.GetAllByNonDeleted().Where(x => x.CategoryType == Convert.ToInt32(CategoryType.Yönetim)).ToList();
             var staff = _administrativeStaffService.Get(x => x.Id == id);
-           var administrativeStaffUpdateDto = _mapper.Map<AdministrativeStaffUpdateDto>(staff);
+            var administrativeStaffUpdateDto = _mapper.Map<AdministrativeStaffUpdateDto>(staff);
+            administrativeStaffUpdateDto.Categories = categories;
             return View(administrativeStaffUpdateDto);
         }
 
@@ -71,8 +81,8 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
         public IActionResult Update(AdministrativeStaffUpdateDto administrativeStaffUpdateDto)
         {
             if (ModelState.IsValid)
-            {             
-                     
+            {
+
                 bool isNewPictureUploaded = false;
                 var oldstaff = _administrativeStaffService.Get(x => x.Id == administrativeStaffUpdateDto.Id);
 
@@ -100,6 +110,8 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
 
             else
             {
+                var categories = _categoryService.GetAllByNonDeleted().Where(x => x.CategoryType == Convert.ToInt32(CategoryType.Yönetim)).ToList();
+                administrativeStaffUpdateDto.Categories = categories;
                 foreach (var modelState in ViewData.ModelState.Values)
                 {
                     foreach (var error in modelState.Errors)
