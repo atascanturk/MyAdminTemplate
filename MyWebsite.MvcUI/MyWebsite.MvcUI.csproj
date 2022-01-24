@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\datetimepicker-master\**" />
+    <Content Remove="wwwroot\datetimepicker-master\**" />
+    <EmbeddedResource Remove="wwwroot\datetimepicker-master\**" />
+    <None Remove="wwwroot\datetimepicker-master\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
@@ -16,6 +23,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="NToastNotify" Version="7.0.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="Serilog.Enrichers.ClientInfo" Version="1.1.4" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
     <PackageReference Include="Serilog.Sinks.Debug" Version="2.0.0" />
@@ -32,6 +40,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\WNqGRjUh3JPe\Data\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -85,23 +94,6 @@
     <None Include="wwwroot\ComingSoon\vendor\select2\select2.js" />
     <None Include="wwwroot\ComingSoon\vendor\select2\select2.min.js" />
     <None Include="wwwroot\ComingSoon\vendor\tilt\tilt.jquery.min.js" />
-    <None Include="wwwroot\datetimepicker-master\.gitignore" />
-    <None Include="wwwroot\datetimepicker-master\.travis.yml" />
-    <None Include="wwwroot\datetimepicker-master\build\jquery.datetimepicker.full.js" />
-    <None Include="wwwroot\datetimepicker-master\build\jquery.datetimepicker.full.min.js" />
-    <None Include="wwwroot\datetimepicker-master\build\jquery.datetimepicker.min.js" />
-    <None Include="wwwroot\datetimepicker-master\doc.tpl" />
-    <None Include="wwwroot\datetimepicker-master\jquery.datetimepicker.js" />
-    <None Include="wwwroot\datetimepicker-master\jquery.js" />
-    <None Include="wwwroot\datetimepicker-master\karma.conf.js" />
-    <None Include="wwwroot\datetimepicker-master\pull_request_template.md" />
-    <None Include="wwwroot\datetimepicker-master\README.md" />
-    <None Include="wwwroot\datetimepicker-master\tests\tests\bootstrap.js" />
-    <None Include="wwwroot\datetimepicker-master\tests\tests\destroy.js" />
-    <None Include="wwwroot\datetimepicker-master\tests\tests\events.js" />
-    <None Include="wwwroot\datetimepicker-master\tests\tests\init.js" />
-    <None Include="wwwroot\datetimepicker-master\tests\tests\methods.js" />
-    <None Include="wwwroot\datetimepicker-master\tests\tests\options.js" />
   </ItemGroup>
 
 </Project>

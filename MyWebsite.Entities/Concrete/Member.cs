@@ -10,6 +10,9 @@ namespace MyWebsite.Entities.Concrete
 {
     public class Member : Person , IEntity
     {
-      
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+
+        public bool IsDeleted { get; set; }
+
     }
 }

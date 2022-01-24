@@ -7,6 +7,7 @@ using MyWebsite.Core.Utilities.Results.ComplexTypes;
 using MyWebsite.Entities.ComplexTypes;
 using MyWebsite.Entities.Concrete;
 using MyWebsite.Entities.Dtos;
+using MyWebsite.Entities.Enums;
 using MyWebsite.Mvc.Helpers.Abstract;
 using MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Models;
 using System;
@@ -22,14 +23,16 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
     public class ImageController : Controller
     {
         IImageService _imageService;
+        ICategoryService _categoryService;
         IImageHelper _imageHelper;
         IMapper _mapper;
 
-        public ImageController(IImageService imageService, IImageHelper imageHelper, IMapper mapper)
+        public ImageController(IImageService imageService, IImageHelper imageHelper, IMapper mapper, ICategoryService categoryService)
         {
             _imageService = imageService;
             _imageHelper = imageHelper;
             _mapper = mapper;
+            _categoryService = categoryService;
         }
 
         public IActionResult Index()
@@ -38,7 +41,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
             var imageIndexViewModels = new List<ImageIndexViewModel>();
             foreach (var image in images)
             {
-                imageIndexViewModels.Add(new ImageIndexViewModel { Id= image.Id, Path=image.Path});
+                imageIndexViewModels.Add(new ImageIndexViewModel { Id= image.Id, Path=image.Path,Category = image.Category});
             }
             
             return View(imageIndexViewModels);
@@ -47,7 +50,12 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
         [HttpGet]
         public IActionResult AddImage()
         {
-            return PartialView("_ImageAddPartial");
+            var categories = _categoryService.GetAllByNonDeleted().Where(x => x.CategoryType == Convert.ToInt32(CategoryType.Resim)).ToList();
+            return PartialView("_ImageAddPartial",new ImageEntityAddDto
+            {
+                Categories = categories
+            });
+           
         }
 
         [HttpPost]
@@ -57,9 +65,10 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
             {
                 var imageResult = _imageHelper.Upload("Image-", imageEntityAddDto.PictureFile, PictureType.Photograph, "Photograph").Result;
                 imageEntityAddDto.Picture = imageResult.Data.FullName;
-                var image = new Image { Path = imageResult.Data.FullName };
+               var category = _categoryService.Get(x => x.Id == imageEntityAddDto.CategoryId);
+                var image = new Image { Path = imageResult.Data.FullName,CategoryId=imageEntityAddDto.CategoryId,Category = category };
                 _imageService.Add(image);
-
+                imageEntityAddDto.Categories = _categoryService.GetAllByNonDeleted().Where(x => x.CategoryType == Convert.ToInt32(CategoryType.Resim)).ToList();
                 var imageAddAjaxViewModel = JsonSerializer.Serialize(new ImageAddAjaxViewModel
                 {
                     ImageDto = new ImageEntityDto
@@ -71,7 +80,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
                     ImageAddPartial = this.RenderViewToStringAsync("_ImageAddPartial", imageEntityAddDto).Result
 
                 });
-
+               
                 return Json(imageAddAjaxViewModel);
 
             }
@@ -85,13 +94,14 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
                         ModelState.AddModelError("", error.ErrorMessage);
                     }
                 }
-
-                var userAddAjaxErrorModel = JsonSerializer.Serialize(new ImageAddAjaxViewModel
+                var categories = _categoryService.GetAllByNonDeleted().Where(x => x.CategoryType == Convert.ToInt32(CategoryType.Resim)).ToList();
+                imageEntityAddDto.Categories = categories;
+                var imageAddAjaxErrorModel = JsonSerializer.Serialize(new ImageAddAjaxViewModel
                 {
                     ImageAddDto = imageEntityAddDto,
                     ImageAddPartial = this.RenderViewToStringAsync("_ImageAddPartial", imageEntityAddDto).Result
                 });
-                return Json(userAddAjaxErrorModel);
+                return Json(imageAddAjaxErrorModel);
             }
             
         }

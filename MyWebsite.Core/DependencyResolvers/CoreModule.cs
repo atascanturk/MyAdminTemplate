@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MyWebsite.Core.CrossCuttingConcerns.Caching;
 using MyWebsite.Core.CrossCuttingConcerns.Caching.Microsoft;
 using MyWebsite.Core.Utilities.IoC;
+using MyWebsite.Core.Utilities.Security.Captcha.Google;
 
 namespace MyWebsite.Core.DependencyResolvers
 {
@@ -18,6 +19,7 @@ namespace MyWebsite.Core.DependencyResolvers
             serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();
             serviceCollection.AddSingleton<Stopwatch>();
+            serviceCollection.AddSingleton<IRecaptchaValidator, RecaptchaValidator>();
         }
     }
 }

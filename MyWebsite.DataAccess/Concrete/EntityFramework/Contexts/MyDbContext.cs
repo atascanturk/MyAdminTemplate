@@ -1,18 +1,20 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using MyWebsite.Core.Entities.Concrete;
 using MyWebsite.Data.Concrete.EntityFramework.Mappings;
 using MyWebsite.DataAccess.Concrete.EntityFramework.Mappings;
 using MyWebsite.Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
+
 
 namespace MyWebsite.DataAccess.Concrete.EntityFramework.Contexts
 {
+    
    public class MyDbContext : IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
-    {
+    {    
+            
+
         public DbSet<News> Newss { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Announcement> Announcements { get; set; }
@@ -25,10 +27,13 @@ namespace MyWebsite.DataAccess.Concrete.EntityFramework.Contexts
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<MaintenanceCheck> MaintenanceChecks { get; set; }
         public DbSet<Member> Members { get; set; }
+        public DbSet<VisitorCount> VisitorCounts { get; set; }
+        public DbSet<Seo> Seos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=MyWebsiteDb;Trusted_Connection=True;Connect Timeout=30;MultipleActiveResultSets=True;");
+            var str = GlobalProperties.DbConn;
+            optionsBuilder.UseSqlServer(str);
         }
 
 

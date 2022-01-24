@@ -10,6 +10,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Models
     {
         public int Id { get; set; }
         public string Path { get; set; }
+        public Category Category { get; set; }
         
     }
 }

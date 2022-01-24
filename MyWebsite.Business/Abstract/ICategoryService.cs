@@ -11,7 +11,7 @@ namespace MyWebsite.Business.Abstract
     public interface ICategoryService
     {
         List<Category> GetAll(Expression<Func<Category, bool>> filter = null);
-        List<Category> GetAllByNonDeletedAndActive(Expression<Func<Category, bool>> filter = null);
+        List<Category> GetAllByNonDeleted(Expression<Func<Category, bool>> filter = null);
         Category Get(Expression<Func<Category, bool>> filter);
         void Add(Category category);
         void Update(Category category);

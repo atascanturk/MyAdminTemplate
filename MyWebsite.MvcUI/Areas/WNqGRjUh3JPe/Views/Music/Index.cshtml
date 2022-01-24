@@ -45,8 +45,7 @@
                         <tr name="@music.Id">
                             <td>@music.Id</td>
                             <td>@(music.Path.Substring(music.Path.IndexOf("/")+1))</td>
-                            <td>
-                                <a class="btn btn-primary btn-sm btn-update" data-id="@music.Id" asp-area="Admin" asp-controller="News" asp-action="UpdateAnnouncement" asp-route-announcementId="@music.Id"><span class="fas fa-edit"></span></a>
+                            <td>                                
                                 <button class="btn btn-danger btn-sm btn-delete" data-id="@music.Id"><span class="fas fa-minus-circle"></span></button>
                             </td>
                         </tr>
