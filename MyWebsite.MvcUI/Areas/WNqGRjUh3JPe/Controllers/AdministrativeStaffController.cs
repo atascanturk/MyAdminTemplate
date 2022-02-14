@@ -16,7 +16,7 @@ using MyWebsite.Mvc.Helpers.Abstract;
 namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
 {
     [Area("WNqGRjUh3JPe")]
-    [Authorize(Roles = "SuperAdmin,Developer")]
+    [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class AdministrativeStaffController : Controller
     {
         IAdministrativeStaffService _administrativeStaffService;

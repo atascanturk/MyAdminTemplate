@@ -50,6 +50,12 @@ namespace MyWebsite.Business.Concrete
             return _announcementDal.GetAll(x => !x.IsDeleted);
         }
 
+        [CacheAspect]
+        public List<Announcement> GetAllByNonDeletedWithId(int id, Expression<Func<Announcement, bool>> filter = null)
+        {
+            return _announcementDal.GetAll(x => !x.IsDeleted && x.Id==id);
+        }
+
         [CacheRemoveAspect("IAnnouncementService.Get")]
         public void Update(Announcement announcement)
         {

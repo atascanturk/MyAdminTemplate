@@ -28,6 +28,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
 
         public IActionResult Update(Seo seo)
         {
+            seo.UpdatedDate = DateTime.Now;
             _seoService.Update(seo);            
             return Json("");
         }

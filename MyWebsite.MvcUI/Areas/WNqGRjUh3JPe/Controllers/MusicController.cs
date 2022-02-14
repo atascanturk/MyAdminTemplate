@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace MyWebsite.MvcUI.Areas.Admin.Controllers
 {
     [Area("WNqGRjUh3JPe")]
-    [Authorize(Roles = "SuperAdmin,Developer")]
+    [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class MusicController : Controller
     {
         IMusicService _musicService;

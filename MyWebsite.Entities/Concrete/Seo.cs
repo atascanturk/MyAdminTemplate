@@ -13,5 +13,6 @@ namespace MyWebsite.Entities.Concrete
         public string SeoDescription { get; set; }
         public string SeoAuthor { get; set; }
         public string SeoTags { get; set; }
+        public DateTime UpdatedDate { get; set; } = DateTime.Now;
     }
 }

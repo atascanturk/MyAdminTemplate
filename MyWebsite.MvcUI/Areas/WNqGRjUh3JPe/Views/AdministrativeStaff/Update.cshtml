@@ -1,7 +1,7 @@
 ﻿@model MyWebsite.Entities.Dtos.AdministrativeStaffUpdateDto
 
 @{
-    ViewData["Title"] = "Update";
+    ViewData["Title"] = "Güncelle";
     Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
     ViewBag.DashboardTitle = "Yönetici Bilgilerini Güncelle";
     ViewBag.Dashboard = "Dashboard / Yönetim / Güncelle";
@@ -32,6 +32,12 @@
                         <label for="txntLastName" asp-for="LastName"></label>
                         <input id="txntLastName" class="form-control" asp-for="LastName" />
                         <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txnSummary" asp-for="Summary"></label>
+                        <textarea id="txnSummary" class="form-control" placeholder="Özet Bilgi" asp-for="Summary"> </textarea>
+                        <span asp-validation-for="Summary" class="text-danger"></span>
                     </div>
 
                     <div class="form-group">

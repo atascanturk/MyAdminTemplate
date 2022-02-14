@@ -28,7 +28,7 @@ namespace MyWebsite.Mvc.Filters
 
         public void OnException(ExceptionContext context)
         {
-            if (_environment.IsDevelopment())
+            if (!_environment.IsDevelopment())
             {
                 context.ExceptionHandled = true;
                 var mvcErrorModel = new MvcErrorModel();

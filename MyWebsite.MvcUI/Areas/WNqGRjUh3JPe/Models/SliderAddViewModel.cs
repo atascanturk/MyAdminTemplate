@@ -14,5 +14,9 @@ namespace MyWebsite.MvcUI.Areas.Admin.Models
         [Required(ErrorMessage = "Lütfen, bir {0} seçiniz.")]
         [DataType(DataType.Upload)]
         public IFormFile SliderPic { get; set; }
+
+        [DisplayName("Başlık")]
+        [Required(ErrorMessage = "Lütfen, bir {0} giriniz.")]
+        public string Title { get; set; }
     }
 }

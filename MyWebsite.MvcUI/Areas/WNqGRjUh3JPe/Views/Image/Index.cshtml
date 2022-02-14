@@ -2,10 +2,11 @@
 @model List<ImageIndexViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Resimler";
     Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
     ViewBag.DashboardTitle = "Resimler";
     ViewBag.Dashboard = "Dashboard / Resimler";
+    var i = 1;
 }
 
 <div id="modalPlaceHolder" aria-hidden="true"></div>
@@ -37,24 +38,26 @@
                 <tbody>
                     @foreach (var image in Model)
                     {
-                    <tr name="@image.Id">
-                        <td>@image.Id</td>
-                        <td><img src="~/img/@image.Path" alt="Resim bulunamadı." class="my-image-table" /></td>
-                        <td>@image.Category.Name</td>
-                        <td>
-                            <button class="btn btn-danger btn-sm btn-delete" data-id="@image.Id"><span class="fas fa-minus-circle"></span></button>
-                        </td>
-                    </tr>
-
+                        <tr name="@image.Id">
+                            <td>@i</td>
+                            <td><img src="~/img/@image.Path" alt="Resim bulunamadı." class="my-image-table" /></td>
+                            <td>@image.Category.Name</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm btn-delete" data-id="@image.Id"><span class="fas fa-minus-circle"></span></button>
+                            </td>
+                        </tr>
+                        i++;
                     }
 
                 </tbody>
             </table>
         </div>
+        <input type="hidden" id="hdni" value="@i" />
     </div>
 </div>
 
 @section Scripts {
     <script src="~/js/imageIndex.js" type="application/ecmascript"></script>
+    <script src="~/js/select2.js" type="application/ecmascript"></script>
 }
 

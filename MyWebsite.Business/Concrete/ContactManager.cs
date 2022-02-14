@@ -19,6 +19,11 @@ namespace MyWebsite.Business.Concrete
             _contactDal = contactDal;
         }
 
+        public void Add(Contact contact)
+        {
+            _contactDal.Add(contact);
+        }
+
         public void Delete(Contact contact)
         {
             _contactDal.Delete(contact);
@@ -32,6 +37,11 @@ namespace MyWebsite.Business.Concrete
         public List<Contact> GetAll(Expression<Func<Contact, bool>> filter = null)
         {
             return _contactDal.GetAll(filter);
+        }
+
+        public List<Contact> GetAllByNonDeleted(Expression<Func<Contact, bool>> filter = null)
+        {
+            return _contactDal.GetAll(x => !x.IsDeleted);
         }
 
         public void Update(Contact contact)

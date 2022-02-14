@@ -1,0 +1,74 @@
+﻿@model MyWebsite.Entities.Dtos.ProjectUpdateDto
+@{
+    ViewData["Title"] = "Güncelle";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Dashboard = "Dashboard / Projeler / Güncelle";
+}
+
+
+<form asp-controller="Project" asp-action="UpdateProject" method="post" enctype="multipart/form-data">
+
+    <div class="row mt-2">
+        <div class="col-md-8">
+
+            <div class="card">
+
+                <div class="card-body">
+                    <input type="hidden" value="@Model.Id" asp-for="Id" />
+                    <div class="form-group">
+                        <label for="articleTitle" asp-for="Title"></label>
+                        <input type="text" id="articleTitle" class="form-control" placeholder="Haber Başlığı" asp-for="Title" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="text-editor" asp-for="Content"></label>
+                        <textarea id="text-editor" asp-for="Content"></textarea>
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Temel Konfigürasyonlar
+
+                </div>
+
+                <div class="card-body">                    
+
+                    <div class="form-group">
+                        <label for="thumbnailUpload" asp-for="ThumbnailFile">Haber Resim</label>
+                        <input type="file" id="thumbnailUpload" accept="image/*" class="form-control-file" asp-for="ThumbnailFile" />
+                        <span asp-validation-for="ThumbnailFile" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Thumbnail">Önceki Resim :</label>
+                        <input asp-for="Thumbnail" type="hidden" />
+                        <img class="my-image" src="~/img/@Model.Thumbnail" alt="Resim Bulunamadı." />
+                    </div>             
+
+                    <div class="form-check">
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Kaydet</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</form>
+
+@section Scripts {
+
+    <script src="~/js/newsAdd.js" type="application/ecmascript"></script>
+}

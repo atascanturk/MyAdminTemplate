@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
 {
     [Area("WNqGRjUh3JPe")]
-    [Authorize(Roles ="Developer")]
+    [Authorize(Roles ="SuperAdmin,Developer")]
     public class RoleController : BaseController
     {
         private readonly RoleManager<Role> _roleManager;
@@ -39,7 +39,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
         [HttpGet]
         public IActionResult GetAllRoles()
         {
-            var roles = _roleManager.Roles.ToList();
+            var roles = _roleManager.Roles.Where(x=>x.Name!="Developer").ToList();
             var roleListDto = JsonSerializer.Serialize(new RoleListDto
             {
                 Roles = roles
@@ -54,7 +54,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
         public async Task<IActionResult> Assign(int userId)
         {
 
-            var roles = _roleManager.Roles.ToList();
+            var roles = _roleManager.Roles.Where(x => x.Name != "Developer").ToList();
             var user = UserManager.Users.SingleOrDefault(u => u.Id == userId);
             var userRoles = await UserManager.GetRolesAsync(user);
 

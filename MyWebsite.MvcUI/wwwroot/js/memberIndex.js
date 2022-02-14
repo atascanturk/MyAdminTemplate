@@ -1,4 +1,16 @@
 ﻿$(document).ready(function () {
+
+    // For todays date;
+    Date.prototype.today = function () {
+        return ((this.getDate() < 10) ? "0" : "") + this.getDate() + "." + (((this.getMonth() + 1) < 10) ? "0" : "") + (this.getMonth() + 1) + "." + this.getFullYear();
+    }
+
+    // For the time now
+    Date.prototype.timeNow = function () {
+        return ((this.getHours() < 10) ? "0" : "") + this.getHours() + "." + ((this.getMinutes() < 10) ? "0" : "") + this.getMinutes();
+    }
+
+
     const dataTable = $('#memberDataTable').DataTable({
         dom: "<'row'<'col-sm-3'l><'col-sm-6 text-center'B><'col-sm-3'f>>" +
             "<'row'<'col-sm-12'tr>>" +
@@ -13,10 +25,20 @@
             {
                 extend: 'excelHtml5',
                 className: "btn btn-success",
+                filename: function () {
+                    var d = new Date();
+                    var n = d.today() + "-" + d.timeNow();
+                    return 'Üyeler-' + n;
+                },
             },
             {
                 extend: 'pdfHtml5',
-                className: "btn btn-danger"
+                className: "btn btn-danger",
+                filename: function () {
+                    var d = new Date();
+                    var n = d.today() + "-" + d.timeNow();
+                    return 'Üyeler-' + n;
+                },
             },
             {
                 extend: 'copyHtml5',

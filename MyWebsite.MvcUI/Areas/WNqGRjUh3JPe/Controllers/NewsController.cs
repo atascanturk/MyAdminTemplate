@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 namespace MyWebsite.MvcUI.Areas.Admin.Controllers
 {
     [Area("WNqGRjUh3JPe")]
-    [Authorize(Roles = "SuperAdmin,Developer")]
+    [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class NewsController : BaseController
     {
         INewsService _newsService;
@@ -59,12 +59,13 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var news = Mapper.Map<News>(newsAddViewModel);
+                news.CreatedDate = DateTime.Now;
                 news.UserId = LoggedInUser.Id;
                 var imageResult = await ImageHelper.Upload(newsAddViewModel.Title,
                       newsAddViewModel.ThumbnailFile, PictureType.Post);
                 news.Thumbnail = imageResult.Data.FullName;
                 _newsService.Add(news);
-                return RedirectToAction("Index", "News");
+                return RedirectToAction("Index");
             }
             else
             {
@@ -81,6 +82,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
             var news = _newsService.Get(x=>x.Id==id);
             ImageHelper.Delete(news.Thumbnail);
             news.IsDeleted = true;
+            news.IsActive = false;
              var jsonNews = JsonConvert.SerializeObject(news);
             _newsService.Update(news);
           
@@ -137,7 +139,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
                 news.UserId = LoggedInUser.Id;
                 _newsService.Update(news);
 
-                return RedirectToAction("Index","News");
+                return RedirectToAction("Index");
 
             }
 

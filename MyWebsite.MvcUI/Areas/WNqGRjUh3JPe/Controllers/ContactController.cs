@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
 {
     [Area("WNqGRjUh3JPe")]
-    [Authorize(Roles ="SuperAdmin,Developer")]
+    [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class ContactController : Controller
     {
         IContactService _contactService;
@@ -23,7 +23,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
 
         public IActionResult Index()
         {
-            var contacts = _contactService.GetAll();
+            var contacts = _contactService.GetAllByNonDeleted();
             return View(contacts);
         }
 
@@ -44,6 +44,18 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
             _contactService.Update(contact);
           var jsonContact = JsonConvert.SerializeObject(contact);
             return Json(jsonContact);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var contact = _contactService.Get(x => x.Id == id);
+            contact.IsDeleted = true;
+            _contactService.Update(contact);
+
+
+            return Json("");
+
         }
     }
 }

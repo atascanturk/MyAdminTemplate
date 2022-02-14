@@ -22,6 +22,15 @@
                     Duyurular
                 </a>
 
+                <a class="nav-link" href="/WNqGRjUh3JPe/Alert">
+                    <div class="sb-nav-link-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    Önemli Duyuru
+                </a>
+                <a class="nav-link" href="/WNqGRjUh3JPe/Project">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-list-check"></i></div>
+                   Projeler
+                </a>
+
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                     <div class="sb-nav-link-icon"><i class="fas fa-photo-video"></i></div>
                     Multimedya
@@ -68,6 +77,11 @@
                     Üyeler
                 </a>
 
+                <a class="nav-link" href="/WNqGRjUh3JPe/Bulletin">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    Bülten Üyeleri
+                </a>
+
                 <a class="nav-link" href=/WNqGRjUh3JPe/Contact>
                     <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
                     İletişim
@@ -81,7 +95,7 @@
                     Şifre Değiştir
                 </a>
 
-                @if (Model.Roles.Any(r => r.Equals("Developer")))
+                @if (Model.Roles.Any(r => r.Equals("Developer")) || Model.Roles.Any(r => r.Equals("SuperAdmin")))
                 {
 
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="false" aria-controls="collapseSettings">
@@ -106,12 +120,13 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Kullanıcı Ayarları
                             </a>
-
-                            <a class="nav-link" href="/WNqGRjUh3JPe/Role">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user-shield"></i></div>
-                                Roller
-                            </a>
-
+                            @if (Model.Roles.Any(r => r.Equals("Developer")))
+                            {
+                                <a class="nav-link" href="/WNqGRjUh3JPe/Role">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-user-shield"></i></div>
+                                    Roller
+                                </a>
+                            }
                         </nav>
                     </div>}
 
