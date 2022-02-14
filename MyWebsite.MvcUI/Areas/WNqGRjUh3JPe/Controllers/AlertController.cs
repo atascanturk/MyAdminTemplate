@@ -57,7 +57,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
                         var result = _alertService.Add(alert);
                         if (result.ResultStatus == ResultStatus.Success)
                         {
-                            return RedirectToAction("Index");
+                            return RedirectToAction("Index", new { Area = "WNqGRjUh3JPe" });
 
                         }
                         else
@@ -123,7 +123,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
 
                 var alert = _mapper.Map<Alert>(alertUpdateDto);
                 _alertService.Update(alert);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { Area = "WNqGRjUh3JPe" });
             }
             else
             {
