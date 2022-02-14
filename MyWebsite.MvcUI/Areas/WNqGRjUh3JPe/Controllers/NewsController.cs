@@ -65,7 +65,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
                       newsAddViewModel.ThumbnailFile, PictureType.Post);
                 news.Thumbnail = imageResult.Data.FullName;
                 _newsService.Add(news);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index" , "News", new { Area= "WNqGRjUh3JPe" });
             }
             else
             {
@@ -139,7 +139,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
                 news.UserId = LoggedInUser.Id;
                 _newsService.Update(news);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","News", new { Area = "WNqGRjUh3JPe" });
 
             }
 

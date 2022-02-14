@@ -54,7 +54,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
                       projectAddDto.ThumbnailFile, PictureType.Project, "projectImages").Result;
                 project.Thumbnail = imageResult.Data.FullName;
                 _projectService.Add(project);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { Area = "WNqGRjUh3JPe" });
             }
             else
             {
@@ -110,7 +110,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
                 var project = _mapper.Map<Project>(projectUpdateDto);
                 _projectService.Update(project);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { Area = "WNqGRjUh3JPe" });
 
             }
 

@@ -46,7 +46,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
           var announcement =  Mapper.Map<Announcement>(announcementAddViewModel);
             announcement.UserId = LoggedInUser.Id;
             _announcementService.Add(announcement);
-            return RedirectToAction("Index","Announcement");
+            return RedirectToAction("Index","Announcement", new { Area = "WNqGRjUh3JPe" });
         }
 
         [HttpPost]
@@ -75,7 +75,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
                 var announcement = Mapper.Map<Announcement>(announcementUpdateDto);
                 announcement.UserId = LoggedInUser.Id;
                 _announcementService.Update(announcement);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { Area = "WNqGRjUh3JPe" });
             }
 
             return View();
