@@ -1,0 +1,62 @@
+﻿@using MyWebsite.Entities.Concrete
+@model List<Bulletin>
+
+@{
+    ViewData["Title"] = "Bülten";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "Bülten";
+    ViewBag.Dashboard = "Dashboard / Bülten Üyeleri";
+
+    var i = 1;
+}
+
+<br />
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Bülten Üyeleri
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="bulletinDataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>E-Posta</th>                   
+                        <th>İşlemler</th>                   
+                  
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>E-Posta</th>                   
+                        <th>İşlemler</th>                   
+
+                    </tr>
+                </tfoot>
+                <tbody>
+
+                    @foreach (var bulletin in Model)
+                    {
+                        <tr name="@bulletin.Id">
+                            <td>@i</td>
+                            <td>@bulletin.Email</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm btn-delete" data-id="@bulletin.Id"><span class="fas fa-minus-circle"></span></button>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/bulletinIndex.js" type="application/ecmascript"></script>
+}
+
+

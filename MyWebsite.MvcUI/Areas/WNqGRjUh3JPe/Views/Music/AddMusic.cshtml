@@ -1,9 +1,9 @@
 ﻿@model MyWebsite.MvcUI.Areas.Admin.Models.MusicAddViewModel
 
 @{
-    ViewData["Title"] = "AddMusic";
+    ViewData["Title"] = "Yeni bir müzik ekle";
     Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
-    ViewBag.DashboardTitle = "";
+    ViewBag.DashboardTitle = "Yeni bir müzik ekle";
     ViewBag.Dashboard = "Dashboard / Müzik Listesi / Müzik Ekle";
 }
 
@@ -24,6 +24,12 @@
                         <label class="text-info" for="thumbnailUpload" asp-for="MusicFile">Lütfen .mp3 uzantılı bir müzik dosyası seçiniz.</label>
                         <input type="file" id="thumbnailUpload" accept="image/*" class="form-control-file" asp-for="MusicFile" />
                         <span asp-validation-for="MusicFile" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text-info" for="musicName" asp-for="Name"></label>
+                        <input type="text" id="musicName" class="form-control" asp-for="Name" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
 
                     <div asp-validation-summary="All" class="text-danger"></div>

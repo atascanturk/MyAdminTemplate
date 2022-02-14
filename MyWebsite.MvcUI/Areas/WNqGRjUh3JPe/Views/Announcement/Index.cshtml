@@ -2,10 +2,11 @@
 @model List<Announcement>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Duyurular";
     Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
     ViewBag.DashboardTitle = "Duyuru Listesi";
     ViewBag.Dashboard = "Dashboard / Duyurular";
+    var i = 1;
 }
 
 <div><a asp-area="WNqGRjUh3JPe" asp-controller="Announcement" asp-action="AddAnnouncement" type="button" id="btnAddNews" class=" btn btn-success">Yeni Duyuru Ekle</a></div>
@@ -37,7 +38,7 @@
                     @foreach (var announcement in Model)
                     {
                         <tr name="@announcement.Id">
-                            <td>@announcement.Id</td>
+                            <td>@i</td>
                             <td>@announcement.Title</td>                            
                             <td>
                                 <a class="btn btn-primary btn-sm btn-update" data-id="@announcement.Id" asp-area="WNqGRjUh3JPe" asp-controller="Announcement" asp-action="UpdateAnnouncement" asp-route-id="@announcement.Id" asp-route-title="@announcement.Id"><span class="fas fa-edit"></span></a>
@@ -45,7 +46,7 @@
 
                             </td>
                         </tr>
-
+                        i++;
                     }
 
                 </tbody>

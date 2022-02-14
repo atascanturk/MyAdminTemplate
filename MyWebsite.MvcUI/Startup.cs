@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyWebsite.Business.Abstract;
 using MyWebsite.Core.DependencyResolvers;
 using MyWebsite.Core.Entities.Concrete;
 using MyWebsite.Core.Extensions;
@@ -16,11 +17,14 @@ using MyWebsite.MvcUI.AutoMapper.Profiles;
 using MyWebsite.MvcUI.Helpers.Concrete;
 using MyWebsite.MvcUI.Middlewares;
 using MyWebsite.Services.Extensions;
+using System;
+using System.Threading.Tasks;
 
 namespace MyWebsite.MvcUI
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -40,9 +44,12 @@ namespace MyWebsite.MvcUI
             }).AddRazorRuntimeCompilation().AddNToastNotifyNoty(); ;
 
             services.AddAutoMapper(typeof(ViewModelsProfile), typeof(UserProfile), typeof(NewsProfile),
-                typeof(AnnouncementProfile), typeof(VideoProfile), typeof(AdministrativeStaffProfile));
-           
+                typeof(AnnouncementProfile), typeof(VideoProfile), typeof(AdministrativeStaffProfile), typeof(AlertProfile), typeof(ProjectProfile));
+
+            //Global Properties Keeping in Static Class         
             GlobalProperties.DbConn = Configuration.GetConnectionString("Database").ToString();
+
+
             services.AddScoped<IImageHelper, ImageHelper>();
             services.AddScoped<IMusicHelper, MusicHelper>();
             services.Configure<SmtpSettings>(Configuration.GetSection("SmtpSettings"));
@@ -62,15 +69,37 @@ namespace MyWebsite.MvcUI
                     Name = "MyWebSite",
                     HttpOnly = true,
                     SameSite = SameSiteMode.Strict,
-                    SecurePolicy = CookieSecurePolicy.SameAsRequest //Always
+                    SecurePolicy = CookieSecurePolicy.Always //Always
                 };
                 options.SlidingExpiration = true;
-                options.ExpireTimeSpan = System.TimeSpan.FromDays(7);
+                options.Events.OnSigningIn = ctx =>
+                {
+                    if (ctx.Properties.IsPersistent)
+                    {
+
+                        ctx.Properties.IssuedUtc = DateTime.Now;
+                        ctx.Properties.IsPersistent = true;
+                        ctx.Properties.ExpiresUtc = ctx.Properties.IssuedUtc.Value.AddDays(3);
+                    }
+
+                    else
+                    {
+                        ctx.Properties.IssuedUtc = DateTime.Now;
+                        ctx.Properties.IsPersistent = true;
+                        ctx.Properties.ExpiresUtc = ctx.Properties.IssuedUtc.Value.AddMinutes(30);
+                    }
+                    return Task.FromResult(0);
+                };
                 options.AccessDeniedPath = new PathString("/WNqGRjUh3JPe/Auth/AccessDenied");
 
             });
 
             services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
+
+            services.AddHttpsRedirection(options =>
+            {
+                options.HttpsPort = 443;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,14 +113,17 @@ namespace MyWebsite.MvcUI
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error", "?code={0}");
+            app.UseHttpsRedirection();
+            app.UseStatusCodePagesWithReExecute("/Error/Error", "?code={0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseMiddleware<VisitorCounterMiddleware>();
+            app.UseMiddleware<CheckIsUnderMaintenanceMiddleware>();
+            app.UseMiddleware<SetSEOMiddleware>();
             app.UseRouting();
             app.UseAuthentication(); // Kimlik kontrolü
             app.UseAuthorization(); // Yetki kontrolü            
@@ -101,13 +133,13 @@ namespace MyWebsite.MvcUI
             {
                 endpoints.MapControllerRoute(
                 name: "areas",
-                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}/{FriendlyUrl?}"
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
 
                 );
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}/{FriendlyUrl?}");
             });
         }
     }

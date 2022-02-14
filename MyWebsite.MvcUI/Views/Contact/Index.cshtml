@@ -1,0 +1,137 @@
+﻿@model MyWebsite.Entities.Concrete.Contact
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    ViewData["Title"] = "İletişim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<input id="navItemValue" type="hidden" value="iletisim" />
+<div class="main-content-w3layouts-agileits mb-3 text-center">
+    <div class="custom-title">
+        <h2 style="border-bottom: 0;width: 100%;">İLETİŞİM</h2>
+    </div>
+    <p class="sub text-center">Bizimle Hemen İleşime Geçebilirsiniz.</p>
+    <div class="contact-map inner-sec">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.988889388108!2d32.80932521563844!3d39.94163819231942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34ed3a89e80e7%3A0x5b823e5f729669f5!2sB%C3%BCy%C3%BCk%20Birlik%20Partisi!5e0!3m2!1str!2str!4v1642863876927!5m2!1str!2str" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    </div>
+    <div class="ad-inf-sec bg-light">
+        <div class="course_demo1" style="background:none">
+            <div class="address row">
+                <div class="col-lg-4 address-grid">
+                    <div class="row address-info">
+                        <div class="col-md-4 address-left text-center">
+                            <i class="far fa-map"></i>
+                        </div>
+                        <div class="col-md-8 address-right text-left">
+                            <h6>Adres</h6>
+                            <p>
+                                Büyük Birlik Partisi Gazi Mah. Silahtar Cad. No: 90 Yenimahalle / ANKARA
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 address-grid">
+                    <div class="row address-info">
+                        <div class="col-md-4 address-left text-center">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="col-md-8 address-right text-left">
+                            <h6>Telefon</h6>
+                            <p>+90 312 434 09 20 - 27 (Pbx)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 address-grid">
+                    <div class="row address-info">
+                        <div class="col-md-4 address-left text-center">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="col-md-8 address-right text-left">
+                            <h6>Fax</h6>
+                            <p>+90 312 435 58 18</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 address-grid">
+                    <div class="row address-info">
+                        <div class="col-md-4 address-left text-center">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="col-md-8 address-right text-left">
+                            <h6>Özel Kalem</h6>
+                            <p>+90 312 430 61 10</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="contact_grid_right">
+            <form asp-controller="Contact" asp-action="AddContact" method="post">
+                <h3 class="text-danger"> @ViewBag.Sent</h3>
+                <div class="row contact_left_grid">
+                    <div class="col-md-6 con-left">
+                        <div class="form-group">
+                            <label for="validationCustom01 my-2" asp-for="Name">Ad Soyad</label>
+                            <input class="form-control" type="text" asp-for="Name" placeholder="Ad Soyad..">
+                            <span class="text-danger" asp-validation-for="Name"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1" asp-for="Mail">E-Posta</label>
+                            <input class="form-control" type="email" asp-for="Mail" placeholder="E-Posta Adresi.." required="">
+                            <span class="text-danger" asp-validation-for="Mail"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="validationCustom03 my-2" asp-for="Subject">Konu</label>
+                            <input class="form-control" type="text" asp-for="Subject" placeholder="Konu.." required="">
+                            <span class="text-danger" asp-validation-for="Subject"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 con-right">
+                        <div class="form-group">
+                            <label asp-for="Message" for="textarea">Mesaj</label>
+                            <textarea asp-for="Message" id="textarea" placeholder="" required=""></textarea>
+                            <span class="text-danger" asp-validation-for="Message"></span>
+                        </div>
+                        <input class="form-control" type="submit" value="Gönder">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="https://www.google.com/recaptcha/api.js?render=@Configuration["GoogleReCaptcha:ClientKeyV3"]"></script>
+    <script>
+
+        grecaptcha.ready(function () {
+            grecaptcha.execute("@Configuration["GoogleReCaptcha:ClientKeyV3"]", { action: "Contact" })
+                .then(function (token) {
+                    $.ajax({
+                        type: 'Get',
+                        dataType: 'json',
+                        data: { token: token },
+                        url: '/Auth/RecaptchaVerifyV3/',
+                        success: function (data) {
+                            const isValid = jQuery.parseJSON(data);
+                            $('Body').prepend('<input type="hidden" name="token" value="' + token + '">');
+                        },
+                        error: function (err) {
+                            console.log(err);
+
+                        }
+                    });
+                });
+        });
+
+
+    </script>
+
+
+}

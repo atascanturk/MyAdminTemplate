@@ -12,6 +12,7 @@ namespace MyWebsite.Business.Abstract
     {
         List<Announcement> GetAll(Expression<Func<Announcement, bool>> filter = null);
         List<Announcement> GetAllByNonDeleted(Expression<Func<Announcement, bool>> filter = null);
+        List<Announcement> GetAllByNonDeletedWithId(int id,Expression<Func<Announcement, bool>> filter = null);
         Announcement Get(Expression<Func<Announcement, bool>> filter);
         void Add(Announcement announcement);
         void Update(Announcement announcement);

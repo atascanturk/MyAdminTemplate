@@ -13,6 +13,8 @@ namespace MyWebsite.Entities.Concrete
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         public bool IsDeleted { get; set; }
+        public string Profession { get; set; }
+        public bool IsAccepted { get; set; }
 
     }
 }

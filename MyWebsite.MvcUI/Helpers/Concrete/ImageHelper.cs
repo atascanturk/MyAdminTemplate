@@ -49,6 +49,12 @@ namespace MyWebsite.MvcUI.Helpers.Concrete
             /* Resimin uzantısı fileExtension adlı değişkene atanır. */
             string fileExtension = Path.GetExtension(pictureFile.FileName);
 
+
+            if (!fileExtension.Equals(".jpg") && !fileExtension.Equals(".png") && !fileExtension.Equals(".mp4"))
+            {
+                return new DataResult<ImageUploadedDto>(ResultStatus.Error, new ImageUploadedDto { });
+            }
+
             Regex regex = new("[*'\",._&#^@]");
             name = regex.Replace(name, string.Empty);
 

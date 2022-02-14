@@ -2,10 +2,11 @@
 @model List<Music>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Müzik Listesi";
     Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
     ViewBag.DashboardTitle = "Müzik Listesi";
     ViewBag.Dashboard = "Dashboard / Müzik Listesi";
+    var i = 1;
 }
 
 
@@ -43,12 +44,13 @@
                     @foreach (var music in Model)
                     {
                         <tr name="@music.Id">
-                            <td>@music.Id</td>
-                            <td>@(music.Path.Substring(music.Path.IndexOf("/")+1))</td>
+                            <td>@i</td>
+                            <td>@(music.Name)</td>
                             <td>                                
                                 <button class="btn btn-danger btn-sm btn-delete" data-id="@music.Id"><span class="fas fa-minus-circle"></span></button>
                             </td>
                         </tr>
+                        i++;
                     }
 
                 </tbody>

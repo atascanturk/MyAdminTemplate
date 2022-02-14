@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
 {
     [Area("WNqGRjUh3JPe")]
-    [Authorize(Roles ="SuperAdmin,Developer")]
+    [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class MemberController : Controller
     {
         IMemberService _memberService;

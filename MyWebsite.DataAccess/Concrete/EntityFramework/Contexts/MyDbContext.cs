@@ -29,6 +29,9 @@ namespace MyWebsite.DataAccess.Concrete.EntityFramework.Contexts
         public DbSet<Member> Members { get; set; }
         public DbSet<VisitorCount> VisitorCounts { get; set; }
         public DbSet<Seo> Seos { get; set; }
+        public DbSet<Bulletin> Bulletins { get; set; }
+        public DbSet<Alert> Alerts { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

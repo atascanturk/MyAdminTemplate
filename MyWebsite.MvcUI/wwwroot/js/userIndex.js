@@ -130,6 +130,7 @@
                 const form = $('#form-user-add');
                 const actionUrl = form.attr('action');
                 const dataToSend = new FormData(form.get(0));
+                const i = $('#hdni').val();
                 $.ajax({
                     url: actionUrl,
                     type: 'POST',
@@ -146,7 +147,7 @@
                         if (isValid) {
                             placeHolderDiv.find('.modal').modal('hide');
                             const newTableRow = dataTable.row.add([
-                                userAddAjaxModel.UserDto.User.Id,
+                                i,
                                 userAddAjaxModel.UserDto.User.UserName,
                                 userAddAjaxModel.UserDto.User.Email,
                                 userAddAjaxModel.UserDto.User.FirstName,

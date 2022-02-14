@@ -71,6 +71,7 @@
             function (event) {
                 event.preventDefault();
                 const form = $('#form-image-add');
+                const i = $('#hdni').val();
                 const actionUrl = form.attr('action');
                 const dataToSend = new FormData(form.get(0));
                 $.ajax({
@@ -90,7 +91,7 @@
                             console.log(imageAddAjaxModel.ImageDto.Image.Category.Name)
                             placeHolderDiv.find('.modal').modal('hide');
                             const newTableRow = dataTable.row.add([
-                                imageAddAjaxModel.ImageDto.Image.Id,                               
+                                    i,                               
                                 `<img src="/img/${imageAddAjaxModel.ImageDto.Image.Path}" alt="Resim Bulunamadı" class="my-image-table" />`,
                                 imageAddAjaxModel.ImageDto.Image.Category.Name,
                                 `                                                         

@@ -1,0 +1,39 @@
+﻿@model MyWebsite.Entities.Dtos.AlertAddDto
+
+
+@{
+    ViewData["Title"] = "Yeni bir başlangıç duyurusu ekle";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "Yeni bir başlangıç duyurusu ekle";
+    ViewBag.Dashboard = "Dashboard / Önemli Duyuru / Duyuru Ekle";
+}
+
+<form asp-controller="Alert" asp-action="AddAlert" method="post" enctype="multipart/form-data">
+
+    <div class="row mt-2">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    @Html.ValidationMessage("OnlyOneCheck", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <textarea cols="8" rows="6" type="text" id="articleTitle" class="form-control" placeholder="Duyuru İçerik" asp-for="Content" ></textarea>
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="thumbnailUpload" asp-for="File">Duyuru Dosya</label>
+                        <input type="file" id="fileUpload" accept="image/*" class="form-control-file" asp-for="File" />
+                        <span asp-validation-for="File" class="text-danger"></span>
+                    </div>
+                    @Html.ValidationMessage("AlertFileFormat", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="form-check">
+                <button type="submit" class="btn btn-primary btn-block mt-4">Kaydet</button>
+            </div>
+
+        </div>
+    </div>
+</form>
+

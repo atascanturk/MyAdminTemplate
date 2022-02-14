@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace MyWebsite.MvcUI.Areas.Admin.Controllers
 {
     [Area("WNqGRjUh3JPe")]
-    [Authorize(Roles = "SuperAdmin,Developer")]
+    [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class HomeController : Controller
     {
         IContactService _contactService;
@@ -29,17 +29,33 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
+            int memberCount;
+            try
+            {
+               memberCount = _memberService.GetAll().GroupBy(info => info.CreatedDate.Month)
+                                     .Select(group => new
+                                     {
+                                         Metric = group.Key,
+                                         Count = group.Count()
+                                     })
+                                     .OrderByDescending(x => x.Count).FirstOrDefault().Count;
+            }
+            catch (Exception)
+            {
+                memberCount = 100;
+               
+            }
+        
+
+
+
             ViewBag.UnReadContact = _contactService.GetAll(x => !x.IsRead).Count;
             ViewBag.AnnouncementCount = _announcementService.GetAll(x => !x.IsDeleted).Count;
             ViewBag.NewsCount = _newsService.GetAll(x => !x.IsDeleted).Count;
             ViewBag.MemberCount = _memberService.GetAll(x => !x.IsDeleted).Count;
             ViewBag.VisitorGraphMax = _visitorCountService.GetAll().Select(x=>x.Count).Max()*2;
-           ViewBag.MemberGraphMax = _memberService.GetAll().GroupBy(info => info.CreatedDate.Month)
-                        .Select(group => new {
-                            Metric = group.Key,
-                            Count = group.Count()
-                        })
-                        .OrderByDescending(x => x.Count).FirstOrDefault().Count*2;
+
+           ViewBag.MemberGraphMax = memberCount*2;
 
 
 

@@ -11,6 +11,7 @@ using MyWebsite.MvcUI.Services;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -58,11 +59,11 @@ namespace MyWebsite.MvcUI
                  builder.RegisterModule(new AutofacBusinessModule());
              })
                 .ConfigureWebHostDefaults(webBuilder =>
-                {
+                {                 
                     webBuilder.UseStartup<Startup>();
                 }).ConfigureServices(s =>
                 {
-                    s.AddHostedService<ViewsChangesCheckBackgroundService>();
+                    s.AddHostedService<ViewsChangesCheckBackgroundService>();                   
                 });
     }
 }

@@ -16,7 +16,7 @@ using MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Models;
 namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
 {
     [Area("WNqGRjUh3JPe")]
-    [Authorize(Roles ="SuperAdmin,Developer")]
+    [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class VideoController : Controller
     {
         IVideoService _videoService;

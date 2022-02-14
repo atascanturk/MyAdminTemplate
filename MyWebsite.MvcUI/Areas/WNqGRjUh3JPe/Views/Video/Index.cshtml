@@ -2,10 +2,11 @@
 @model List<Video>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Videolar";
     Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
     ViewBag.DashboardTitle = "Videolar";
     ViewBag.Dashboard = "Dashboard / Videolar";
+    var i = 1;
 }
 
 <div class="row">
@@ -44,12 +45,13 @@
                     @foreach (var video in Model)
                     {
                         <tr name="@video.Id">
-                            <td>@video.Id</td>
+                            <td>@i</td>
                             <td>@video.Root</td>
                             <td>
                                 <button class="btn btn-danger btn-sm btn-delete" data-id="@video.Id"><span class="fas fa-minus-circle"></span></button>
                             </td>
                         </tr>
+                        i++;
                     }
 
                 </tbody>

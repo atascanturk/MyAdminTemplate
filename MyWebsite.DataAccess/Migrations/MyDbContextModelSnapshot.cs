@@ -47,6 +47,9 @@ namespace MyWebsite.DataAccess.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Summary")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(80)
@@ -69,6 +72,27 @@ namespace MyWebsite.DataAccess.Migrations
                             LastName = "Admin",
                             Title = "Title"
                         });
+                });
+
+            modelBuilder.Entity("MyWebsite.Entities.Concrete.Alert", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Alerts");
                 });
 
             modelBuilder.Entity("MyWebsite.Entities.Concrete.Announcement", b =>
@@ -104,6 +128,24 @@ namespace MyWebsite.DataAccess.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Announcements");
+                });
+
+            modelBuilder.Entity("MyWebsite.Entities.Concrete.Bulletin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bulletins");
                 });
 
             modelBuilder.Entity("MyWebsite.Entities.Concrete.Category", b =>
@@ -158,6 +200,9 @@ namespace MyWebsite.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Subject")
@@ -239,6 +284,9 @@ namespace MyWebsite.DataAccess.Migrations
                     b.Property<string>("IdentityNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsAccepted")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -246,6 +294,9 @@ namespace MyWebsite.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Profession")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -262,6 +313,9 @@ namespace MyWebsite.DataAccess.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Path")
                         .IsRequired()
@@ -321,13 +375,40 @@ namespace MyWebsite.DataAccess.Migrations
                             Id = 1,
                             CategoryId = 1,
                             Content = "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.",
-                            CreatedDate = new DateTime(2022, 1, 24, 22, 4, 41, 738, DateTimeKind.Local).AddTicks(3752),
+                            CreatedDate = new DateTime(2022, 2, 13, 18, 20, 4, 925, DateTimeKind.Local).AddTicks(9050),
                             IsActive = true,
                             IsDeleted = false,
                             Thumbnail = "postImages/defaultThumbnail.jpg",
                             Title = "Test",
                             UserId = 1
                         });
+                });
+
+            modelBuilder.Entity("MyWebsite.Entities.Concrete.Project", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Thumbnail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("MyWebsite.Entities.Concrete.Role", b =>
@@ -362,154 +443,154 @@ namespace MyWebsite.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "459e8640-addb-4955-92eb-d402c6505ca1",
+                            ConcurrencyStamp = "eded5f09-3db7-420c-b63b-a75422ea97c8",
                             Name = "Category.Create",
                             NormalizedName = "CATEGORY.CREATE"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "3f22cb61-ee03-4383-add1-074fa0bc1311",
+                            ConcurrencyStamp = "037d3880-bcaf-4b73-a803-16cea9544b0f",
                             Name = "Category.Read",
                             NormalizedName = "CATEGORY.READ"
                         },
                         new
                         {
                             Id = 3,
-                            ConcurrencyStamp = "dbab6f5d-c1e0-4652-8be6-986c448a8625",
+                            ConcurrencyStamp = "5fe3e500-1b98-4ed2-afde-c10fab81f618",
                             Name = "Category.Update",
                             NormalizedName = "CATEGORY.UPDATE"
                         },
                         new
                         {
                             Id = 4,
-                            ConcurrencyStamp = "e1157ea3-f7ee-420c-93ac-b13dca633553",
+                            ConcurrencyStamp = "e81579ce-2477-480a-8e7a-8c68697f8f65",
                             Name = "Category.Delete",
                             NormalizedName = "CATEGORY.DELETE"
                         },
                         new
                         {
                             Id = 5,
-                            ConcurrencyStamp = "d5828c72-28dc-4e46-afa3-3b3700b48811",
+                            ConcurrencyStamp = "bd885666-612f-490b-81ec-fdf2963c75f4",
                             Name = "News.Create",
                             NormalizedName = "NEWS.CREATE"
                         },
                         new
                         {
                             Id = 6,
-                            ConcurrencyStamp = "4b2b78bf-eddb-4bdf-9f0e-ed3157394472",
+                            ConcurrencyStamp = "47604ff1-a8b2-4eab-82f6-b38fd60a248e",
                             Name = "News.Read",
                             NormalizedName = "NEWS.READ"
                         },
                         new
                         {
                             Id = 7,
-                            ConcurrencyStamp = "73609800-b11e-4d9d-9973-ace5eb650d36",
+                            ConcurrencyStamp = "6aa267c7-e3d4-48d6-90af-5505d3f01a26",
                             Name = "News.Update",
                             NormalizedName = "NEWS.UPDATE"
                         },
                         new
                         {
                             Id = 8,
-                            ConcurrencyStamp = "ce830675-f4cb-4d3d-a9d3-9f8a9f87a2fc",
+                            ConcurrencyStamp = "b7194827-eb49-4b3c-bfbd-7f4a74ee9126",
                             Name = "News.Delete",
                             NormalizedName = "NEWS.DELETE"
                         },
                         new
                         {
                             Id = 9,
-                            ConcurrencyStamp = "b56d04d6-d38c-4bc1-bcf8-4f0d70fd8123",
+                            ConcurrencyStamp = "79742951-625a-4e57-b2ca-9a4eb798cefc",
                             Name = "User.Create",
                             NormalizedName = "USER.CREATE"
                         },
                         new
                         {
                             Id = 10,
-                            ConcurrencyStamp = "55b2c993-c70a-40d5-ad1c-0f303b3ca03d",
+                            ConcurrencyStamp = "738779c4-f1a4-482d-81d6-9c7e2a33f180",
                             Name = "User.Read",
                             NormalizedName = "USER.READ"
                         },
                         new
                         {
                             Id = 11,
-                            ConcurrencyStamp = "f550e11b-8cb9-4def-8144-228ebb1d5eb0",
+                            ConcurrencyStamp = "6a3d9d48-522a-478d-844f-c82326652d1e",
                             Name = "User.Update",
                             NormalizedName = "USER.UPDATE"
                         },
                         new
                         {
                             Id = 12,
-                            ConcurrencyStamp = "4bbc8286-85d0-45dd-93bf-3c7250605f21",
+                            ConcurrencyStamp = "693086fb-91ef-4bb1-a23b-18ee0fba5cf6",
                             Name = "User.Delete",
                             NormalizedName = "USER.DELETE"
                         },
                         new
                         {
                             Id = 13,
-                            ConcurrencyStamp = "951466b0-d746-4d7c-a3a5-b9df242dae4d",
+                            ConcurrencyStamp = "d9ffd36c-0045-4cdd-b056-b6b264136ead",
                             Name = "Role.Create",
                             NormalizedName = "ROLE.CREATE"
                         },
                         new
                         {
                             Id = 14,
-                            ConcurrencyStamp = "b891654e-cc3e-41b8-af6d-5f7ecef5feb4",
+                            ConcurrencyStamp = "4d1692fa-f29b-4114-a958-97bff5a7221c",
                             Name = "Role.Read",
                             NormalizedName = "ROLE.READ"
                         },
                         new
                         {
                             Id = 15,
-                            ConcurrencyStamp = "69b7681e-a9e8-4531-80fa-fff8fc96f4b4",
+                            ConcurrencyStamp = "47a596ea-96d3-4f9a-8909-c260322ba275",
                             Name = "Role.Update",
                             NormalizedName = "ROLE.UPDATE"
                         },
                         new
                         {
                             Id = 16,
-                            ConcurrencyStamp = "92d03a01-e093-465c-8c68-5de689ef5870",
+                            ConcurrencyStamp = "65b3dbba-9b1a-4df8-a81f-513218cf6fff",
                             Name = "Role.Delete",
                             NormalizedName = "ROLE.DELETE"
                         },
                         new
                         {
                             Id = 17,
-                            ConcurrencyStamp = "dbfab9fa-c2c9-4c91-8250-6710fa6e1e85",
+                            ConcurrencyStamp = "6773d71f-5d38-4892-bcbd-585f9ba9870b",
                             Name = "Announcement.Create",
                             NormalizedName = "ANNOUNCEMENT.CREATE"
                         },
                         new
                         {
                             Id = 18,
-                            ConcurrencyStamp = "49177405-5f2f-40dd-915c-6e55b6e38694",
+                            ConcurrencyStamp = "c948daab-0a9e-41a5-ac48-7f51bbd62558",
                             Name = "Announcement.Read",
                             NormalizedName = "ANNOUNCEMENT.READ"
                         },
                         new
                         {
                             Id = 19,
-                            ConcurrencyStamp = "d1c01649-4f11-472f-a016-db16732fa1f0",
+                            ConcurrencyStamp = "5751defe-9f4b-45c2-bf3b-ef0a19dc90a1",
                             Name = "Announcement.Update",
                             NormalizedName = "ANNOUNCEMENT.UPDATE"
                         },
                         new
                         {
                             Id = 20,
-                            ConcurrencyStamp = "20fe2752-a114-48c6-8da0-a4a8d75adfef",
+                            ConcurrencyStamp = "86ee8217-a710-4d6b-ab01-bdcf70ee066a",
                             Name = "Announcement.Delete",
                             NormalizedName = "ANNOUNCEMENT.DELETE"
                         },
                         new
                         {
                             Id = 21,
-                            ConcurrencyStamp = "9087e3ce-f63d-4ecd-9bdd-96018a95f257",
+                            ConcurrencyStamp = "e79c9d17-2355-4fae-928d-405d3ef11432",
                             Name = "AdminArea.Home.Read",
                             NormalizedName = "ADMINAREA.HOME.READ"
                         },
                         new
                         {
                             Id = 22,
-                            ConcurrencyStamp = "f5499fdd-4787-4b2a-932b-23e7a44ffc8c",
+                            ConcurrencyStamp = "3782790b-817b-4ef2-a767-8e2577abb712",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         });
@@ -554,6 +635,9 @@ namespace MyWebsite.DataAccess.Migrations
                     b.Property<string>("SeoTags")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("Seos");
@@ -573,6 +657,9 @@ namespace MyWebsite.DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -705,7 +792,7 @@ namespace MyWebsite.DataAccess.Migrations
                             Id = 1,
                             About = "Admin User of ProgrammersBlog",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "71f50cf4-295b-4437-a791-d8f1f071d8a8",
+                            ConcurrencyStamp = "a181d89d-3285-4f19-a220-ffcaf91e4cdb",
                             Email = "adminuser@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -713,11 +800,11 @@ namespace MyWebsite.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMINUSER@GMAIL.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAECYOX5FM2xMLaLiLm274dvxwb1keQZcyxxbR0pv3YfgNn/k0S2gqptjT1gn+i7hm1A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA2oCft2kxTwmRXZPagmX5PsaQdJYFEVij4Q6X9eCnuHEjRS9c+1O4YMGa2rN42j9Q==",
                             PhoneNumber = "+905555555555",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "28ceed01-cf1e-4dce-923e-ecf246be6055",
+                            SecurityStamp = "43f77984-f7f3-4c0d-9a94-747e2a4c12f7",
                             TwoFactorEnabled = false,
                             UserName = "adminuser"
                         },
@@ -726,7 +813,7 @@ namespace MyWebsite.DataAccess.Migrations
                             Id = 2,
                             About = "Editor User of ProgrammersBlog",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "97ddf80d-3abf-4938-9ca7-220c86e11b95",
+                            ConcurrencyStamp = "2dcd527c-b8f0-4580-b095-ad76b58ae7d5",
                             Email = "editoruser@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -734,11 +821,11 @@ namespace MyWebsite.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "EDITORUSER@GMAIL.COM",
                             NormalizedUserName = "EDITORUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEF6Ji/ZFo58McLhdRCITc5kMsKzFJZ+HHWqaVKoDNYomGinnXADNj1//Sq/LIrfvVg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENYCJQnasocBoUi/SgKZukyUg9yaw+nNK+ao4xBMgw+B+0x9ypWDIN/OblxV1PBmmw==",
                             PhoneNumber = "+905555555555",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "158c96bc-7609-4608-8d7e-afdd20bf0ed5",
+                            SecurityStamp = "8d0ed18c-70c0-4e4b-a1dd-9134d2736a85",
                             TwoFactorEnabled = false,
                             UserName = "editoruser"
                         });
