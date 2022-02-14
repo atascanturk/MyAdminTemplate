@@ -44,7 +44,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
             {
                var category=  _mapper.Map<Category>(categoryAddDto);
                 _categoryService.Add(category);
-                return RedirectToAction("Index", "Category");
+                return RedirectToAction("Index", "Category",new { Area = "WNqGRjUh3JPe" });
             }
             else
             {
@@ -67,7 +67,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
             {
                var category = _mapper.Map<Category>(categoryUpdateDto);
                 _categoryService.Update(category);
-                return RedirectToAction("Index", "Category");
+                return RedirectToAction("Index", "Category", new { Area = "WNqGRjUh3JPe" });
             }
 
             else

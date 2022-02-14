@@ -53,7 +53,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
                     music.Path = musicResult.Data.FullName;
                     _musicService.Add(music);
 
-                    return RedirectToAction("Index", "Music");
+                    return RedirectToAction("Index", "Music", new { Area = "WNqGRjUh3JPe" });
                 }
                 else
                 {
