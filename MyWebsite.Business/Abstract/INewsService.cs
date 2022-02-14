@@ -14,6 +14,7 @@ namespace MyWebsite.Business.Abstract
         List<News> GetAllByNonDeletedAndActive(Expression<Func<News, bool>> filter = null);
         List<News> GetAllByNonDeleted(Expression<Func<News, bool>> filter = null);
         News Get(Expression<Func<News, bool>> filter);
+        News GetByIdNonDeletedAndActive(int id, Expression<Func<News, bool>> filter);
         void Add(News news);
         void Update(News news);
         void Delete(News news);

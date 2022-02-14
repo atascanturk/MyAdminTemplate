@@ -65,6 +65,15 @@ namespace BusinessLayer.DependencyResolvers.Autofac
             builder.RegisterType<SeoManager>().As<ISeoService>().SingleInstance();
             builder.RegisterType<EfSeoDal>().As<ISeoDal>().SingleInstance();
 
+            builder.RegisterType<BulletinManager>().As<IBulletinService>().SingleInstance();
+            builder.RegisterType<EfBulletinDal>().As<IBulletinDal>().SingleInstance();
+
+            builder.RegisterType<AlertManager>().As<IAlertService>().SingleInstance();
+            builder.RegisterType<EfAlertDal>().As<IAlertDal>().SingleInstance();
+
+            builder.RegisterType<ProjectManager>().As<IProjectService>().SingleInstance();
+            builder.RegisterType<EfProjectDal>().As<IProjecDal>().SingleInstance();
+
             builder.RegisterType<MernisServiceAdapter>().As<IUserCheckService>().SingleInstance();
 
             builder.RegisterType<MailManager>().As<IMailService>().SingleInstance();

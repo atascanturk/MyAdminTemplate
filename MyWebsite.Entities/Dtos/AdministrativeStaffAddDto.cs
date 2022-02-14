@@ -30,6 +30,11 @@ namespace MyWebsite.Entities.Dtos
         [MinLength(2, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         public string LastName { get; set; }
 
+        [DisplayName("Özet Bilgi")]
+        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir. ")]        
+        [MinLength(2, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
+        public string Summary { get; set; }
+
         [DisplayName("Resim")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir. ")]
         [DataType(DataType.Upload)]

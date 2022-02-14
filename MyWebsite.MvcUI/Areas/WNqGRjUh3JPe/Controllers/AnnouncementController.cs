@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 namespace MyWebsite.MvcUI.Areas.Admin.Controllers
 {
     [Area("WNqGRjUh3JPe")]
-    [Authorize(Roles = "SuperAdmin,Developer")]
+    [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class AnnouncementController : BaseController
     {
         IAnnouncementService _announcementService;
@@ -32,30 +32,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
            var announcements = _announcementService.GetAllByNonDeleted();
             return View(announcements);
         }
-
-        [HttpGet("WNqGRjUh3JPe/getannouncement/{id}/{title}", Name = "GetAnnouncement")]        
-        public IActionResult GetAnnouncement(int id, string title)
-        {
-            var announcement = _announcementService.Get(x => x.Id == id);
-
-            if (announcement == null)            {
-                
-               return NotFound();
-            }
-
-            // Get the actual friendly version of the title.
-            string friendlyTitle = FriendlyUrlHelper.GetFriendlyTitle(announcement.Title);
-
-            // Compare the title with the friendly title.
-            if (!string.Equals(friendlyTitle, title, StringComparison.Ordinal))
-            {
-                // If the title is null, empty or does not match the friendly title, return a 301 Permanent
-                // Redirect to the correct friendly URL.
-                return this.RedirectToRoutePermanent("GetAnnouncement", new { id = id, title = friendlyTitle });
-            }
-            return View();
-        }
-
+       
         [HttpGet]
         public IActionResult AddAnnouncement()
         {            

@@ -1,0 +1,69 @@
+﻿@model MyWebsite.Entities.Dtos.AlertUpdateDto
+
+@{
+    ViewData["Title"] = "Güncelle";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "";
+    ViewBag.Dashboard = "Dashboard / Önemli Duyuru / Güncelle";
+}
+
+<form asp-controller="Alert" asp-action="UpdateAlert" method="post" enctype="multipart/form-data">
+
+    <div class="row mt-2">
+        <div class="col-md-8">
+
+            <div class="card">
+
+                <div class="card-body">
+                    <input type="hidden" value="@Model.Id" asp-for="Id" />
+                    <div class="form-group">
+                        <label for="articleTitle" asp-for="Content"></label>
+                        <input type="text" id="alertContent" class="form-control" placeholder="Haber Başlığı" asp-for="Content" />
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="thumbnailUpload" asp-for="File">Duyuru Dosya</label>
+                        <input type="file" id="thumbnailUpload" accept="image/*" class="form-control-file" asp-for="File" />
+                        <span asp-validation-for="File" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="FilePath">Önceki Dosya :</label>
+                        <input asp-for="FilePath" type="hidden" />
+
+                        @{
+                            if (Model.FilePath.Contains(".mp4"))
+                            {
+                                <video width="200px" autoplay muted loop id="myVideo">
+                                    <source src="~/img/@Model.FilePath" type="video/mp4">
+                                </video>
+                            }
+
+                            else {
+
+                                <img class="my-image" src="~/img/@Model.FilePath" alt="Resim Bulunamadı." />
+                            }
+
+                        }
+
+
+
+                    </div>
+
+                    <div class="form-check">
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Kaydet</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>        
+
+    </div>
+
+</form>
+
+
+

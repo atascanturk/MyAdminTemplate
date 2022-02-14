@@ -31,8 +31,8 @@ namespace MyWebsite.MvcUI.Middlewares
                 {
                     Path = "/",
                     HttpOnly = true,
-                    Secure = false,
-                    Expires = DateTime.Now.AddDays(30 - DateTime.Now.Day) // Expire time will be till the end of the month.
+                    Secure = true,
+                    Expires = DateTime.Now.AddDays(DateTime.Now.Day < 29 ? 29 - DateTime.Now.Day : 1) // Expire time will be till the end of the month.
                 });
             }
 

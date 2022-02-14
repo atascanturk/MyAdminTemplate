@@ -1,0 +1,74 @@
+﻿@using MyWebsite.Entities.Concrete
+@model List<Project>
+
+@{
+    ViewData["Title"] = "Projeler";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "Proje Listesi";
+    ViewBag.Dashboard = "Dashboard / Projeler";
+    var i = 1;
+}
+
+<div class="row">
+    <div class="col-md-2"><a asp-area="WNqGRjUh3JPe" asp-controller="Project" asp-action="AddProject" type="button" id="btnAddProject" class=" btn btn-success">Yeni Proje Ekle</a></div>
+
+</div>
+
+<br />
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Son Paylaşılan Haberler
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="projectTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Başlık</th>                        
+                        <th>Proje Resim</th>                       
+                        <th>İşlemler</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Başlık</th>                        
+                        <th>Proje Resim</th>                       
+                        <th>İşlemler</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var project in Model)
+                    {
+                        <tr name="@project.Id" queue="@i">
+                            <td>@i</td>
+                            <td>@project.Title</td>                            
+                            <td><img src="~/img/@project.Thumbnail" alt="Resim Bulunamadı." class="my-image" /></td>
+                            <td>
+                                <a class="btn btn-primary btn-sm btn-update" data-id="@project.Id" data-queue="@i" asp-area="WNqGRjUh3JPe" asp-controller="Project" asp-action="UpdateProject" asp-route-id="@project.Id"><span class="fas fa-edit"></span></a>
+                                <button class="btn btn-danger btn-sm btn-delete" data-id="@project.Id"><span class="fas fa-minus-circle"></span></button>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {   
+
+    <script src="~/js/projectIndex.js" type="application/ecmascript"></script>
+}
+
+
+@section Styles {
+    <link href="~/css/imageStyles.css" rel="stylesheet" />
+}

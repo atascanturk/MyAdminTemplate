@@ -13,6 +13,7 @@ namespace MyWebsite.Entities.Concrete
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Title { get; set; }
+        public string Summary { get; set; }
         public string ImagePath { get; set; }
         public bool IsDeleted { get; set; }
         public int CategoryId { get; set; }

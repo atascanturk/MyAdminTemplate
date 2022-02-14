@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace MyWebsite.Business.ServiceAdapters
 {
-    public class MernisServiceFakeAdapter : IUserCheckService
-    {
-        public bool CheckIfUserRealPerson(Person person)
-        {
-            return true;
-        }
-    }
+    //public class MernisServiceFakeAdapter : IUserCheckService
+    //{
+    //    public bool CheckIfUserRealPerson(Person person)
+    //    {
+    //        return true;
+    //    }
+    //}
 }

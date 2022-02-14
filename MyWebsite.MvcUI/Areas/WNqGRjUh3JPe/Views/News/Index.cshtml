@@ -2,10 +2,11 @@
 @model List<News>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Haberler";
     Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
     ViewBag.DashboardTitle = "Haber Listesi";
     ViewBag.Dashboard = "Dashboard / Haberler";
+    var i = 1;
 }
 
 <div class="row">  
@@ -47,17 +48,18 @@
                 <tbody>
                     @foreach (var news in Model)
                     {
-                    <tr name="@news.Id">
-                        <td>@news.Id</td>
+                    <tr name="@news.Id" queue ="@i">
+                        <td>@i</td>
                         <td>@news.Title</td>
                         <td>@news.Category.Name</td>
                         <td><img src="~/img/@news.Thumbnail" alt="Resim Bulunamadı." class="my-image" /></td>
-                        <td>@(news.IsActive == true? "Aktif" : "Pasif") <a class="btn btn-primary btn-sm btn-changestatus" style="float:right; color:white;" data-id="@news.Id" ><span class="fas fa-remove"></span>  @(news.IsActive == true? "Pasif Yap":"Aktif Yap")</a></td>
+                        <td>@(news.IsActive == true? "Aktif" : "Pasif") <a class="@(news.IsActive == true? "btn btn-danger btn-sm btn-changestatus":"btn btn-success btn-sm btn-changestatus")" style="float:right; color:white;" data-id="@news.Id" data-queue="@i" ><span class="fas fa-remove"></span>  @(news.IsActive == true? "Pasif Yap":"Aktif Yap")</a></td>
                         <td>
-                            <a class="btn btn-primary btn-sm btn-update" data-id="@news.Id" asp-area="WNqGRjUh3JPe" asp-controller="News" asp-action="UpdateNews" asp-route-id="@news.Id"><span class="fas fa-edit"></span></a>                            
+                            <a class="btn btn-primary btn-sm btn-update" data-id="@news.Id" data-queue="@i" asp-area="WNqGRjUh3JPe" asp-controller="News" asp-action="UpdateNews" asp-route-id="@news.Id"><span class="fas fa-edit"></span></a>                            
                             <button class="btn btn-danger btn-sm btn-delete" data-id="@news.Id"><span class="fas fa-minus-circle"></span></button>
                         </td>
                     </tr>
+                        i++;
                     }
 
                 </tbody>

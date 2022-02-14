@@ -2,6 +2,7 @@
 using MyWebsite.Entities.Concrete;
 using MyWebsite.MvcUI.Areas.Admin.Models;
 using MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Models;
+using MyWebsite.MvcUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace MyWebsite.MvcUI.AutoMapper.Profiles
             CreateMap<MusicAddViewModel, Music>();
             CreateMap<SocialMediaUpdateViewModel, SocialMedia>().ReverseMap();
             CreateMap<Announcement, AnnouncementAddViewModel>().ReverseMap();
+            CreateMap<MemberAddViewModel, Member>();
+            CreateMap<BulletinAddViewModel, Bulletin>();
         }
     }
 }

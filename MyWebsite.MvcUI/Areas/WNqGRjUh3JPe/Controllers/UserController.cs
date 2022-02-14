@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
 {
     [Area("WNqGRjUh3JPe")]
-    [Authorize(Roles ="Developer")]
+    [Authorize(Roles ="SuperAdmin,Developer")]
     public class UserController : BaseController
     {
         private readonly SignInManager<User> _signInManager;
@@ -37,7 +37,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var users = await UserManager.Users.ToListAsync();
+            var users = await UserManager.Users.Where(x => x.UserName != "Developer").ToListAsync();
             return View(new UserListDto
             {
                 Users = users,
@@ -48,7 +48,7 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
         [HttpGet]
         public async Task<JsonResult> GetAllUsers()
         {
-            var users = await UserManager.Users.ToListAsync();
+            var users = await UserManager.Users.Where(x=>x.UserName!="Developer").ToListAsync();
             var userListDto = JsonSerializer.Serialize(new UserListDto
             {
                 Users = users,

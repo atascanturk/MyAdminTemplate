@@ -2,10 +2,11 @@
 @model List<Contact>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "İletişim";
     Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
     ViewBag.DashboardTitle = "İletişim";
     ViewBag.Dashboard = "Dashboard / İletişim";
+    var i = 1;
 }
 
 <div id="modalPlaceHolder" aria-hidden="true"></div>
@@ -20,6 +21,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Ad Soyad</th>
                         <th>Konu</th>
                         <th>Mail</th>
                         <th>Tarih</th>
@@ -30,6 +32,7 @@
                 <tfoot>
                     <tr>
                         <th>#</th>
+                        <th>Ad Soyad</th>
                         <th>Konu</th>
                         <th>Mail</th>
                         <th>Tarih</th>
@@ -42,18 +45,19 @@
                     @foreach (var contact in Model)
                     {
                     <tr  name="@contact.Id">
-                        <td>@contact.Id</td>
+                        <td>@i</td>
+                        <td>@contact.Name</td>
                         <td>@contact.Subject</td>
                         <td>@contact.Mail</td>
                         <td>@contact.CreatedDate.ToString("dd-MM-yyyy HH:mm")</td>
                         <td><span style="@(contact.IsRead == true ? "color:green;" : "color:red;")" class="@(contact.IsRead == true ? "fas fa-check-double" : "fas fa-times" )"></span>@(contact.IsRead == true ? " Görüldü" : " Okunmadı.")</td>
 
                         <td>
-                            <button class="btn btn-info btn-sm btn-detail" data-id="@contact.Id"><span class="far fa-envelope-open"></span></button>
-                            <button class="btn btn-danger btn-sm btn-delete" data-id="@contact.Id"><span class="fas fa-minus-circle"></span></button>
+                            <button class="btn btn-info btn-sm btn-detail" data-id="@contact.Id" data-queue="@i"><span class="far fa-envelope-open"></span></button>
+                            <button class="btn btn-danger btn-sm btn-delete" data-id="@contact.Id" ><span class="fas fa-minus-circle"></span></button>
                         </td>
                     </tr>
-
+                        i++;
                     }
 
                 </tbody>

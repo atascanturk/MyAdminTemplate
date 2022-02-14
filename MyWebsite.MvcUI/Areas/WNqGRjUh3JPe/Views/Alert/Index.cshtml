@@ -1,0 +1,81 @@
+﻿@using MyWebsite.Entities.Concrete
+@model List<Alert>
+
+@{
+    ViewData["Title"] = "Önemli Duyuru";
+    Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.DashboardTitle = "";
+    ViewBag.Dashboard = "Dashboard / Önemli Duyuru";
+    var i = 1;
+}
+
+<div><a asp-area="WNqGRjUh3JPe" asp-controller="Alert" asp-action="AddAlert" type="button" id="btnAddAlert" class=" btn btn-success">Yeni Duyuru Ekle</a></div>
+<br />
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+       Başlangıçta Görüntülenecek Duyurular
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="alertTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>İçerik</th>
+                        <th>Dosya</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>İçerik</th>
+                        <th>Dosya</th>
+                        <th>İşlemler</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var alert in Model)
+                    {
+                        <tr name="@alert.Id">
+                            <td>@i</td>
+                            <td>@alert.Content</td>
+                            <td>
+                                @{
+                                    if (alert.FilePath.Contains(".mp4"))
+                                    {
+                                        <video  class="my-image" autoplay muted loop id="myVideo">
+                                            <source src="~/img/@alert.FilePath" type="video/mp4">
+                                        </video>
+                                    }
+
+                                    else
+                                    {
+
+                                        <img class="my-image" src="~/img/@alert.FilePath" class="my-image" alt="Resim Bulunamadı." />
+                                    }
+
+                                }
+                            </td>
+                            <td>
+                                <a class="btn btn-primary btn-sm btn-update" data-id="@alert.Id" asp-area="WNqGRjUh3JPe" asp-controller="Alert" asp-action="UpdateAlert" asp-route-id="@alert.Id" ><span class="fas fa-edit"></span></a>
+                                <button class="btn btn-danger btn-sm btn-delete" data-id="@alert.Id"><span class="fas fa-minus-circle"></span></button>
+
+                            </td>
+                        </tr>
+                        i++;
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/alertIndex.js" type="application/ecmascript"></script>
+}
+
+

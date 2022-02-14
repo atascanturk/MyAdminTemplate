@@ -20,7 +20,7 @@ namespace MyWebsite.MvcUI.Helpers.Concrete
 
         private readonly IWebHostEnvironment _env;
         private readonly string _wwwroot;
-        private const string imgFolder = "music";
+        private const string musicFolder = "music";
         private const string uploadedMusicsFolder = "uploadedMusics";
          
         public MusicHelper(IWebHostEnvironment env)
@@ -31,7 +31,7 @@ namespace MyWebsite.MvcUI.Helpers.Concrete
 
         public IDataResult<MusicDeletedDto> Delete(string pictureName)
         {
-            var fileToDelete = Path.Combine($"{_wwwroot}/{imgFolder}/", pictureName);
+            var fileToDelete = Path.Combine($"{_wwwroot}/{musicFolder}/", pictureName);
             if (System.IO.File.Exists(fileToDelete))
             {
                 var fileInfo = new FileInfo(fileToDelete);
@@ -57,9 +57,9 @@ namespace MyWebsite.MvcUI.Helpers.Concrete
             folderName = uploadedMusicsFolder;
 
            
-            if (!Directory.Exists($"{_wwwroot}/{imgFolder}/{folderName}"))
+            if (!Directory.Exists($"{_wwwroot}/{musicFolder}/{folderName}"))
             {
-                Directory.CreateDirectory($"{_wwwroot}/{imgFolder}/{folderName}");
+                Directory.CreateDirectory($"{_wwwroot}/{musicFolder}/{folderName}");
             }
 
             
@@ -68,7 +68,7 @@ namespace MyWebsite.MvcUI.Helpers.Concrete
             
             string fileExtension = Path.GetExtension(musicFile.FileName);
 
-            if (!fileExtension.Equals("mp3"))
+            if (!fileExtension.Equals(".mp3"))
             {
                 return new DataResult<MusicUploadedDto>(ResultStatus.Error,new MusicUploadedDto { });
             }
@@ -82,7 +82,7 @@ namespace MyWebsite.MvcUI.Helpers.Concrete
             string newFileName = $"{name}_{dateTime.FullDateTimeStringWithUnderscore()}{fileExtension}";
 
             /* Kendi parametrelerimiz ile sistemimize uygun yeni bir dosya yolu (path) oluşturulur. */
-            var path = Path.Combine($"{_wwwroot}/{imgFolder}/{folderName}", newFileName);
+            var path = Path.Combine($"{_wwwroot}/{musicFolder}/{folderName}", newFileName);
 
             /* Sistemimiz için oluşturulan yeni dosya yoluna muzik kopyalanır. */
             await using (var stream = new FileStream(path, FileMode.Create))

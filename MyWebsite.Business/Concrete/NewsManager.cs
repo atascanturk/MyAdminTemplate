@@ -39,6 +39,12 @@ namespace MyWebsite.Business.Concrete
         }
 
         [CacheAspect]
+        public News GetByIdNonDeletedAndActive(int id, Expression<Func<News, bool>> filter = null)
+        {
+            return _newsDal.Get((x => x.IsActive & !x.IsDeleted & x.Id== id));
+        }
+
+        [CacheAspect]
         public List<News> GetAll(Expression<Func<News, bool>> filter = null)
         {
            return _newsDal.GetAll(filter);

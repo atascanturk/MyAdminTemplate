@@ -87,6 +87,7 @@ $(document).ready(function () {
         function (event) {
             event.preventDefault();
             const id = $(this).attr('data-id');
+            const queue = $(this).attr('data-queue');
             const tableRow = $(`[name="${id}"]`);            
             $.ajax({
                 type: 'POST',
@@ -96,14 +97,14 @@ $(document).ready(function () {
                 success: function (data) {
                     const news = jQuery.parseJSON(data);
                     dataTable.row(tableRow).data([
-                        news.Id,
+                        queue,
                         news.Title,
                         news.Category.Name,
                         `<img src="/img/${news.Thumbnail}" alt="Resim Bulunamadı" class="my-image"/>`,
-                        `${news.IsActive ? "Aktif" : "Pasif"}  <a class='btn btn-primary btn-sm btn-changestatus' style='color:white; float:right;' data-id='${news.Id}' asp-area="WNqGRjUh3JPe" asp-controller="News" asp-action="ChangeStatus" asp-route-announcementId="${news.Id}"><span class="fas fa-remove"></span>  ${(news.IsActive == true ? "Pasif Yap" : "Aktif Yap")}</a></td> ` ,
+                        `${news.IsActive ? "Aktif" : "Pasif"}  <a class='${news.IsActive ? "btn btn-danger btn-sm btn-changestatus" : "btn btn-success btn-sm btn-changestatus"}' style='color:white; float:right;' data-id='${news.Id}' data-queue="${queue}" asp-area="WNqGRjUh3JPe" asp-controller="News" asp-action="ChangeStatus" asp-route-announcementId="${news.Id}"><span class="fas fa-remove"></span>  ${(news.IsActive == true ? "Pasif Yap" : "Aktif Yap")}</a></td> ` ,
                         `                         
-                <a class='btn btn-primary btn-sm btn-update' style='color:white;' data-id="${news.Id}" href="/WNqGRjUh3JPe/News/UpdateNews/${news.Id}"><span class="fas fa-edit"></span></a>
-                            <button class="btn btn-danger btn-sm btn-delete" data-id="${news.Id}"><span class="fas fa-minus-circle"></span></button>`
+                <a class='btn btn-primary btn-sm btn-update' style='color:white;' data-id="${news.Id}" data-queue="${queue}" href="/WNqGRjUh3JPe/News/UpdateNews/${news.Id}"><span class="fas fa-edit"></span></a>
+                            <button class="btn btn-danger btn-sm btn-delete" data-id="${news.Id}" data-queue="${queue}" ><span class="fas fa-minus-circle"></span></button>`
                     ]);
                     tableRow.attr("name", `${id}`);
                     dataTable.row(tableRow).invalidate();

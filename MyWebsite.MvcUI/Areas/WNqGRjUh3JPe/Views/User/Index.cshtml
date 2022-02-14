@@ -3,10 +3,11 @@
 
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Kullanıcı Ayarları";
     Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
     ViewBag.DashboardTitle = "Kullanıcı Ayarları";
     ViewBag.Dashboard = "Dashboard / Kullanıcı Ayarları";
+    var i = 1;
 }
 
 @if (Model.ResultStatus == ResultStatus.Success)
@@ -53,7 +54,7 @@
                         @foreach (var user in Model.Users)
                         {
                             <tr name="@user.Id">
-                                <td>@user.Id</td>
+                                <td>@i</td>
                                 <td>@user.UserName</td>
                                 <td>@user.Email</td>
                                 <td>@user.FirstName</td>
@@ -68,10 +69,13 @@
                                     <button class="btn btn-danger btn-sm btn-delete" data-id="@user.Id"><span class="fas fa-minus-circle"></span></button>
                                 </td>
                             </tr>
+                            i++;
                         }
+
                     </tbody>
                 </table>
             </div>
+            <input type="hidden" id="hdni" value="@i" />
         </div>
     </div>
 }

@@ -2,10 +2,11 @@
 @model List<Slider>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Slider";
     Layout = "~/Areas/WNqGRjUh3JPe/Views/Shared/_AdminLayout.cshtml";
     ViewBag.DashboardTitle = "Slider Resimleri";
     ViewBag.Dashboard = "Dashboard / Slider";
+    var i = 1;
 }
 
 <div><a asp-area="WNqGRjUh3JPe" asp-controller="Slider" asp-action="AddSlider" type="button" id="btnAddNews" class=" btn btn-success">Yeni Slider Resmi Ekle</a></div>
@@ -22,6 +23,7 @@
                     <tr>
                         <th>#</th>                       
                         <th>Küçük Resim</th>                        
+                        <th>Başlık</th>                        
                         <th>İşlemler</th>                        
                     </tr>
                 </thead>
@@ -29,6 +31,7 @@
                     <tr>
                         <th>#</th>                       
                         <th>Küçük Resim</th>
+                        <th>Başlık</th>
                         <th>İşlemler</th>
 
                     </tr>
@@ -37,13 +40,14 @@
                     @foreach (var slider in Model)
                     {
                         <tr name="@slider.Id">
-                            <td>@slider.Id</td>
+                            <td>@i</td>
                             <td><img src="~/img/@slider.Path" alt="Resim bulunamadı." class="my-image-table"/></td>
-                           
+                            <td>@slider.Title</td>
                             <td>                               
                                 <button class="btn btn-danger btn-sm btn-delete" data-id="@slider.Id"><span class="fas fa-minus-circle"></span></button>
                             </td>
                         </tr>
+                        i++;
 
                     }
 

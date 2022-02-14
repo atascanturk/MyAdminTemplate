@@ -14,5 +14,9 @@ namespace MyWebsite.MvcUI.Areas.Admin.Models
         [Required(ErrorMessage = "Lütfen, bir {0} seçiniz.")]
         [DataType(DataType.Upload)]
         public IFormFile MusicFile { get; set; }
+
+        [DisplayName("Müzik Adı")]
+        [Required(ErrorMessage = "Lütfen, bir {0} giriniz.")]
+        public string Name { get; set; }
     }
 }
