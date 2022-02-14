@@ -1,0 +1,22 @@
+﻿@model MyWebsite.Entities.Concrete.Announcement
+@{
+    ViewData["Title"] = "Duyuru Detayı..";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input id="navItemValue" type="hidden" value="duyurular" />
+<div class="mb-3 mt-3">
+    <div class="container">
+        <div class="custom-title">
+            <h2>DUYURU DETAYI</h2>
+        </div>
+        <br />
+        <div class="news-details">
+            <h1>@Model.Title</h1>
+            <div class="text">
+                <p>@Html.Raw(Model.Content)</p>
+            </div>
+        </div>
+    </div>
+</div>
+

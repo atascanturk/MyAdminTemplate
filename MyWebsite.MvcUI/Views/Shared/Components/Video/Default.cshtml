@@ -1,0 +1,35 @@
+﻿@using MyWebsite.Entities.Concrete
+@model List<Video>
+
+
+
+<div class="bottom-slider">
+    <div class="course_demo1">
+        <div class="custom-title">
+            <h2>MEDYADA BİZ</h2>
+
+        </div>
+        <ul id="flexiselDemo1">
+            @foreach (var video in Model)
+            {
+                <li>
+                    <div class="blog-item">
+                        <div style="width: 100%; height: 380px; float: none; clear: both; margin: 2px auto;">
+                            <iframe src="@video.Root"
+                                   wmode="transparent"
+                                   type="video/mp4"
+                                   width="100%" height="100%"
+                                   allow="autoplay; encrypted-media; picture-in-picture"
+                                   allowfullscreen
+                                   title="Video"></iframe>
+
+                        </div>
+
+                    </div>
+                </li>
+            }
+
+
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+﻿@using MyWebsite.MvcUI.Models
+@model GetNewsViewModel
+@using System.Text.RegularExpressions;
+
+
+@{
+    ViewData["Title"] = "Haber Detay Sayfası Görüntüleniyor...";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Regex regex = new Regex("<[^>]*>");
+    Regex regexnbsp = new Regex("&nbsp;");
+}
+
+<input id="navItemValue" type="hidden" value="haberler" />
+<div class="mt-3 mb-3">
+    <!--/blog-->
+    <div class="container">
+        <div class="row">
+            <!--left-->
+            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                <div class="blog-grid-top">
+                    <div class="b-grid-top" style="margin-bottom:25px;">
+                        <div class="blog_info_left_grid">
+                            <h3 style="height: auto;color: red;">
+                                @Model.News.Title
+                            </h3>
+                            <img src="~/img/@Model.News.Thumbnail" class="img-fluid" alt="" style="height:auto;">
+
+                        </div>
+                        <div class="blog-info-middle">
+                            <ul>
+                                <li>
+                                    <span style="color: white;"><i class="far fa-calendar-alt"></i> @Model.News.CreatedDate.ToShortDateString()</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    @{ Model.News.Content = regex.Replace(Model.News.Content, ""); }
+                    @{ Model.News.Content = regexnbsp.Replace(Model.News.Content, ""); }
+                    <p style="height:auto">
+                        @Html.Raw(Model.News.Content)
+                    </p>
+
+                </div>
+            </div>
+            <!--//left-->
+            <!--right-->
+            <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+                <div class="right-blog-info text-left">
+
+                    <div class="single-gd tech-btm">
+                        <h4>SON HABERLER</h4>
+                        @foreach (var news in Model.NewsList)
+                        {
+                            <div>
+                                <div class="blog-grid-left">
+                                    <a href="/Haberler/@news.Id/@news.Title">
+                                        <img src="~/img/@news.Thumbnail" class="img-fluid" alt="" style="border-radius: 0;">
+                                    </a>
+                                </div>
+                                <div class="blog-grid-right p-2" style="border:none;">
+                                    <h5>
+                                        <a href="/Haberler/@news.Id/@news.Title">@news.Title</a>
+                                    </h5>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+
+                            <hr />
+                        }
+
+
+                    </div>
+                </div>
+            </aside>
+            <!--//right-->
+        </div>
+    </div>
+</div>
+<!--//main-->

@@ -1,0 +1,58 @@
+﻿@using MyWebsite.Entities.Concrete
+@using System.Text.RegularExpressions;
+@model List<News>
+
+@{
+    Regex regex = new Regex("<[^>]*>"); 
+    Regex regexnbsp = new Regex("&nbsp;"); 
+   
+    
+ }
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="custom-title">
+                <h2>Haberler</h2>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="button mt-3">
+                <a href="/Haberler" class="btn">Tüm Haberler <i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        @foreach (var news in Model)
+        {
+            <div class="col-md-4 blog-grid-top">
+                <div class="b-grid-top">
+                    <div class="blog_info_left_grid">
+                        <a href="/Haberler/@news.Id/@news.Title">
+                            <img src="~/img/@news.Thumbnail" class="img-fluid" alt="">
+                        </a>
+                    </div>
+                    <h3>
+                        <a href="/Haberler/@news.Id/@news.Title">@news.Title</a>
+                    </h3>
+                    @{ news.Content = regex.Replace(news.Content, ""); }
+                    @{ news.Content = regexnbsp.Replace(news.Content, ""); }
+                    
+                <p> @(news.Content.Length >= 200 ? news.Content.Substring(0, (news.Content.Substring(0,200).LastIndexOf(" "))) : news.Content )...</p>
+                   
+                </div>
+                <ul class="blog-icons">
+                    <li>
+                        <a href="/Haberler/@news.Id/@news.Title">
+                            <i class="fas fa-eye"></i> Habere Git
+                        </a>
+                    </li>
+                </ul>
+            </div>
+                        }
+
+
+
+
+    </div>

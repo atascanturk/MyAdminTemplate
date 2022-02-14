@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "Yüksek Danışma Kurulu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input id="navItemValue" type="hidden" value="kadromuz" />
+<div class="mt-2 mb-5">
+    <!--/blog-->
+    <div class="container">
+        <div class="custom-title mb-5">
+            <h2>YÜKSEK DANIŞMA KURULU</h2>
+        </div>
+        <div class="row">
+            <!--left-->
+            <div class="col-lg-9 left-blog-info-w3layouts-agileits kadromuz text-left">
+                <!--START OF ITEM-->
+                <div>
+                    @foreach (var administrativeStaff in Model)
+                    {
+                        <a href="/Management/Get/@administrativeStaff.Id" style="color:black;">
+                            <div class="row mb-3" style="background: #fafafa;">
+                                <div class="col-md-3 p-3">
+                                    <img src="~/img/@administrativeStaff.ImagePath" class="p-3">
+                                </div>
+                                <div class="col-md-9 text-center mt-2">
+
+                                    <span style="color:#b9b2b2;">@administrativeStaff.Title.ToUpper()</span>
+                                    <h2>@administrativeStaff.FirstName @administrativeStaff.LastName</h2>
+                                    <div class="footer-cpy text-center">
+                                        <div class="footer-social">
+
+                                        </div>
+                                    </div>
+                                    <p> @(administrativeStaff.Summary.Length >= 200 ? administrativeStaff.Summary.Substring(0, (administrativeStaff.Summary.Substring(0,200).LastIndexOf(" "))) : administrativeStaff.Summary )...</p>
+                                </div>
+                            </div>
+                        </a>
+                    }
+
+
+                </div>
+
+
+
+            </div>
+            <!--//left-->
+            <!--right-->
+            <aside class="col-lg-3 agileits-w3ls-right-blog-con text-right">
+
+                <div class="tech-btm">
+                    <h4>DİĞER KATEGORİLER</h4>
+                    <ul class="list-group single">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="/BaskanlikDivani" style="color:black;">BAŞKANLIK DİVANI</a>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="/MKYKUyeleri" style="color:black;">MKYK ÜYELERİ</a>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="/MDKUyeleri" style="color:black;">MDK ÜYELERİ</a>
+                        </li>                       
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a href="/OzelKalem" style="color:black;">ÖZEL KALEM</a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+        </aside>
+        <!--//right-->
+    </div>
+</div>
+

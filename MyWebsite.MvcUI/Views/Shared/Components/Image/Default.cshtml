@@ -1,0 +1,44 @@
+﻿@using MyWebsite.Entities.Concrete
+@model List<Image> 
+
+<div id="Galeri" class="w3-container tab" style="display:none;">
+
+    <div class="container mt-3">
+        <h2>MUHSİN YAZICIOĞLU </h2>
+        <div class="top-forms">
+            <span>
+                <a href="" style="background: #393997;" class="btn btn-primary register">TÜM FOTOĞRAFLAR</a>
+            </span>
+        </div>
+        <div class="row">
+            @foreach (var image in Model.OrderByDescending(x=>x.Id).Where(x=>x.CategoryId == 1012).Take(3).ToList())
+            {
+                <div class="col-md-4">
+                    <a href="~/img/@image.Path" data-fancybox="gallery" data-caption="Muhsin YAZICIOĞLU"><img src="~/img/@image.Path"></a>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2>MUSTAFA DESTİCİ </h2>
+        <div class="top-forms">
+            <span>
+                <a href="" style="background: #393997;" class="btn btn-primary register">TÜM FOTOĞRAFLAR</a>
+            </span>
+        </div>
+        <div class="row">
+
+            @foreach (var image in Model.OrderByDescending(x => x.Id).Where(x => x.CategoryId == 1013).Take(3).ToList())
+            {
+                <div class="col-md-4">
+                <a href="~/img/@image.Path" data-fancybox="gallery" data-caption="Mustafa DESTİCİ"><img src="~/img/@image.Path"></a>
+                </div>
+            }            
+       
+        </div>
+    </div>
+</div>
