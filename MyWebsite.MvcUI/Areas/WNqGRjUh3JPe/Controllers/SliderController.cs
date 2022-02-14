@@ -48,7 +48,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
             var slider = _mapper.Map<Slider>(sliderAddViewModel);
             slider.Path = imageResult.Data.FullName;
             _sliderService.Add(slider);
-            return RedirectToAction("Index","Slider");
+            return RedirectToAction("Index","Slider", new { Area = "WNqGRjUh3JPe" });
         }
 
         [HttpPost]
