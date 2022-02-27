@@ -50,7 +50,7 @@ namespace MyWebsite.Business.Concrete
             _memberDal.Delete(member);
         }
 
-        [CacheAspect]
+       
         public Member Get(Expression<Func<Member, bool>> filter)
         {
             return _memberDal.Get(filter);

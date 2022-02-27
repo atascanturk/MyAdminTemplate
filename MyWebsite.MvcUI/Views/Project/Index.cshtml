@@ -1,0 +1,62 @@
+﻿@using MyWebsite.Entities.Concrete
+@using System.Text.RegularExpressions;
+
+@model List<Project>
+
+@{
+    ViewData["Title"] = "Projeler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Regex regex = new Regex("<[^>]*>");
+    Regex regexnbsp = new Regex("&nbsp;");
+}
+
+<input id="navItemValue" type="hidden" value="partimiz" />
+<div class="main-content-w3layouts-agileits mt-3">
+    <div class="course_demo1">
+        <div class="row">
+            <!--left-->
+            <div class="col-lg-12 left-blog-info-w3layouts-agileits text-center">
+
+                <div class="custom-title">
+                    <h2>Projeler</h2>
+                </div>
+                <br />
+                <div class="row">
+                    @foreach (var project in Model)
+                    {
+                        <div class="col-md-3 blog-grid-top">
+                            <div class="b-grid-top">
+                                <div class="blog_info_left_grid">
+                                    <a href="/Projeler/@project.Id/@project.Title">
+                                        <img src="~/img/@project.Thumbnail" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <h3>
+                                    <a href="/Projeler/@project.Id/@project.Title"></a>
+                                </h3>
+                                @{ project.Content = regex.Replace(project.Content, ""); }
+                                @{ project.Content = regexnbsp.Replace(project.Content, ""); }
+
+                                <p> @(project.Content.Length >= 180 ? project.Content.Substring(0, (project.Content.Substring(0, 180).LastIndexOf(" "))) : project.Content )...</p>
+
+                            </div>
+                            <ul class="blog-icons">
+                                <li>
+                                    <a href="/Projeler/@project.Id/@project.Title">
+                                        <i class="fas fa-eye"></i> Projeyi İncele
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+
+            <!--//left-->
+
+        </div>
+    </div>
+</div>
+

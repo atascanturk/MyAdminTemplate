@@ -1,0 +1,68 @@
+﻿@using MyWebsite.Entities.Concrete
+@model List<Slider>
+
+
+<div class="custom-title">
+    <h2>SON GELİŞMELER</h2>
+</div>
+<!--slider-->
+<div class="row">
+    <div class="col-md-10">
+        <div id="sondakika" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner sondakika" role="listbox">
+                <div class="carousel-item active">
+                    <a href="~/img/@(Model.FirstOrDefault().Path)" data-fancybox="gallery" data-caption="">
+                        <img src="~/img/@(Model.FirstOrDefault().Path)" class="d-block w-100" alt="...">
+                    </a>
+                    <div class="carousel-caption d-md-block">
+                        <h4 class="slideryazi">@(Model.FirstOrDefault().Title)</h4>
+                    </div>
+                </div>
+
+                @foreach (var slider in Model.Skip(1))
+                {
+
+
+                    <div class="carousel-item">
+                        <a href="~/img/@(slider.Path)" data-fancybox="gallery" data-caption="">
+                            <img src="~/img/@slider.Path" class="d-block w-100" alt="...">
+                        </a>
+                        <div class="carousel-caption d-md-block">
+                            <h4 class="slideryazi">@(slider.Title)</h4>
+                        </div>
+                    </div>
+
+
+                }
+
+            </div>
+            <a class="carousel-control-prev" href="#sondakika" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Önceki</span>
+            </a>
+            <a class="carousel-control-next" href="#sondakika" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Sonraki</span>
+            </a>
+        </div>
+        <!--/slider-->
+    </div>
+
+
+    <div class="col-md-2 slider-small">
+
+        <ul>
+            <li data-target="#sondakika" data-slide-to="0" class="active">
+                <img src="~/img/@(Model.FirstOrDefault().Path)" class="d-block w-100" alt="...">
+            </li>
+
+            @foreach (var slider in Model.Skip(1).Take(5))
+            {
+                <li data-target="#sondakika" data-slide-to="1">
+                    <img src="~/img/@(slider.Path)" class="d-block w-100" alt="...">
+                </li>
+            }
+            </ul>
+
+    </div>
+</div>

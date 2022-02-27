@@ -192,6 +192,8 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
                 var result = await UserManager.UpdateAsync(updatedUser);
                 if (result.Succeeded)
                 {
+                    await UserManager.UpdateSecurityStampAsync(updatedUser);
+
                     if (isNewPictureUploaded)
                     {
                         ImageHelper.Delete(oldUserPicture);

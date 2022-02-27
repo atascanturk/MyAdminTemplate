@@ -1,8 +1,85 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<input id="navItemValue" type="hidden" value="anasayfa" />
+<div id="modalPlaceHolder" aria-hidden="true"></div>
+
+@await Component.InvokeAsync("VideoSection")
+<!--/main-->
+
+<div class="main-content-w3layouts-agileits mt-3">
+    <div class="course_demo1">
+        <div class="row">
+
+            <!--left-->
+            <div class="col-lg-9 left-blog-info-w3layouts-agileits text-center">
+
+
+                @await Component.InvokeAsync("Slider")
+
+                @await Component.InvokeAsync("News")
+
+            </div>
+            <!--//left-->
+            <!--right-->
+            @await Component.InvokeAsync("Aside")
+            <!--//right-->
+        </div>
+    </div>
 </div>
+
+
+<!--//main-->
+
+@await Component.InvokeAsync("Video")
+
+<div class="course_demo1">
+
+    <div class="custom-title">
+        <h2>SOSYAL MEDYADA BİZ</h2>
+    </div>
+
+</div>
+<!--/middle-->
+
+@await Component.InvokeAsync("Twitter")
+
+@await Html.PartialAsync("_SmartBottomMenuPartial")
+
+
+@section Scripts{
+    <script src="https://www.google.com/recaptcha/api.js?render=@Configuration["GoogleReCaptcha:ClientKeyV3"]"></script>
+    <script>
+
+        grecaptcha.ready(function () {
+            grecaptcha.execute("@Configuration["GoogleReCaptcha:ClientKeyV3"]", { action: "Home" })
+                .then(function (token) {
+                    $.ajax({
+                        type: 'Get',
+                        dataType: 'json',
+                        data: { token: token },
+                        url: '/Auth/RecaptchaVerifyV3/',
+                        success: function (data) {
+                            const isValid = jQuery.parseJSON(data);
+                            $('Body').prepend('<input type="hidden" name="token" value="' + token + '">');
+                        },
+                        error: function (err) {
+                            console.log(err);
+
+                        }
+                    });
+                });
+        });
+
+
+    </script>
+
+    <script src="~/js/alertUIIndex.js"></script>
+    
+}

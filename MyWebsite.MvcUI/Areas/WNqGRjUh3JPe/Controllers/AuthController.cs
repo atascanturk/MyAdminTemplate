@@ -18,7 +18,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        IRecaptchaValidator _recaptchaValidator;
+        readonly IRecaptchaValidator _recaptchaValidator;
 
 
         public AuthController(UserManager<User> userManager, SignInManager<User> signInManager, IRecaptchaValidator recaptchaValidator)

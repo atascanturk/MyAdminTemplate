@@ -18,5 +18,6 @@ namespace MyWebsite.MvcUI.Areas.Admin.Models
         [DisplayName("Başlık")]
         [Required(ErrorMessage = "Lütfen, bir {0} giriniz.")]
         public string Title { get; set; }
+        public string Content { get; set; }
     }
 }
