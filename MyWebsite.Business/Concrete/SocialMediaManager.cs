@@ -30,8 +30,7 @@ namespace MyWebsite.Business.Concrete
         {
             _socialMediaDal.Delete(socialMedia);
         }
-
-        [CacheAspect]
+                
         public SocialMedia Get(Expression<Func<SocialMedia, bool>> filter)
         {
             return _socialMediaDal.Get(filter);

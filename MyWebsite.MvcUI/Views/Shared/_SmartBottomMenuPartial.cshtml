@@ -1,0 +1,150 @@
+﻿<div>
+    <div class="wrapper">
+        <h2>BİZE DAİR HERŞEY</h2>
+        <h6>Partimiz ile ilgili envanterlere buradan ulaşabilirsiniz.</h6>
+        <nav class="tabs">
+            <div class="selector"></div>
+            <a onclick="openTabs('Galeri')"><i class="fas fa-image"></i>FOTO GALERİ</a>
+            <a onclick="openTabs('Müzik')"><i class="fas fa-play"></i>MÜZİK ARŞİVİ</a>
+            <a onclick="openTabs('Video')"><i class="fas fa-video"></i>VİDEOLAR</a>
+            <a onclick="openTabs('Dosyalar')"><i class="fa fa-folder-open"></i>DOSYALAR</a>          
+            <a onclick="openTabs('Afişler')"><i class="fa fa-paper-plane"></i>AFİŞLER</a>
+            <a onclick="openTabs('Ios')"><i class="fab fa-apple"></i>IOS UYGULAMASI</a>
+            <a onclick="openTabs('Android')"><i class="fab fa-android"></i>ANDROID UYGULAMASI</a>
+        </nav>
+        @await Component.InvokeAsync("Image")
+        <div id="Müzik" class="w3-container tab" style="display:none;">
+            <div class="container mt-3">
+                <div class="row mb-3 pt-2 pl-2 pr-2" style="background: #f1f3f4;border-radius: 20px;">
+                    <div class="col-md-1">
+                        <h1><i class="fa fa-music"></i></h1>
+                    </div>
+                    <div class="col-md-5 pt-2 mt-1">
+                        <h5>İSTİKLAL MARŞI</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <audio controls="controls">
+                            <source src="~/bbp/audio/istiklal.mp3" type="audio/mpeg" />
+                        </audio>
+                    </div>
+                </div>
+                <div class="row mb-3 pt-2 pl-2 pr-2" style="background: #f1f3f4;border-radius: 20px;">
+                    <div class="col-md-1">
+                        <h1><i class="fa fa-music"></i></h1>
+                    </div>
+                    <div class="col-md-5 pt-2 mt-1">
+                        <h5>Biz Hazırız Türkiyem</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <audio controls="controls">
+                            <source src="~/bbp/audio/haziriz.mp3" type="audio/mpeg" />
+                        </audio>
+                    </div>
+                </div>
+                <div class="row mb-3 pt-2 pl-2 pr-2" style="background: #f1f3f4;border-radius: 20px;">
+                    <div class="col-md-1">
+                        <h1><i class="fa fa-music"></i></h1>
+                    </div>
+                    <div class="col-md-5 pt-2 mt-1">
+                        <h5>Muhsin Yazıcıoğlu'nun Son Seçim</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <audio controls="controls">
+                            <source src="~/bbp/audio/son-secim.mp3" type="audio/mpeg" />
+                        </audio>
+                    </div>
+                </div>
+            </div>
+            <div class="top-forms">
+                <span>
+                    <a href="/Music" style="background: #393997;" class="btn btn-primary register">TÜM MÜZİKLER</a>
+                </span>
+            </div>
+        </div>
+        <div id="Video" class="w3-container tab" style="display:none;">
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col-md-4 alt-tabs">
+                        <i class="fab fa-youtube" style="color: red;"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="top-forms mt-3" style="text-align: left;">
+                            <span>
+                                <a href="https://www.youtube.com/user/bbpgenelmerkezi" target="_blank" class="btn btn-primary register" target="_blank"> TÜM YOUTUBE VİDEOLARIMIZ İÇİN TIKLAYIN .</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="Dosyalar" class="w3-container tab" style="display:none;">
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col-md-4 alt-tabs">
+                        <i class="fa fa-folder-open" style="color: #7e6f6f;"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="top-forms mt-3" style="text-align: left;">
+                            <span>
+                                <a href="/Dosyalar" class="btn btn-primary register" style="background:#7e6f6f;"> DOSYALARA BURADAN ULAŞABİLİRSİNİZ.</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>        
+        <div id="Afişler" class="w3-container tab" style="display:none;">
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col-md-4 alt-tabs">
+                        <i class="fas fa-archive" style="color: #2d77ff;"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="top-forms mt-3" style="text-align: left;">
+                            <span>
+                                <a href="/Afisler" class="btn btn-primary register" style="background:#2d77ff;"> AFİŞLERİMİZE BURADAN ULAŞABİLİRSİNİZ.</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="Ios" class="w3-container tab" style="display:none;">
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col-md-4 alt-tabs">
+                        <i class="fab fa-apple" style="color: #7e6f6f;"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="top-forms mt-4" style="text-align: left;">
+                            <span>
+                                IOS uygulamamız yapım aşamasındadır.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="Android" class="w3-container tab" style="display:none;">
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col-md-4 alt-tabs">
+                        <i class="fab fa-android" style="color: #7e6f6f;"></i>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="top-forms mt-4" style="text-align: left;">
+                            <span>
+                                Android uygulamamız yapım aşamasındadır.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

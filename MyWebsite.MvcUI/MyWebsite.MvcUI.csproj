@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\bbp\.vs\ProjectSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
@@ -41,9 +45,42 @@
   <ItemGroup>
     <Folder Include="Areas\WNqGRjUh3JPe\Data\" />
     <Folder Include="Logs\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\bbp\.vs\slnx.sqlite" />
+    <None Include="wwwroot\bbp\css\bootstrap.css.map" />
+    <None Include="wwwroot\bbp\dosyalar\24-haziran-secim-kitapcigi.pdf" />
+    <None Include="wwwroot\bbp\dosyalar\bagis-formu.doc" />
+    <None Include="wwwroot\bbp\dosyalar\belediye-baskan-aday-adayligi-evrak.doc" />
+    <None Include="wwwroot\bbp\dosyalar\belediye-baskan-aday-adayligi-formu.doc" />
+    <None Include="wwwroot\bbp\dosyalar\belediye-meclis-uyeligi-aday-formu.doc" />
+    <None Include="wwwroot\bbp\dosyalar\il-genel-meclis-uyeligi-aday-formu.doc" />
+    <None Include="wwwroot\bbp\dosyalar\kesin-hesap-formu.docx" />
+    <None Include="wwwroot\bbp\dosyalar\kurulus-kongre-evraklari.doc" />
+    <None Include="wwwroot\bbp\dosyalar\mdk-aday-adayi-formu.doc" />
+    <None Include="wwwroot\bbp\dosyalar\mkyk-aday-adayi-formu.doc" />
+    <None Include="wwwroot\bbp\dosyalar\nobeti-sulh-ceza-hakimligi-dilekce.docx" />
+    <None Include="wwwroot\bbp\dosyalar\Parti-Programi.pdf" />
+    <None Include="wwwroot\bbp\dosyalar\tuzuk.pdf" />
+    <None Include="wwwroot\bbp\dosyalar\uye-kayit-listesi.xls" />
+    <None Include="wwwroot\bbp\dosyalar\yonetim-kurulu-cizelgesi.xls" />
+    <None Include="wwwroot\bbp\js\bootstrap.js" />
+    <None Include="wwwroot\bbp\js\bootstrap.js.map" />
+    <None Include="wwwroot\bbp\js\easing.js" />
+    <None Include="wwwroot\bbp\js\jquery-2.2.3.min.js" />
+    <None Include="wwwroot\bbp\js\jquery.desoslide.js" />
+    <None Include="wwwroot\bbp\js\jquery.flexisel.js" />
+    <None Include="wwwroot\bbp\js\jquery.min.js" />
+    <None Include="wwwroot\bbp\js\modernizr.custom.min.js" />
+    <None Include="wwwroot\bbp\js\move-top.js" />
+    <None Include="wwwroot\bbp\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\bbp\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\bbp\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\bbp\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\bbp\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\bbp\webfonts\fa-solid-900.woff2" />
     <None Include="wwwroot\ComingSoon\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\ComingSoon\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
     <None Include="wwwroot\ComingSoon\fonts\font-awesome-4.7.0\less\animated.less" />

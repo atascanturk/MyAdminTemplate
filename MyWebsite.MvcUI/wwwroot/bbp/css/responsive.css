@@ -1,0 +1,1330 @@
+@media (max-width:1916px) {
+    .navbar-light .navbar-nav .nav-link {
+        font-size: 1.05em;
+    }
+}
+
+.kadromuz img , .kadroDetay img {
+    width: 125px;
+}
+
+@media (max-width:1850px) {
+    .navbar-light .navbar-nav .nav-link {
+        font-size: 1em;
+    }
+}
+
+@media (max-width:1752px) {
+    .navbar-light .navbar-nav .nav-link {
+        font-size: .9em;
+    }
+
+    a.navbar-brand {
+        font-size: 1.4em;
+    }
+
+    a.btn.btn-primary.register {
+        font-size: 17px;
+    }
+
+    .carousel-item {
+        height: 27em;
+    }
+
+    .sondakika {
+        height: 31em;
+    }
+
+    .carousel-item img {
+        height: 30rem;
+    }
+
+    .slideryazi {
+        font-size: 18px;
+        position: absolute;
+    }
+
+
+    .blog-grids a {
+        width: 286px;
+    }
+
+    #typedtext {
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0.6px;
+    }
+
+    .box-1 img {
+        width: 50%;
+        height: 195px;
+    }
+
+    video {
+        height: 80%;
+    }
+
+    .yirmibesyillogo {
+        position: absolute;
+        width: 100%;
+        height: 232px;
+        top: 400px;
+        overflow: hidden;
+    }
+
+    .blog-grids a::after {
+        width: 100%;
+    }
+
+    .widget_social li span {
+        font-size: 13px;
+    }
+
+    .widget_social li a i {
+        font-size: 30px;
+        width: 40px;
+    }
+
+    .widget_social li a {
+        padding: 3px 38px;
+    }
+
+    .duyurular {
+        padding: 10px 30px 0px;
+    }
+
+    .video-wrapper {
+        height: 790px;
+    }
+
+    .slider-section {
+        height: 680px;
+    }
+
+    .blog_info_left_grid img {
+        height: 260px;
+    }
+
+    .blog-grid-top h3, .two-blog2 h3, h5.card-title {
+        font-size: 1em;
+        margin: 1em 0 0 0;
+        font-weight: 700;
+        height: 55px;
+    }
+
+    .blog-grid-top p, .two-blog2 p {
+        height: 190px;
+    }
+
+    .list-title, .list-title a {
+        height: 55px;
+        margin-top: 8px;
+        font-size: 18px;
+    }
+
+    .list-image img {
+        height: 55px;
+    }
+
+    .list-item-file .list-title {
+        height: 50px;
+        line-height: 30px;
+    }
+}
+
+@media (max-width:1586px) {
+    .navbar-light .navbar-nav .nav-link {
+        font-size: .81em;
+    }
+
+    a.btn.btn-primary.register {
+        font-size: 16px;
+    }
+
+    .songelismeler {
+        width: 63%;
+        margin: auto;
+    }
+
+    .widget_social li a {
+        padding: 0px 0;
+        border-radius: 30px !important;
+    }
+
+    .slider-small li {
+        height: 90px;
+    }
+
+    .widget_social img {
+        width: 20%;
+    }
+
+    .widget_social li a {
+        width: 90%;
+    }
+}
+
+@media(max-width:1440px) {
+    .bottom-slider, .main-content-w3layouts-agileits, footer, .banner-bottom {
+        padding: 0 0;
+    }
+
+    section.middle-sec-agileinfo-w3ls {
+        min-height: 665px;
+        padding: 3em 0;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        font-size: .71em;
+    }
+
+    a.btn.btn-primary.register {
+        font-size: 15px;
+    }
+
+    #typedtext {
+        font-size: 13px;
+    }
+
+    .box-1 img {
+        width: 50%;
+        height: 175px;
+    }
+
+    .songelismeler {
+        width: 71%;
+    }
+
+    .slider-section {
+        height: 650px;
+    }
+
+    .blog_info_left_grid img {
+        height: 200px;
+    }
+
+    .blog-grid-top h3, .two-blog2 h3, h5.card-title {
+        font-size: .9em;
+        height: 65px;
+    }
+
+    .blog-grid-top p, .two-blog2 p {
+        height: 190px;
+    }
+
+    .widget_social li a {
+        padding: 0px 0px;
+        border-radius: 35px !important;
+    }
+
+    .widget_social li span {
+        font-size: 11px;
+    }
+
+    .blog-grids a {
+        width: 210px;
+        font-size: 12px;
+    }
+
+    .blog-grid-top p, .two-blog2 p {
+        font-size: 13px;
+    }
+
+    .widget_social img {
+        width: 20%;
+    }
+}
+
+@media(max-width:1280px) {
+    .carousel-item {
+        height: 36em;
+    }
+
+    .carousel-caption {
+        bottom: 10em;
+    }
+
+    form.header-search {
+        width: 34%;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        font-size: .73em;
+        padding: 0.4em 0.6em;
+    }
+
+    a.navbar-brand {
+        font-size: 1.2em;
+    }
+
+    a.btn.btn-primary.register {
+        font-size: 12px;
+    }
+
+    #typedtext {
+        font-size: 12px;
+    }
+
+    .box-1 img {
+        width: 60%;
+        height: 166px;
+    }
+}
+
+@media(max-width:1150px) {
+
+    .navbar-light .navbar-nav .nav-link {
+        font-size: .7em;
+        padding: 0.4em 0.5em;
+    }
+
+    a.navbar-brand {
+        font-size: 1.2em;
+    }
+
+    a.btn.btn-primary.register {
+        font-size: 12px;
+    }
+
+    #typedtext {
+        font-size: 11px;
+    }
+
+    .songelismeler {
+        width: 100%;
+    }
+}
+
+@media(max-width:1080px) {
+    button.btn.btn-primary.play {
+        left: 43%;
+        bottom: 50%;
+    }
+
+    .carousel-item {
+        height: 33em;
+    }
+
+    .carousel-caption {
+        bottom: 8em;
+    }
+
+    .top-forms span {
+        font-size: 0.85em;
+    }
+
+    .bg-darkp {
+        background-color: #000 !important;
+    }
+
+    .yirmibesyillogo {
+        height: 163px;
+        top: 253px;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        font-size: .684em;
+        padding: 0.4em 0.4em;
+    }
+
+    a.navbar-brand {
+        font-size: 1.1em;
+    }
+
+    a.btn.btn-primary.register {
+        font-size: 12px;
+    }
+
+    .navbar {
+        margin-top: 0;
+    }
+
+    .video-wrapper {
+        height: 520px;
+    }
+
+    #typedtext {
+        font-size: 10.3px;
+        line-height: 16px;
+        letter-spacing: 0.3px;
+    }
+
+    .slider-section {
+        height: 437px;
+    }
+
+    .bottom-slider, .main-content-w3layouts-agileits, footer, .banner-bottom {
+        padding: 0;
+    }
+
+    .blog_info_left_grid img {
+        height: 170px;
+    }
+
+    .tech-btm h4 {
+        font-size: 1em;
+    }
+
+    p {
+        font-size: 0.7em;
+    }
+
+    .blog-grid-top h3, .two-blog2 h3, h5.card-title {
+        height: 80px;
+    }
+
+    .widget_social li span {
+        font-size: 12px;
+    }
+
+    .widget_social li a {
+        padding: 5px 6px;
+    }
+
+    .widget_social img {
+        display: none;
+    }
+
+    .widget_social li a i {
+        font-size: 16px;
+        width: 20px;
+        padding: 0px 23px 0px 7px;
+    }
+
+    .duyurular {
+        padding: 8px 15px 0px;
+    }
+
+    .blog-grids a {
+        width: 190px;
+    }
+
+    .tech-btm h5 {
+        font-size: 0.5em;
+    }
+
+    ul.blog-icons a {
+        font-size: 0.7em;
+    }
+
+    .blog-grid-top h3, .two-blog2 h3, h5.card-title {
+        font-size: .8em;
+        height: 55px;
+    }
+
+    .middle-sec-agileinfo-w3ls {
+        width: 98%;
+    }
+
+    .tabs a {
+        text-decoration: none;
+        color: #777;
+        text-transform: uppercase;
+        padding: 12px 10px;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        transition-duration: 0.6s;
+        font-size: 12px;
+    }
+
+    .tab h5 {
+        font-size: 1em;
+    }
+
+    .tab img {
+        height: 200px;
+    }
+
+    .footer-menu a {
+        padding: 4px;
+        font-size: 13px;
+    }
+
+    .custom-title h2 {
+        font-size: 2em;
+    }
+
+    .tech-btm h5 a {
+        color: #000;
+        font-size: 11px;
+        line-height: 18px;
+    }
+
+    .subscribe-main input[type="email"], .subscribe-main button[type="submit"] {
+        font-size: 12px;
+    }
+
+    .carousel-caption h2, .carousel-caption h3 {
+        font-size: 3.5em;
+        font-weight: 700;
+    }
+
+
+    .carousel-item {
+        height: 35em;
+    }
+
+    .tech-btm h5 {
+        font-size: 0.85em;
+    }
+
+    .footer-grid-agileits-w3ls h2, .footer-grid-agileits-w3ls h3 {
+        font-size: 1.25em;
+    }
+
+    .top-bar_sub_w3layouts {
+        padding: 0.3em 1em;
+    }
+
+    .floods-text h3 {
+        font-size: .8em;
+    }
+
+    .mid-text-info h4 {
+        font-size: 1em;
+    }
+
+    section.middle-sec-agileinfo-w3ls {
+        min-height: 600px;
+        padding: 3em 0;
+    }
+
+    .box-1 img {
+        width: 58%;
+        height: 135px;
+        ;
+    }
+
+    .box-1 .title-1 {
+        font-size: 10px;
+    }
+
+
+    .box-1 .title-2 {
+        font-size: 11px;
+    }
+
+    .songelismeler {
+        width: 67%;
+    }
+}
+
+@media (max-width:991px) {
+
+    .bg-darkp {
+        background-color: #fff !important;
+    }
+
+    .header_top {
+        width: 100%;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: black;
+        text-align: center;
+        margin-top: 6px;
+    }
+
+    a.navbar-brand {
+        font-size: 1.1em;
+    }
+
+    .tabs .selector {
+        background: none;
+    }
+
+    .tabs a.active {
+        color: #fff;
+        background: red;
+        border-radius: 40px;
+    }
+
+    .tabs a {
+        transition: 0s !important;
+    }
+
+        .tabs a.active:hover {
+            color: #fff;
+        }
+
+    .blog-grids a {
+        width: 592px;
+    }
+
+    .widget_social li a {
+        padding: 12px 0px;
+    }
+
+    .widget_social li a {
+        width: 155px;
+        border-radius: 30px !important;
+        margin-bottom: 17px;
+    }
+
+    .widget_social {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .duyurular {
+        padding: 8px 54px 0px;
+        text-align: center;
+    }
+
+    .ust-abonelik {
+        float: left;
+        width: 50%;
+    }
+
+    #typedtext {
+        font-size: 8px;
+        line-height: 15px;
+        top: 32%;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        font-size: .8em;
+    }
+
+    .songelismeler {
+        width: 100%;
+    }
+
+    .widget_social li {
+        display: contents;
+    }
+
+    .slider-small li {
+        height: 50px;
+    }
+
+    .carousel-item img {
+        height: 21em;
+    }
+
+    .carousel-item {
+        height: 25em;
+    }
+
+    .sondakika {
+        height: 21em;
+    }
+
+    .slideryazi {
+        font-size: 17px;
+    }
+}
+
+
+
+@media (max-width:768px) {
+
+    .header_top {
+        width: 100%;
+    }
+
+    .bottom-slider, .main-content-w3layouts-agileits, footer, .banner-bottom {
+        padding: 0em 0;
+    }
+
+    .footer-grid-agileits-w3ls:nth-child(2) {
+        margin: 2em 0;
+    }
+
+    .agileits-w3ls-right-blog-con {
+        margin-top: 2em;
+    }
+
+    .tech-btm h5 {
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .banner-inner {
+        min-height: 175px;
+    }
+
+    form.header-search {
+        width: 72%;
+    }
+
+    .card {
+        margin-bottom: 1.5em;
+    }
+
+    video {
+        height: 29%;
+    }
+
+    #typedtext {
+        position: relative;
+        z-index: 1;
+        color: white;
+        font-size: 7px;
+        line-height: 9px;
+        letter-spacing: 0px;
+    }
+
+
+    .blog-grid-left {
+        text-align: center;
+    }
+
+
+    .tech-btm img {
+        width: 52%;
+    }
+
+    .widget_social img {
+        width: 22%;
+    }
+
+    section {
+        height: 240px;
+    }
+
+    .left-blog-info-w3layouts-agileits h2 {
+        font-size: 22px;
+    }
+
+    .carousel-caption h2, .carousel-caption h3 {
+        font-size: 3em;
+        font-weight: 700;
+    }
+
+    .carousel-item {
+        height: 12em;
+    }
+
+    .carousel-caption {
+        bottom: 7em;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        padding: .6em .93em;
+        color: #fff;
+        background: transparent;
+        text-transform: uppercase;
+        font-size: 1em;
+    }
+
+    .bg-darkp {
+        background-color: white !important;
+    }
+
+    .top-forms {
+        text-align: center !important;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: #000;
+    }
+
+
+    a.btn.btn-primary.register {
+        font-size: 14px;
+    }
+
+    .yirmibesyillogo {
+        width: 100%;
+        height: 280px;
+        top: 14%;
+    }
+
+        .yirmibesyillogo img {
+            width: 22%;
+        }
+
+
+    .box-1 {
+        margin: 10px 0;
+    }
+
+        .box-1 img {
+            width: 100px;
+            height: 96px;
+        }
+
+        .box-1 > .title-1 {
+            font-size: 6px;
+        }
+
+        .box-1 > .title-2 {
+            font-size: 9px;
+        }
+
+    a.navbar-brand {
+        font-size: 1.4em;
+        text-align: center;
+        width: 100%;
+    }
+
+    .logo img {
+        max-width: 9%;
+    }
+
+    .video-wrapper {
+        height: 965px;
+    }
+
+    .slider-section {
+        height: 300px;
+    }
+
+    .carousel-item img {
+        height: 16rem;
+    }
+
+    .slideryazi {
+        font-size: 12px;
+    }
+
+    .sondakika {
+        height: 16em;
+    }
+
+    .carousel-item {
+        height: 20em;
+    }
+
+    .blog-grid-top h3, .two-blog2 h3, h5.card-title {
+        font-size: .7em;
+        height: 40px;
+    }
+
+    .widget_social li a {
+        width: 65%;
+    }
+
+
+    .widget_social {
+        text-align: center;
+    }
+
+    .tech-btm h5 a {
+        color: #000;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .wrapper h2 {
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+
+    .wrapper h6 {
+        font-size: .8rem;
+    }
+
+    #typedtext {
+        font-size: 8px;
+        line-height: 9px;
+        letter-spacing: 0px;
+        top: 50%;
+    }
+
+    .tabs a.active {
+        color: #fff;
+        background: red;
+        border-radius: 40px;
+    }
+
+    .blog-grid-top p, .two-blog2 p {
+        height: auto;
+    }
+
+    .custom-title h2 {
+        font-size: 1.8em;
+    }
+
+    .widget_social li a {
+        padding: 13px 0px;
+    }
+
+    .widget_social img {
+        display: none;
+    }
+
+    .widget_social li a {
+        width: 24%;
+    }
+
+    .blog-grids a {
+        width: 351px;
+    }
+
+    .twitter-timeline {
+        width: 75% !important;
+        height: 430px !important;
+    }
+
+    .middle-sec-agileinfo-w3ls {
+        min-height: 435px;
+    }
+
+    .tabs .selector {
+        background: none;
+    }
+
+    .alt-tabs i {
+        font-size: 61px;
+        float: none;
+    }
+
+    .tabs a {
+        transition: 0s !important;
+    }
+
+        .tabs a.active:hover {
+            color: #fff;
+        }
+
+    .songelismeler {
+        width: 100%;
+    }
+
+    .widget_social li span {
+        font-size: 10px;
+    }
+
+    .widget_social li a i {
+        padding: 0px 26px 0px 15px;
+    }
+
+    .duyurular {
+        padding: 8px 166px 0px;
+    }
+}
+
+@media (max-width:575px) {
+
+    .header_top {
+        width: 100%;
+    }
+
+    p {
+        font-size: 0.85em;
+    }
+
+    .carousel-caption h2, .carousel-caption h3 {
+        font-size: 1.6em;
+        letter-spacing: 1px;
+    }
+
+    a.btn.btn-primary.read-m {
+        padding: 0.5em 1.5em;
+        border: none;
+        font-size: 0.9em;
+    }
+
+    a.btn.btn-primary.register {
+        padding: 0.5em 1.5em;
+        border: none;
+        font-size: 0.6em;
+    }
+
+    .bg-darkp {
+        background-color: white !important;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: #000;
+    }
+
+    .top-forms {
+        margin-top: 7px !important;
+        text-align: center !important;
+    }
+
+    .carousel-item {
+        height: 7em;
+    }
+
+    a.navbar-brand {
+        font-size: 18px;
+        margin-top: 5px;
+    }
+
+    .tab h5 {
+        font-size: 1rem;
+    }
+
+    .widget_social li a i {
+        width: 35px;
+        font-size: 24px;
+        padding: 6px 0px 6px 7px;
+    }
+
+    .yirmibesyillogo {
+        position: absolute;
+        z-index: 1;
+        margin: auto;
+        width: 100%;
+        height: 240px;
+        top: 0;
+        left: 0;
+        text-align: center;
+    }
+
+        .yirmibesyillogo img {
+            width: 22%;
+        }
+
+    .left-blog-info-w3layouts-agileits img {
+        /*margin-left: 85%;*/
+    }
+
+    .custom-title h2 {
+        font-size: 1.5em;
+        margin-top: 15px !important;
+    }
+
+    .widget_social li span {
+        font-size: 11px;
+    }
+
+    .custom-title {
+        margin-bottom: 5px !important;
+    }
+
+    .blog-grids a {
+        width: 270px;
+    }
+
+    .tab img {
+        width: 57%;
+        height: 133px;
+    }
+
+    .alt-tabs i {
+        float: none;
+    }
+
+    .twitter-timeline {
+        width: 85% !important;
+    }
+
+    .blog-grid-top p, .two-blog2 p {
+        height: auto;
+        font-size: 11px;
+    }
+
+    .dropdown-item {
+        font-size: 0.6em;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .box-1 {
+        margin: 10px 0;
+    }
+
+        .box-1 img {
+            width: 42px;
+            height: 38px;
+            ;
+        }
+
+        .box-1 > .title-1 {
+            font-size: 5px;
+        }
+
+        .box-1 > .title-2 {
+            font-size: 6px;
+        }
+
+    .tabs .selector {
+        display: none;
+    }
+
+    .video-wrapper {
+        height: 825px;
+    }
+
+    .slider-section {
+        height: 250px;
+    }
+
+    .carousel-item img {
+        height: 16rem;
+    }
+
+    .slideryazi {
+        font-size: 12px;
+    }
+
+    .sondakika {
+        height: 16em;
+    }
+
+    .slider-small ul {
+        display: none !important;
+    }
+
+    .carousel-item {
+        height: 20em;
+    }
+
+    .blog-grid-top h3, .two-blog2 h3, h5.card-title {
+        font-size: .7em;
+        height: 40px;
+    }
+
+    .widget_social li a {
+        width: 65%;
+    }
+
+    .widget_social {
+        text-align: center;
+    }
+
+    .tech-btm h5 a {
+        color: #000;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .duyurular {
+        padding: 8px 30px 0px;
+    }
+
+    .wrapper h2 {
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+
+    .wrapper h6 {
+        font-size: .8rem;
+    }
+
+    #typedtext {
+        font-size: 10px;
+        line-height: 9px;
+        letter-spacing: 0px;
+    }
+
+    .tabs a.active {
+        color: #fff;
+        background: red;
+        border-radius: 40px;
+    }
+
+    .songelismeler {
+        width: 100%;
+    }
+
+    .ust-abonelik {
+        float: none;
+        width: 100%;
+    }
+
+    .widget_social li a {
+        padding: 0px 0px;
+        margin-bottom: 3px;
+        width: 46%;
+    }
+}
+
+
+@media (max-width:480px) {
+    .navbar-toggler-icon {
+        height: 1em;
+    }
+
+    .top-forms {
+        margin-top: 1px !important;
+    }
+
+    .navbar-toggler {
+        padding: 0.1rem 0.3rem;
+    }
+
+    .mobile-nav {
+        margin-left: -174px;
+        width: 322px;
+    }
+
+    .header_top {
+        width: 0;
+    }
+
+    .carousel-caption {
+        bottom: 4em;
+    }
+
+    .carousel-item img {
+        height: 14rem;
+    }
+
+    .carousel-item {
+        height: 14em;
+    }
+
+    .carousel-caption h2, .carousel-caption h3 {
+        font-size: 1.4em;
+        font-weight: 700;
+        letter-spacing: 0px;
+    }
+
+    .blog-grid-top {
+        padding-bottom: 1.5em;
+    }
+
+    .slideryazi {
+        font-size: 10px;
+    }
+
+
+    #sondakika {
+        height: 14rem;
+    }
+
+
+    .slider-section {
+        height: 250px;
+    }
+
+    #typedtext {
+        font-size: 7px;
+        line-height: 7px;
+        top: 14%;
+    }
+
+    .kadromuz img {
+        margin-left: 30%;
+    }
+
+    .list-title, .list-title a {
+        font-size: 11px;
+        width: 100%;
+    }
+
+    .list-image img {
+        height: 43px;
+    }
+
+    .list-item-file .list-title {
+        text-align: center;
+        margin-top: 2px;
+    }
+
+    .blog_info_left_grid img {
+        height: 215px;
+    }
+
+    .carousel-caption {
+        bottom: 3em;
+    }
+
+    .copyrighttop {
+        margin: 1em 0;
+    }
+
+    .media {
+        display: block;
+    }
+
+        .media img {
+            margin-right: 0;
+            margin-bottom: 1em;
+        }
+
+    .comment h3, .comment-top h4 {
+        font-size: 1.2em;
+    }
+
+    a.navbar-brand {
+        font-size: 14px;
+    }
+
+    .yirmibesyillogo {
+        height: 160px;
+        top: 17%;
+    }
+
+    .video-wrapper {
+        height: 860px;
+    }
+
+    .blog-grid-top p, .two-blog2 p {
+        height: auto;
+    }
+
+    .songelismeler {
+        width: 100%;
+    }
+}
+
+
+@media (max-width:376px) {
+    .navbar-light .navbar-nav .nav-link {
+        font-size: .8em;
+    }
+
+    .header_top {
+        width: 0;
+    }
+
+    .bottom-slider, .main-content-w3layouts-agileits, footer, .banner-bottom {
+        padding: 0 0;
+    }
+
+    section.middle-sec-agileinfo-w3ls {
+        min-height: 619px;
+        padding: 0em 3em 0 0;
+    }
+
+    h3.tittle {
+        font-size: 1.8em;
+    }
+
+    .banner-inner {
+        min-height: 130px;
+    }
+
+    .copyrighttop ul li {
+        margin-bottom: 0.5em;
+    }
+
+    .inner-sec {
+        margin-top: 1.5em;
+    }
+
+    ul.blog-icons a {
+        font-size: 0.8em;
+        letter-spacing: 1px;
+    }
+
+    .banner-inner {
+        min-height: 98px;
+    }
+
+    .header-search input[type="search"] {
+        padding: 11px 12px;
+        float: left;
+        letter-spacing: 1px;
+        width: 70%;
+    }
+
+    .header-search button.btn1 {
+        width: 29%;
+    }
+
+    h3.tittle {
+        font-size: 1.6em;
+    }
+
+    .blog-grid-top p, .two-blog2 p {
+        height: auto;
+    }
+
+    .box-1 img {
+        width: 65px;
+        height: 60px;
+    }
+
+    .songelismeler {
+        width: 100%;
+    }
+}

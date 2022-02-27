@@ -35,7 +35,7 @@ namespace MyWebsite.Services.Extensions
             }).AddEntityFrameworkStores<MyDbContext>().AddDefaultTokenProviders();
             serviceCollection.Configure<SecurityStampValidatorOptions>(options =>
             {
-                options.ValidationInterval = TimeSpan.FromMinutes(15);
+                options.ValidationInterval = TimeSpan.Zero;
             });
             
 

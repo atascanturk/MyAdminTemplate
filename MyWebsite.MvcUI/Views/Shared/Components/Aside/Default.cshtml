@@ -1,0 +1,87 @@
+﻿@model MyWebsite.MvcUI.Models.AsideViewModel
+
+<aside class="col-lg-3 agileits-w3ls-right-blog-con text-right mt-3">
+    <div class="right-blog-info text-left">
+
+        <div class="tech-btm ust-abonelik">
+            <h4>Bültenimize üye ol</h4>
+            <p>En son güncel bilgilendirmelerden haberdar olmak için bizlerle iletişimde kal.</p>
+           @await Html.PartialAsync("_BulletinPartial")
+        </div>
+        <div class="tech-btm widget_social">
+            <h4>Sosyal Medya</h4>
+            <ul style="text-align:center;">
+                <li>
+                    <a class="twitter" href="https://twitter.com/mustafa_destici">
+                        <img src="~/bbp/images/mustafa-destici-social.png">
+                        <i class="fab fa-twitter"></i>
+                        <span><b>MUSTAFA DESTİCİ</b></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="twitter" href="https://twitter.com/bbpgenelmerkez">
+                        <img src="~/bbp/images/logo-social.png">
+                        <i class="fab fa-twitter"></i>
+                        <span><b>GENEL MERKEZ</b></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="twitter" href="https://twitter.com/bbphabermerkezi">
+                        <img src="~/bbp/images/logo-social.png">
+                        <i class="fab fa-twitter"></i>
+                        <span><b>HABER MERKEZİ</b></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dribble" href="https://www.instagram.com/mustafa_desticii">
+                        <img src="~/bbp/images/mustafa-destici-social.png">
+                        <i class="fab fa-instagram"></i>
+                        <span><b>MUSTAFA DESTİCİ</b></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dribble" href="https://www.instagram.com/buyuk_birlikpartisi/">
+                        <img src="~/bbp/images/logo-social.png">
+
+                        <i class="fab fa-instagram"></i>
+                        <span><b>GENEL MERKEZ</b></span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="facebook" href="https://www.facebook.com/BBP.org.tr/">
+                        <img src="~/bbp/images/logo-social.png">
+                        <i class="fab fa-facebook-f"></i>
+                        <span><b>GENEL MERKEZ</b></span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="tech-btm duyurular">
+            <h4>Duyurular</h4>
+
+            @foreach (var announcement in Model.Announcements)
+            {
+                       <div class="blog-grids row mb-3">
+                <h5>
+                    <a href="/Duyuru/@announcement.Id/@announcement.Title">
+                     @announcement.Title
+                        <div class="col-md-12 blog-grid-right">
+
+                            <div class="sub-meta">
+                                <span>
+                                    <i class="far fa-clock"></i>  @announcement.CreatedDate.ToString("dd/MM/yyyy HH:mm")
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </h5>
+            </div>
+            }
+     
+       
+
+        </div>
+    </div>
+</aside>

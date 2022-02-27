@@ -1,0 +1,27 @@
+﻿@using MyWebsite.Entities.Concrete
+@model List<Announcement>
+
+@{
+    ViewData["Title"] = "Duyurular";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input id="navItemValue" type="hidden" value="duyurular" />
+<div class="container" style="position: relative;">
+    <div class="custom-title">
+        <h2>DUYURULAR</h2>
+    </div>
+    <br />
+    <div class="spacer-10"></div>
+
+    @foreach (var announcement in Model)
+    {
+        <div class="announcement info">
+            <a asp-action="Duyurular" asp-route-id="@announcement.Id" asp-route-title="@announcement.Title.ToLower() ">
+                <strong>@announcement.CreatedDate.ToString("dd.MM.yyyy HH:mm")</strong> - @announcement.Title
+            </a>
+        </div>
+    }    
+
+</div>
+ 
