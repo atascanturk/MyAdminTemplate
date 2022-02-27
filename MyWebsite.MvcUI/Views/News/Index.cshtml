@@ -33,9 +33,13 @@
                                         <img src="~/img/@news.Thumbnail" class="img-fluid" alt="">
                                     </a>
                                 </div>
+
                                 <h3>
-                                    <a href="/Haberler/@news.Id/@news.Title"></a>
+                                    <a href="/Haberler/@news.Id/@news.Title">@news.Title</a>
                                 </h3>
+
+                                <br />
+
                                 @{ news.Content = regex.Replace(news.Content, ""); }
                                 @{ news.Content = regexnbsp.Replace(news.Content, ""); }
 

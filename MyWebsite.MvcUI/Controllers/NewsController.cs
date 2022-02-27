@@ -11,7 +11,7 @@ namespace MyWebsite.MvcUI.Controllers
 {
     public class NewsController : Controller
     {
-        INewsService _newsService;        
+        readonly INewsService _newsService;        
 
         public NewsController(INewsService newsService)
         {
@@ -21,7 +21,7 @@ namespace MyWebsite.MvcUI.Controllers
         [HttpGet("Haberler")]
         public IActionResult Index()
         {       
-            var news = _newsService.GetAllByNonDeletedAndActive();
+            var news = _newsService.GetAllByNonDeletedAndActive().OrderByDescending(x=>x.CreatedDate).ToList();
             return View(news);
         }
 
@@ -59,7 +59,7 @@ namespace MyWebsite.MvcUI.Controllers
            
         }
 
-        private string ChangeCharsToEnglish(string str)
+        private static string ChangeCharsToEnglish(string str)
         {
             return str.Replace("ö", "o").Replace("ü", "u").Replace("ç", "c").Replace("ğ", "g").Replace("ş", "s").Replace("ı","i");
         }

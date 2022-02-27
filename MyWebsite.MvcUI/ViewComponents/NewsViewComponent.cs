@@ -9,7 +9,7 @@ namespace MyWebsite.MvcUI.ViewComponents
 {
     public class NewsViewComponent :ViewComponent
     {
-        INewsService _newsService;
+        readonly INewsService _newsService;
 
         public NewsViewComponent(INewsService newsService)
         {
@@ -18,7 +18,7 @@ namespace MyWebsite.MvcUI.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var news = _newsService.GetAllByNonDeletedAndActive().OrderByDescending(x=>x.Id).Take(9).ToList();
+            var news = _newsService.GetAllByNonDeletedAndActive().OrderByDescending(x=>x.CreatedDate).Take(9).ToList();
 
             return View(news);
         }

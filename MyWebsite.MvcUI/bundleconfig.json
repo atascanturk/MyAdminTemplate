@@ -1,0 +1,47 @@
+[
+
+  {
+
+    "outputFileName": "wwwroot/css/css.min.css",
+
+    "inputFiles": [
+          
+      "wwwroot/bbp/css/bootstrap.css",
+      "wwwroot/bbp/css/jquery.desoslide.css",
+      "wwwroot/bbp/css/fontawesome-all.css"    
+
+    ]
+
+  },
+
+  {
+
+    "outputFileName": "wwwroot/js/js.min.js",
+
+    "inputFiles": [
+
+      "wwwroot/bbp/js/jquery-2.2.3.min.js",
+
+      "wwwroot/bbp/js/jquery.flexisel.js",
+      "wwwroot/bbp/js/move-top.js",
+      "wwwroot/bbp/js/easing.js",
+      "wwwroot/bbp/js/bootstrap.js",
+      "wwwroot/js/bulletinAddUI.js",
+      "wwwroot/js/site.js",
+      "wwwroot/js/cookie.js"
+
+    ],
+
+    "minify": {
+
+      "enabled": true,
+
+      "renameLocals": true
+
+    },
+
+    "sourceMap": false
+
+  }
+
+]
