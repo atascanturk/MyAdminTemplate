@@ -16,8 +16,8 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
     [Authorize(Roles = "SuperAdmin,Developer")]
     public class UnderMaintenanceController : Controller
     {
-        IMaintenanceCheckService _maintenanceCheckService;
-        IMailService _mailService;
+        readonly IMaintenanceCheckService _maintenanceCheckService;
+        readonly IMailService _mailService;
         EmailSendDto _emailSendDto;
 
         public UnderMaintenanceController(IMaintenanceCheckService maintenanceCheckService, IMailService mailService, IOptions<EmailSendDto> emailSendDto)

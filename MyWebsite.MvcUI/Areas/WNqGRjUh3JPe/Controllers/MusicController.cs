@@ -18,9 +18,9 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
     [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class MusicController : Controller
     {
-        IMusicService _musicService;
-        IMapper _mapper;
-        IMusicHelper _musicHelper;
+        readonly IMusicService _musicService;
+        readonly IMapper _mapper;
+        readonly IMusicHelper _musicHelper;
 
         public MusicController(IMusicService musicService, IMapper mapper, IMusicHelper musicHelper)
         {

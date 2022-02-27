@@ -31,8 +31,7 @@ namespace MyWebsite.Business.Concrete
         {
             _announcementDal.Delete(announcement);
         }
-
-        [CacheAspect]
+                
         public Announcement Get(Expression<Func<Announcement, bool>> filter)
         {
            return _announcementDal.Get(filter);

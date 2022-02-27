@@ -58,8 +58,7 @@
             yearSuffix: "",
             duration: 600,
             showAnim: "drop",
-            showOptions: {direction:"down"},
-            minDate: -1,
+            showOptions: {direction:"down"},            
             maxDate:+0
        
         });

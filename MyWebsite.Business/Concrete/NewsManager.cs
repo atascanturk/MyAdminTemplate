@@ -32,13 +32,13 @@ namespace MyWebsite.Business.Concrete
             _newsDal.Delete(news);
         }
 
-        [CacheAspect]
+       
         public News Get(Expression<Func<News, bool>> filter)
         {
            return _newsDal.Get(filter);
         }
 
-        [CacheAspect]
+       
         public News GetByIdNonDeletedAndActive(int id, Expression<Func<News, bool>> filter = null)
         {
             return _newsDal.Get((x => x.IsActive & !x.IsDeleted & x.Id== id));
