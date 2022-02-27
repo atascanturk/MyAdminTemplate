@@ -34,8 +34,7 @@ namespace MyWebsite.Business.Concrete
             _sliderDal.Delete(slider);
         }
 
-        [CacheAspect]
-
+       
         public Slider Get(Expression<Func<Slider, bool>> filter)
         {
            return _sliderDal.Get(filter);

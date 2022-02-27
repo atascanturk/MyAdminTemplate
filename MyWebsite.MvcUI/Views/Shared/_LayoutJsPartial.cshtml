@@ -1,0 +1,211 @@
+﻿ <!-- js -->
+<script src="~/bbp/js/jquery-2.2.3.min.js"></script>
+<!-- //js -->
+<!-- desoslide-JavaScript -->
+<!-- requried-jsfiles-for owl -->
+<script>
+    $(window).load(function () {
+        $("#flexiselDemo1").flexisel({
+            visibleItems: 3,
+            animationSpeed: 1000,
+            autoPlay: true,
+            autoPlaySpeed: 3000,
+            pauseOnHover: true,
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+                portrait: {
+                    changePoint: 480,
+                    visibleItems: 1
+                },
+                landscape: {
+                    changePoint: 640,
+                    visibleItems: 2
+                },
+                tablet: {
+                    changePoint: 768,
+                    visibleItems: 3
+                }
+            }
+        });
+    });
+</script>
+<script>
+    $(window).load(function () {
+        $("#flexiselDemo2").flexisel({
+            visibleItems: 3,
+            animationSpeed: 1000,
+            autoPlay: true,
+            autoPlaySpeed: 3000,
+            pauseOnHover: true,
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+                portrait: {
+                    changePoint: 480,
+                    visibleItems: 1
+                },
+                landscape: {
+                    changePoint: 640,
+                    visibleItems: 2
+                },
+                tablet: {
+                    changePoint: 768,
+                    visibleItems: 3
+                }
+            }
+        });
+    });
+</script>
+<script src="~/bbp/js/jquery.flexisel.js"></script>
+<!-- //password-script -->
+<!--/ start-smoth-scrolling -->
+<script src="~/bbp/js/move-top.js"></script>
+<script src="~/bbp/js/easing.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 900);
+        });
+    });
+</script>
+<!--// end-smoth-scrolling -->
+<script>
+    $(document).ready(function () {
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+        };
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+    });
+</script>
+<!--CUSTOMIZE JS -->
+<script>
+
+    var tabs = $('.tabs');
+    var selector = $('.tabs').find('a').length;
+    //var selector = $(".tabs").find(".selector");
+    var activeItem = tabs.find('.active');
+    var activeWidth = activeItem.innerWidth();
+    $(".selector").css({
+        "left": activeItem.position.left + "px",
+        "width": activeWidth + "px"
+    });
+    $(".tabs").on("click", "a", function (e) {
+        e.preventDefault();
+        $('.tabs a').removeClass("active");
+        $(this).addClass('active');
+        var activeWidth = $(this).innerWidth();
+        var itemPos = $(this).position();
+        $(".selector").css({
+            "left": itemPos.left + "px",
+            "width": activeWidth + "px"
+        });
+    });
+</script>
+<!--CUSTOMIZE JS -->
+<!--TABS-->
+<script>
+    function openTabs(tabName) {
+        var i;
+        var x = document.getElementsByClassName("tab");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+    }
+</script>
+<!--TABS-->
+<!--FOTOGALERİ-->
+<script>
+    var gallery = document.querySelector('#gallery');
+    var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
+    var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
+    var resizeAll = function () {
+        var altura = getVal(gallery, 'grid-auto-rows');
+        var gap = getVal(gallery, 'grid-row-gap');
+        gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+            var el = item;
+            el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+        });
+    };
+
+    window.addEventListener('resize', resizeAll);
+    gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+        item.addEventListener('click', function () {
+            item.classList.toggle('full');
+        });
+    });
+    //---------------------------------------------------------------------
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+<script type="module">
+    import { Fancybox } from "https://cdn.jsdelivr.net/npm/@@fancyapps/ui/dist/fancybox.esm.js";
+</script>
+<a href="#home" class="scroll" id="toTop" style="display: block;">
+    <span id="toTopHover" style="opacity: 1;"> </span>
+</a>
+<!-- //Custom-JavaScript-File-Links -->
+<script src="~/bbp/js/bootstrap.js"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>
+
+    //SLIDER TYPING TEXT
+    //---------------------------------------------------------------------
+    var aText = new Array(
+        "Çokluk içinde Birlik Siyaseti, baskıcı bir iktidar aracı olarak değil;teklif ve izah edici",
+        "bir ikna aracı olarak görüyoruz. Bu doğrultuda, Türk Milleti'nin çıkarlarını korumak adına",
+        "'Çokluk içinde birlik' prensibi mucibince, her türlü siyasi görüş ve kavrayış biçimini",
+        "meşru ve makul kabul ediyoruz.Çoğunluğun yönetme hakkına saygı duyarak,",
+        "herkesi kucaklayan çoğulcu demokrasi anlayaşını hayata geçireceğiz."
+    );
+    var iSpeed = 50; // time delay of print out
+    var iIndex = 0; // start printing array at this posision
+    var iArrLength = aText[0].length; // the length of the text array
+    var iScrollAt = 20; // start scrolling up at this many lines
+
+    var iTextPos = 0; // initialise text position
+    var sContents = ''; // initialise contents variable
+    var iRow; // initialise current row
+
+    function typewriter() {
+        sContents = ' ';
+        iRow = Math.max(0, iIndex - iScrollAt);
+        var destination = document.getElementById("typedtext");
+
+        while (iRow < iIndex) {
+            sContents += aText[iRow++] + '<br />';
+        }
+        destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+        if (iTextPos++ == iArrLength) {
+            iTextPos = 0;
+            iIndex++;
+            if (iIndex != aText.length) {
+                iArrLength = aText[iIndex].length;
+                setTimeout("typewriter()", 500);
+            }
+        } else {
+            setTimeout("typewriter()", iSpeed);
+        }
+    }
+    typewriter();
+</script>
+<script>
+    addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="~/js/bulletinAddUI.js"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="~/js/site.js"></script>
+<script src="~/js/cookie.js"></script>
+@await Component.InvokeAsync("NToastNotify")

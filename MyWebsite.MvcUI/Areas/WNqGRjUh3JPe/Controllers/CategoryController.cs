@@ -16,8 +16,8 @@ namespace MyWebsite.MvcUI.Areas.WNqGRjUh3JPe.Controllers
     [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class CategoryController : Controller
     {
-        ICategoryService _categoryService;
-        IMapper _mapper;
+        readonly ICategoryService _categoryService;
+        readonly IMapper _mapper;
 
         public CategoryController(ICategoryService categoryService, IMapper mapper)
         {

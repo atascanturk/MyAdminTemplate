@@ -60,7 +60,7 @@
             showAnim: "drop",
             showOptions: {direction:"down"},
             minDate: -1,
-            maxDate:+3
+            maxDate:+0
        
         });
     });

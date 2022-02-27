@@ -18,9 +18,9 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
     [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class SliderController : Controller
     {
-        ISliderService _sliderService;
-        IImageHelper _imageHelper;
-        IMapper _mapper;
+        readonly ISliderService _sliderService;
+        readonly IImageHelper _imageHelper;
+        readonly IMapper _mapper;
 
         public SliderController(ISliderService sliderService, IImageHelper imageHelper, IMapper mapper)
         {
