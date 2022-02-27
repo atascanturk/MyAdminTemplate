@@ -22,8 +22,8 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
     [Authorize(Roles = "Admin,SuperAdmin,Developer")]
     public class NewsController : BaseController
     {
-        INewsService _newsService;
-        ICategoryService _categoryService;      
+        readonly INewsService _newsService;
+        readonly ICategoryService _categoryService;      
 
         public NewsController(INewsService newsService, ICategoryService categoryService, UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper) : base(userManager, mapper, imageHelper)
         {
@@ -33,7 +33,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
 
         public IActionResult Index()
         {            
-            var news = _newsService.GetAllByNonDeleted();
+            var news = _newsService.GetAllByNonDeleted().OrderByDescending(x=>x.CreatedDate).ToList();
             return View(news);
         }
 
@@ -58,8 +58,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var news = Mapper.Map<News>(newsAddViewModel);
-                news.CreatedDate = DateTime.Now;
+                var news = Mapper.Map<News>(newsAddViewModel);               
                 news.UserId = LoggedInUser.Id;
                 var imageResult = await ImageHelper.Upload(newsAddViewModel.Title,
                       newsAddViewModel.ThumbnailFile, PictureType.Post);
@@ -135,7 +134,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Controllers
                     ImageHelper.Delete(oldNewsPicture);
                 }
 
-                var news = Mapper.Map<News>(newsUpdateDto);
+                var news = Mapper.Map<News>(newsUpdateDto);                
                 news.UserId = LoggedInUser.Id;
                 _newsService.Update(news);
 

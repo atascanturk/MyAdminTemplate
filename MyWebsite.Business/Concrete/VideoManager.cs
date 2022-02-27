@@ -32,8 +32,7 @@ namespace MyWebsite.Business.Concrete
         {
             _videoDal.Delete(video);
         }
-
-        [CacheAspect]
+               
         public Video Get(Expression<Func<Video, bool>> filter)
         {
             return _videoDal.Get(filter);
