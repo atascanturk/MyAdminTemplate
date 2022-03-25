@@ -44,7 +44,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\WNqGRjUh3JPe\Data\" />
-    <Folder Include="Logs\" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
