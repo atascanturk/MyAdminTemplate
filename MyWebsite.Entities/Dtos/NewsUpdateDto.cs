@@ -25,7 +25,7 @@ namespace MyWebsite.Entities.Dtos
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir. ")]
         [MinLength(20, ErrorMessage = "{0} alanı {1} karakterden küçük olmamalıdır.")]
         public string Content { get; set; }
-              
+       
         public IFormFile ThumbnailFile { get; set; }
 
         [DisplayName("Küçük Resim")]
@@ -34,7 +34,6 @@ namespace MyWebsite.Entities.Dtos
 
         [DisplayName("Tarih")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir. ")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime CreatedDate { get; set; }
 
         [DisplayName("Kategori")]

@@ -27,8 +27,7 @@ namespace MyWebsite.MvcUI.Areas.Admin.Models
         public IFormFile ThumbnailFile { get; set; }
 
         [DisplayName("Tarih")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir. ")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir. ")]       
         public DateTime CreatedDate { get; set; }   
 
         [DisplayName("Kategori")]
