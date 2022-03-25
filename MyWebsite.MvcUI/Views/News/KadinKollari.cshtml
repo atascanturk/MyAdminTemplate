@@ -28,13 +28,13 @@
                     {
                         <div class="col-md-3 blog-grid-top">
                             <div class="b-grid-top">
-                                <div class="blog_info_left_grid">
+                                <div class="blog_info_left_grid">                                  
                                     <a href="/Haberler/@news.Id/@news.Title">
                                         <img src="~/img/@news.Thumbnail" class="img-fluid" alt="">
                                     </a>
-                                </div>
+                                </div>                               
                                 <h3>
-                                    <a asp-action="Haberler" asp-route-id="@news.Id" asp-route-title="@news.Title"></a>
+                                    <a asp-action="Haberler" asp-route-id="@news.Id" asp-route-title="@news.Title"> @news.Title</a>
                                 </h3>
                                 @{ news.Content = regex.Replace(news.Content, ""); }
                                 @{ news.Content = regexnbsp.Replace(news.Content, ""); }

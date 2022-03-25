@@ -1,6 +1,10 @@
 ﻿@using MyWebsite.Entities.Concrete
 @model List<Slider>
 
+@{ 
+    var i = 1;
+}
+
 
 <div class="custom-title">
     <h2>SON GELİŞMELER</h2>
@@ -11,7 +15,7 @@
         <div id="sondakika" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner sondakika" role="listbox">
                 <div class="carousel-item active">
-                    <a href="~/img/@(Model.FirstOrDefault().Path)" data-fancybox="gallery" data-caption="">
+                    <a href="/SonHaberler/@Model.FirstOrDefault().Id/@Model.FirstOrDefault().Title" >
                         <img src="~/img/@(Model.FirstOrDefault().Path)" class="d-block w-100" alt="...">
                     </a>
                     <div class="carousel-caption d-md-block">
@@ -24,7 +28,7 @@
 
 
                     <div class="carousel-item">
-                        <a href="~/img/@(slider.Path)" data-fancybox="gallery" data-caption="">
+                        <a href="/SonHaberler/@slider.Id/@slider.Title" >
                             <img src="~/img/@slider.Path" class="d-block w-100" alt="...">
                         </a>
                         <div class="carousel-caption d-md-block">
@@ -58,9 +62,10 @@
 
             @foreach (var slider in Model.Skip(1).Take(5))
             {
-                <li data-target="#sondakika" data-slide-to="1">
+                <li data-target="#sondakika" data-slide-to="@i">
                     <img src="~/img/@(slider.Path)" class="d-block w-100" alt="...">
                 </li>
+                i++;
             }
             </ul>
 

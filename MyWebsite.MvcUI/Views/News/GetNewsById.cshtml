@@ -23,6 +23,7 @@
                             <h3 style="height: auto;color: red;">
                                 @Model.News.Title
                             </h3>
+                            <br />
                             <img src="~/img/@Model.News.Thumbnail" class="img-fluid" alt="" style="height:auto;">
 
                         </div>
@@ -35,8 +36,8 @@
                             </ul>*@
                         </div>
                     </div>
-                    @{ Model.News.Content = regex.Replace(Model.News.Content, ""); }
-                    @{ Model.News.Content = regexnbsp.Replace(Model.News.Content, ""); }
+                    @*@{ Model.News.Content = regex.Replace(Model.News.Content, ""); }
+                    @{ Model.News.Content = regexnbsp.Replace(Model.News.Content, ""); }*@
                     <p style="height:auto">
                         @Html.Raw(Model.News.Content)
                     </p>
@@ -78,3 +79,16 @@
     </div>
 </div>
 <!--//main-->
+@section Styles{
+
+  <style>
+      p img {
+          width:600px;
+          
+      }
+      p {
+          height:auto !important;
+      }
+
+  </style>
+ }

@@ -1,0 +1,39 @@
+﻿@model MyWebsite.Entities.Concrete.Slider
+@using System.Text.RegularExpressions;
+@{
+    ViewData["Title"] = "GetSliderById";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Regex regex = new Regex("<[^>]*>");
+    Regex regexnbsp = new Regex("&nbsp;");
+}
+
+<input id="navItemValue" type="hidden" value="haberler" />
+
+<div class="mt-3 mb-3">
+    <!--/blog-->
+    <div class="container">
+        <div class="row">
+            <!--left-->
+            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                <div class="blog-grid-top">
+                    <div class="b-grid-top" style="margin-bottom:25px;">
+                        <div class="blog_info_left_grid">
+                            <h3 style="height: auto;color: red;">
+                                @Model.Title
+                            </h3>
+                            <br />
+                            <img src="~/img/@Model.Path" class="img-fluid" alt="" style="height:auto;">
+                        </div>
+
+                    </div>
+                    @{ Model.Content = regex.Replace(Model.Content, ""); }
+                    @{ Model.Content = regexnbsp.Replace(Model.Content, ""); }
+                    <p style="height:auto">
+                        @Html.Raw(Model.Content)
+                    </p>
+
+                </div>
+            </div>           
+        </div>
+    </div>
+</div>

@@ -19,6 +19,7 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.13">
       <PrivateAssets>all</PrivateAssets>
@@ -50,6 +51,7 @@
   <ItemGroup>
     <None Include="wwwroot\bbp\.vs\slnx.sqlite" />
     <None Include="wwwroot\bbp\css\bootstrap.css.map" />
+    <None Include="wwwroot\bbp\css\responsive.css" />
     <None Include="wwwroot\bbp\dosyalar\24-haziran-secim-kitapcigi.pdf" />
     <None Include="wwwroot\bbp\dosyalar\bagis-formu.doc" />
     <None Include="wwwroot\bbp\dosyalar\belediye-baskan-aday-adayligi-evrak.doc" />
