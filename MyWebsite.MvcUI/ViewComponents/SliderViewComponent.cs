@@ -18,7 +18,7 @@ namespace MyWebsite.MvcUI.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var sliders = _sliderService.GetAllByNonDeleted();
+            var sliders = _sliderService.GetAllByNonDeleted().OrderByDescending(x=>x.Id).ToList();
             return View(sliders);
         }
     }

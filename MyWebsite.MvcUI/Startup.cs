@@ -95,11 +95,7 @@ namespace MyWebsite.MvcUI
             });
 
             services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
-
-            services.AddHttpsRedirection(options =>
-            {
-                options.HttpsPort = 443;
-            });
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -118,8 +114,7 @@ namespace MyWebsite.MvcUI
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStatusCodePagesWithReExecute("/Error/Error", "?code={0}");
-            app.UseHttpsRedirection();
+            app.UseStatusCodePagesWithReExecute("/Error/Error", "?code={0}");            
             app.UseStaticFiles();
             app.UseMiddleware<VisitorCounterMiddleware>();
             app.UseMiddleware<CheckIsUnderMaintenanceMiddleware>();

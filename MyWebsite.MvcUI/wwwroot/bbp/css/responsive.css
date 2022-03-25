@@ -113,7 +113,9 @@
 
 @media (max-width:1586px) {
 	.navbar-light .navbar-nav .nav-link {
-		font-size: 88%;
+
+		font-size: 86%;
+
 	}
 	a.btn.btn-primary.register {
 		font-size: 16px;
@@ -1021,10 +1023,13 @@
 	}
 }
 
-@media (max-width:375px) {
-	.navbar-light .navbar-nav .nav-link {
-		font-size: .8em;
-	}
+
+
+@media (max-width:376px) {
+    .navbar-light .navbar-nav .nav-link {
+        font-size: .8em;
+    }
+
 
 	a.navbar-brand{
 		font-size: 12px;
